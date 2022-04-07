@@ -1,0 +1,5 @@
+root: ./
+
+structure:
+	Introduction: README.md
+	NLP: ./NLP/organize_medical_abstracts_NLP.ipynb
