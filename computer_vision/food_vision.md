@@ -1198,7 +1198,7 @@ model.save('drive/My Drive/tensorflow_course/101_food_class_saved_final_big_dog_
     Continue? (yes/NO) yes
     
     Please visit this URL to authorize this application: https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=373649185512-8v619h5kft38l4456nm2dj4ubeqsrvh6.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&state=wzAqX2QAFFf9TlOQXA6oTeW4ynJSRz&prompt=consent&access_type=offline
-    Enter the authorization code: 4/1AX4XfWgsKwmfeitHxjj5ZrNJmq5P_E-Pj4y7TedZ21HUl2Qgk8-akf4djUw
+    Enter the authorization code: ---------------
     
     ./tensorflow_hub/: No such directory.
     User specified `one_shot` mode with an unavailable logdir. Exiting without creating an experiment.
