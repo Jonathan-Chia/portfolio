@@ -14,7 +14,10 @@
    * [Waiter Tips](/regression/WaiterTips.md)
 * Anova
    * [Sleep Cycle - Analyzing My Own Sleep Data](/anova/SleepCycle.md)
-* Bayesian
+
+## Bayesian Statistics
+
+* Bayesian Distributions
    * [Basketball Free Throw Percentage App](/bayesian/BayesBball.md)
 
 ## Blog
