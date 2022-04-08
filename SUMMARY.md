@@ -10,3 +10,13 @@
    * [Predicting Bitcoin Prices](/time_series/forecasting_bitcoin_prices.md)
 * Computer Vision
    * [Food Image Classifying](/computer_vision/food_vision.md)
+* Regression
+   * [Waiter Tips](/regression/WaiterTips.md)
+* Anova
+   * [Sleep Cycle - Analyzing My Own Sleep Data](/anova/SleepCycle.md)
+* Bayesian
+   * [Basketball Free Throw Percentage App](/bayesian/BayesBball.md)
+
+## Blog
+
+* [Millionaire Secrets](/blog/Millionaire.md)
