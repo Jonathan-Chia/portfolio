@@ -41,3 +41,4 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 * Why I like Python more for Data Science compared to R even though I learned R first
 * Mini Notes - add really small notes here
 * Add Resume?
+* My Review of ZeroToMastery Academy
