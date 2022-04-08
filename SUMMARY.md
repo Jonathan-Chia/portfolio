@@ -17,7 +17,7 @@
 
 ## Bayesian Statistics
 
-* Bayesian Distributions
+* Distributions
    * [Basketball Free Throw Percentage App](/bayesian/BayesBball.md)
 
 ## Blog
