@@ -30,6 +30,7 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 * Customer Segmentation using Clustering vs. Word2Vec
 * Decision Trees on Imbalanced Data
 * Teaching Tensorflow like Kaggle Learn
+* Setting Up R Studio and Jupyter using Docker
 
 # Next Projects
 * Recommender Systems - Learning from Microsoft's state-of-the-art repository
