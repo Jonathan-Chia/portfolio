@@ -11,7 +11,6 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 
 # Finished Projects to Add to this Portfolio
 
-* Regression
 * Useful SQL functions and setups
 * Customer Nearest Neighbor for A/B Testing
 * Customer Lifetime Value
@@ -29,6 +28,7 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 * Bootstrapping and Permutation Tests
 * PCA for feature engineering
 * Customer Segmentation using Clustering vs. Word2Vec
+* Decision Trees on Imbalanced Data
 
 # Next Projects
 * Recommender Systems - Learning from Microsoft's state-of-the-art repository
@@ -38,3 +38,4 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 * Online Learning - an advantage of Neural Networks over some other models
 * Learning How to Learn Data Science - My Favorite Resources
 * Why I like Python more for Data Science compared to R even though I learned R first
+* Mini Notes - add really small notes here
