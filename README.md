@@ -29,6 +29,7 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 * PCA for feature engineering
 * Customer Segmentation using Clustering vs. Word2Vec
 * Decision Trees on Imbalanced Data
+* Teaching Tensorflow like Kaggle Learn
 
 # Next Projects
 * Recommender Systems - Learning from Microsoft's state-of-the-art repository
