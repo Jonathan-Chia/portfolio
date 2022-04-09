@@ -37,16 +37,16 @@ Below is the code from an R Markdown file that includes a table of contents (toc
     author: 'Name'
     date: 'Jan 20, 2021'
     output:  
-        html\_document:    
+        html_document:    
         toc: yes    
-        number\_sections: no    
-        code\_folding: hide    
+        number_sections: no    
+        code_folding: hide    
         theme: cosmo    
         highlight: tango 
     ---
 
     ```{r setup, include=FALSE} 
-    knitr::opts\_chunk$set(echo = TRUE)
+    knitr::opts_chunk$set(echo = TRUE)
     library(dplyr)
     # load other libraries here
     ```
@@ -67,9 +67,9 @@ Below is the code from an R Markdown file that includes a table of contents (toc
     ```
 
     ### This is the third header
-    \_italics\_
+    _italics_
 
-    \*\*bold\*\*
+    **bold**
 
     - bullet
 
