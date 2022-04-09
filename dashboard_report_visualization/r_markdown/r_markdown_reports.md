@@ -106,9 +106,8 @@ Lets you adjust page margins, landscape, columns, and other Word specific option
 
 Example:
 
-\# insert this code block below your outputs that you want to be in landscape mode
+Insert this code block below your outputs that you want to be in landscape mode
 
-\`\`\`{r}
 ```r
 block\_section(
   prop\_section(
@@ -126,7 +125,7 @@ block\_section(
 ))
 
 ```
-\`\`\`
+
   
 
 ### Officer
@@ -143,7 +142,6 @@ This package is so much better than DT package (unless you need DT for interacti
 
 Example:
 
-\`\`\`{r}
 ```r
 params$customer\_counts %>% mutate(Line = seq(1,nrow(.))) %>% 
 		select(ncol(.), 1:ncol(.)-1) %>% 
@@ -208,7 +206,6 @@ params$customer\_counts %>% mutate(Line = seq(1,nrow(.))) %>%
   		set\_table\_properties(layout = "autofit") %>% 
   		fit\_to\_width(12)
 ```
-\`\`\`
 
 Output:
 
@@ -222,7 +219,6 @@ I use these two packages to save highcharter, ggplot, or plotly html charts as p
 
 Example:
 
-\`\`\`{r}
 ```r
 highchart() %>% 
 	hchart() %>%
@@ -234,7 +230,6 @@ pagedown::chrome\_print(input = 'highchart1.html',
 
 knitr::include\_graphics('highchart1.png')
 ```
-\`\`\`
 
 **Other Useful Links**
 ----------------------
