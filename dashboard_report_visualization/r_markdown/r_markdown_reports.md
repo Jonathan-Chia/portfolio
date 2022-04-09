@@ -109,11 +109,11 @@ Example:
 Insert this code block below your outputs that you want to be in landscape mode
 
 ```r
-block\_section(
-  prop\_section(
+block_section(
+  prop_section(
     type = "continuous",
-    page\_size = page\_size(orient = "landscape", width = 14, height = 8.5),
-    page\_margins = page\_mar(
+    page_size = page_size(orient = "landscape", width = 14, height = 8.5),
+    page_margins = page_mar(
                               bottom = .75,
                               top = .75,
                               right = .75,
@@ -143,24 +143,24 @@ This package is so much better than DT package (unless you need DT for interacti
 Example:
 
 ```r
-params$customer\_counts %>% mutate(Line = seq(1,nrow(.))) %>% 
+params$customer_counts %>% mutate(Line = seq(1,nrow(.))) %>% 
 		select(ncol(.), 1:ncol(.)-1) %>% 
 		flextable() %>% 
-  		style(part = 'body', pr\_t = fp\_text(font.size = 6), pr\_c = cell\_style) %>% 
-  		add\_header\_row(values = c('Customer Counts',
+  		style(part = 'body', pr_t = fp_text(font.size = 6), pr_c = cell_style) %>% 
+  		add_header_row(values = c('Customer Counts',
                        paste0("Week of ",
-								format(as.Date(params$customer\_counts\_date1\[1\]), '%m/%d')),
+								format(as.Date(params$customer_counts_date1[1]), '%m/%d')),
                        paste0("Week of ",
-								format(as.Date(params$customer\_counts\_date2\[1\]), '%m/%d')),
+								format(as.Date(params$customer_counts_date2[1]), '%m/%d')),
                        paste0("Week of ",
-								format(as.Date(params$customer\_counts\_date3\[1\]), '%m/%d'))
+								format(as.Date(params$customer_counts_date3[1]), '%m/%d'))
                             ),
                        colwidths = c(3,3,3,3)) %>% 
 		align(align = 'center', part = 'header') %>%
-  		theme\_box() %>% 
-  		merge\_v(j = 2) %>% 
- 		merge\_at(i = c(1), j = c(2,3)) %>% 
-  		merge\_at(i = c(2), j = c(2,3)) %>% 
+  		theme_box() %>% 
+  		merge_v(j = 2) %>% 
+ 		merge_at(i = c(1), j = c(2,3)) %>% 
+  		merge_at(i = c(2), j = c(2,3)) %>% 
   		bg(part = 'header', i = 2, bg = '#d3d3d3') %>%
   		# this next part copies the conditional formatting from excel
   		bg(j = c(6,9,12), bg = function(x) {
