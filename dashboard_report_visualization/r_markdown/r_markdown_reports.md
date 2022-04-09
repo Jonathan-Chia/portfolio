@@ -29,7 +29,7 @@ Refer to this article when you want to organize a report that includes code
 **Template for HTML report**
 ----------------------------
 
-Below is the code from an R Markdown file that includes a table of contents (toc), adds code hide/show buttons (code\_folding), and outputs as a html document
+Below is the code from an R Markdown file that includes a table of contents (toc), adds code hide/show buttons (code_folding), and outputs as a html document
 
 ---
     ---
@@ -166,45 +166,45 @@ params$customer_counts %>% mutate(Line = seq(1,nrow(.))) %>%
   		bg(j = c(6,9,12), bg = function(x) {
     			out <- rep('transparent', length(x))
     			quantile <- quantile(x, prob = seq(0,1, by = 1/21))
-    			out\[x >= quantile\[1\] & x < quantile\[2\]\] <- '#f8696b'
-    			out\[x >= quantile\[2\] & x < quantile\[3\]\] <- '#f87779'
-    			out\[x >= quantile\[3\] & x < quantile\[4\]\] <- '#f88688'
-    			out\[x >= quantile\[4\] & x < quantile\[5\]\] <- '#f99597'
-    			out\[x >= quantile\[5\] & x < quantile\[6\]\] <- '#f9a3a6'
-    			out\[x >= quantile\[6\] & x < quantile\[7\]\] <- '#fab2b5'
-    			out\[x >= quantile\[7\] & x < quantile\[8\]\] <- '#fac1c3'
-    			out\[x >= quantile\[8\] & x < quantile\[9\]\] <- '#facfd2'
-    			out\[x >= quantile\[9\] & x <= quantile\[10\]\] <- '#fbdee1'
-    			out\[x >= quantile\[10\] & x <= quantile\[11\]\] <- '#fbedf0'
-    			out\[x >= quantile\[11\] & x <= quantile\[12\]\] <- '#FFFFFF'
-    			out\[x >= quantile\[12\] & x <= quantile\[13\]\] <- '#edf6f2'
-    			out\[x >= quantile\[13\] & x <= quantile\[14\]\] <- '#def0e5'
-    			out\[x >= quantile\[14\] & x <= quantile\[15\]\] <- '#cfead8'
-    			out\[x >= quantile\[15\] & x <= quantile\[16\]\] <- '#bfe4cb'
-    			out\[x >= quantile\[16\] & x <= quantile\[17\]\] <- '#b0ddbd'
-   				out\[x >= quantile\[17\] & x <= quantile\[18\]\] <- '#a1d7b0'
-    			out\[x >= quantile\[18\] & x <= quantile\[19\]\] <- '#91d1a3'
-    			out\[x >= quantile\[19\] & x <= quantile\[20\]\] <- '#82cb96'
-    			out\[x >= quantile\[20\] & x <= quantile\[21\]\] <- '#73c589'
-    			out\[x >= quantile\[21\] & x <= quantile\[22\]\] <- '#63be7b'
+    			out[x >= quantile[1] & x < quantile[2]] <- '#f8696b'
+    			out[x >= quantile[2] & x < quantile[3]] <- '#f87779'
+    			out[x >= quantile[3] & x < quantile[4]] <- '#f88688'
+    			out[x >= quantile[4] & x < quantile[5]] <- '#f99597'
+    			out[x >= quantile[5] & x < quantile[6]] <- '#f9a3a6'
+    			out[x >= quantile[6] & x < quantile[7]] <- '#fab2b5'
+    			out[x >= quantile[7] & x < quantile[8]] <- '#fac1c3'
+    			out[x >= quantile[8] & x < quantile[9]] <- '#facfd2'
+    			out[x >= quantile[9] & x <= quantile[10]] <- '#fbdee1'
+    			out[x >= quantile[10] & x <= quantile[11]] <- '#fbedf0'
+    			out[x >= quantile[11] & x <= quantile[12]] <- '#FFFFFF'
+    			out[x >= quantile[12] & x <= quantile[13]] <- '#edf6f2'
+    			out[x >= quantile[13] & x <= quantile[14]] <- '#def0e5'
+    			out[x >= quantile[14] & x <= quantile[15]] <- '#cfead8'
+    			out[x >= quantile[15] & x <= quantile[16]] <- '#bfe4cb'
+    			out[x >= quantile[16] & x <= quantile[17]] <- '#b0ddbd'
+   				out[x >= quantile[17] & x <= quantile[18]] <- '#a1d7b0'
+    			out[x >= quantile[18] & x <= quantile[19]] <- '#91d1a3'
+    			out[x >= quantile[19] & x <= quantile[20]] <- '#82cb96'
+    			out[x >= quantile[20] & x <= quantile[21]] <- '#73c589'
+    			out[x >= quantile[21] & x <= quantile[22]] <- '#63be7b'
     			out
   		}) %>%
-  		vline(j = c(3,12), border = border\_style) %>%
-  		hline(i = c(2,8,14,20,26,31), border = border\_style) %>%
-  		set\_formatter(
-        	\`Date 1 YOY Diff\` = function(x) format\_percent\_integer(x),
-        	\`Date 2 YOY Diff\` = function(x) format\_percent\_integer(x),
-        	\`Date 3 YOY Diff\` = function(x) format\_percent\_integer(x)
+  		vline(j = c(3,12), border = border_style) %>%
+  		hline(i = c(2,8,14,20,26,31), border = border_style) %>%
+  		set_formatter(
+        	`Date 1 YOY Diff` = function(x) format_percent_integer(x),
+        	`Date 2 YOY Diff` = function(x) format_percent_integer(x),
+        	`Date 3 YOY Diff` = function(x) format_percent_integer(x)
       	) %>%
   		fontsize(part = 'header', size = 6) %>% 
   		height(part = 'body', height = .2) %>%
   		hrule(rule = 'exact') %>%
   		valign(part = 'body', valign = 'top') %>%
   		valign(part = 'body', j = 2, valign = 'center') %>% 
-  		# line\_spacing(part = 'body', space = .5) %>% 
+  		# line_spacing(part = 'body', space = .5) %>% 
   		align(part = 'body', i = c(1,2), j = 2, align = 'center') %>% 
-  		set\_table\_properties(layout = "autofit") %>% 
-  		fit\_to\_width(12)
+  		set_table_properties(layout = "autofit") %>% 
+  		fit_to_width(12)
 ```
 
 Output:
@@ -213,7 +213,7 @@ Output:
 
 ### HTML widgets and Pagedown to save HTML as picture
 
-I use these two packages to save highcharter, ggplot, or plotly html charts as png files. Then I display the png in Word using include\_graphics().
+I use these two packages to save highcharter, ggplot, or plotly html charts as png files. Then I display the png in Word using include_graphics().
 
   
 
@@ -224,17 +224,17 @@ highchart() %>%
 	hchart() %>%
     htmlwidgets::saveWidget(file = 'highchart1.html')
 
-pagedown::chrome\_print(input = 'highchart1.html',
+pagedown::chrome_print(input = 'highchart1.html',
              output = 'highchart1.png',
              wait = 3, format = 'png')
 
-knitr::include\_graphics('highchart1.png')
+knitr::include_graphics('highchart1.png')
 ```
 
 **Other Useful Links**
 ----------------------
 
-[https://rmarkdown.rstudio.com/authoring\_basics.html](https://rmarkdown.rstudio.com/authoring_basics.html)
+[https://rmarkdown.rstudio.com/authoring_basics.html](https://rmarkdown.rstudio.com/authoring_basics.html)
 
 [https://bookd](https://bookdown.org/yihui/rmarkdown/r-code.html)[https://bookdown.org/yihui/rmarkdown/r-code.html](https://bookdown.org/yihui/rmarkdown/r-code.html) [own.org/yihui/rmarkdown/r-code.html](https://bookdown.org/yihui/rmarkdown/r-code.html)
 
@@ -247,27 +247,27 @@ knitr::include\_graphics('highchart1.png')
 
 Widen the margins of the html output - really useful when you can't fit all your columns in your tables
 
-\# put this right after the yaml section
-<style type="text/css">
-.main-container {
-  max-width: 1800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
+# put this right after the yaml section
+    <style type="text/css">
+    .main-container {
+      max-width: 1800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    </style>
 
 Attachments:
 ------------
 
-![](images/icons/bullet_blue.gif) [image2021-5-13\_17-6-55.png](attachments/95650110/95650111.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-20\_13-53-2.png](attachments/95650110/95650112.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-20\_13-52-21.png](attachments/95650110/95650113.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-20\_13-52-4.png](attachments/95650110/95650114.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-20\_13-51-32.png](attachments/95650110/95650115.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-20\_13-42-36.png](attachments/95650110/95650116.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-20\_13-37-4.png](attachments/95650110/95650117.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2022-4-9\_1-58-30.png](attachments/95650110/95650122.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2022-4-9\_1-59-3.png](attachments/95650110/95650123.png) (image/png)  
+![](images/icons/bullet_blue.gif) [image2021-5-13_17-6-55.png](attachments/95650110/95650111.png) (image/png)  
+![](images/icons/bullet_blue.gif) [image2021-1-20_13-53-2.png](attachments/95650110/95650112.png) (image/png)  
+![](images/icons/bullet_blue.gif) [image2021-1-20_13-52-21.png](attachments/95650110/95650113.png) (image/png)  
+![](images/icons/bullet_blue.gif) [image2021-1-20_13-52-4.png](attachments/95650110/95650114.png) (image/png)  
+![](images/icons/bullet_blue.gif) [image2021-1-20_13-51-32.png](attachments/95650110/95650115.png) (image/png)  
+![](images/icons/bullet_blue.gif) [image2021-1-20_13-42-36.png](attachments/95650110/95650116.png) (image/png)  
+![](images/icons/bullet_blue.gif) [image2021-1-20_13-37-4.png](attachments/95650110/95650117.png) (image/png)  
+![](images/icons/bullet_blue.gif) [image2022-4-9_1-58-30.png](attachments/95650110/95650122.png) (image/png)  
+![](images/icons/bullet_blue.gif) [image2022-4-9_1-59-3.png](attachments/95650110/95650123.png) (image/png)  
 
 Document generated by Confluence on Apr 09, 2022 02:02
 
