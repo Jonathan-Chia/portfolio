@@ -22,6 +22,10 @@
 
 * Distributions
    * [Basketball Free Throw Percentage App](/bayesian/BayesBball.md)
+   
+## Dashboards, Reports, and Visualizations
+
+* [R Markdown Reports](/dashboard_report_visualization/r_markdown/Displaying-Code-using-R-Markdown_95650110.html)
 
 ## Blog
 
