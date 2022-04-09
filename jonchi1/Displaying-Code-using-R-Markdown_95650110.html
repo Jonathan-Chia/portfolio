@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chia, Jonathan : Displaying Code using R Markdown</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Chia, Jonathan</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Chia, Jonathan : Displaying Code using R Markdown
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Chia, Jonathan</span>, last modified on Apr 09, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Refer to this article when you want to organize a report that includes code</p><p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1649484171808 {padding: 0px;}
+div.rbtoc1649484171808 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1649484171808 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1649484171808'>
+<ul class='toc-indentation'>
+<li><a href='#DisplayingCodeusingRMarkdown-WhyUseRMarkdown?'>Why Use R Markdown?</a></li>
+<li><a href='#DisplayingCodeusingRMarkdown-TemplateforHTMLreport'>Template for HTML report</a></li>
+<li><a href='#DisplayingCodeusingRMarkdown-Output'>Output</a></li>
+<li><a href='#DisplayingCodeusingRMarkdown-OutputtingtoWord'>Outputting to Word</a>
+<ul class='toc-indentation'>
+<li><a href='#DisplayingCodeusingRMarkdown-Officedown'>Officedown</a></li>
+<li><a href='#DisplayingCodeusingRMarkdown-Officer'>Officer</a></li>
+<li><a href='#DisplayingCodeusingRMarkdown-Flextable'>Flextable</a></li>
+<li><a href='#DisplayingCodeusingRMarkdown-HTMLwidgetsandPagedowntosaveHTMLaspicture'>HTML widgets and Pagedown to save HTML as picture</a></li>
+</ul>
+</li>
+<li><a href='#DisplayingCodeusingRMarkdown-OtherUsefulLinks'>Other Useful Links</a></li>
+<li><a href='#DisplayingCodeusingRMarkdown-RandomUsefulCode'>Random Useful Code</a></li>
+</ul>
+</div></p><h2 id="DisplayingCodeusingRMarkdown-WhyUseRMarkdown?"><strong>Why Use R Markdown?</strong></h2><ol><li>Helps to keep your code organized</li><li>Create clean reports where you can hide/show code when needed</li><li>Can export as pdf, word, presentation, html, markdown, website, and dashboards</li><li>Can create <strong>automated reports</strong> that get emailed to people</li></ol><p><br/></p></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="DisplayingCodeusingRMarkdown-TemplateforHTMLreport"><strong>Template for HTML report</strong><strong><br/></strong></h2><p style="margin-left: 0.0px;text-align: left;">Includes a table of contents (toc), adds code hide/show buttons (code_folding), and outputs as a html document<strong><br/></strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">---
+title: &#39;Title&#39;
+author: &#39;Name&#39;
+date: &#39;Jan 20, 2021&#39;
+output:  
+	html_document:    
+	toc: yes    
+	number_sections: no    
+	code_folding: hide    
+	theme: cosmo    
+	highlight: tango---
+
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+# load other libraries here
+```
+
+
+# This is the first header
+Datatable
+```{r}
+mtcars %&gt;% filter(mpg &lt; 21) %&gt;% head(6)
+```
+
+## This is the second header
+Histogram of mpg
+```{r}
+hist(mtcars$mpg)
+```
+
+### This is the third header
+_italics_
+
+**bold**
+
+- bullet
+
+1. number
+
+</pre>
+</div></div></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="DisplayingCodeusingRMarkdown-Output"><strong>Output</strong></h2><p>Below is the output of the template</p><p><br/></p><p style="margin-left: 0.0px;text-align: left;"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/95650110/95650115.png" data-image-src="attachments/95650110/95650115.png" data-unresolved-comment-count="0" data-linked-resource-id="95650115" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-20_13-51-32.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650110" data-linked-resource-container-version="2"></span></p><p style="margin-left: 0.0px;text-align: left;"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/95650110/95650112.png" data-image-src="attachments/95650110/95650112.png" data-unresolved-comment-count="0" data-linked-resource-id="95650112" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-20_13-53-2.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650110" data-linked-resource-container-version="2"></span></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 id="DisplayingCodeusingRMarkdown-OutputtingtoWord"><strong>Outputting to Word</strong></h2><p><strong>Key packages:</strong></p><ul><li>Officedown</li><li>Officer</li><li>Flextable</li><li>htmlwidgets</li><li>pagedown</li></ul><h3 id="DisplayingCodeusingRMarkdown-Officedown">Officedown</h3><p>Lets you adjust page margins, landscape, columns, and other Word specific options</p><p><br/></p><p>Example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence"># insert this code block below your outputs that you want to be in landscape mode
+```{r}
+block_section(
+  prop_section(
+    type = &quot;continuous&quot;,
+    page_size = page_size(orient = &quot;landscape&quot;, width = 14, height = 8.5),
+    page_margins = page_mar(
+                              bottom = .75,
+                              top = .75,
+                              right = .75,
+                              left = .75,
+                              header = 0.1,
+                              footer = 0.1,
+                              gutter = 0.1
+                              )
+))
+
+```</pre>
+</div></div><p><br/></p><h3 id="DisplayingCodeusingRMarkdown-Officer">Officer</h3><p>Officer has to be loaded to pair with officedown and flextable</p><p><br/></p><h3 id="DisplayingCodeusingRMarkdown-Flextable">Flextable</h3><p>This package is so much better than DT package (unless you need DT for interactivity and filters)</p><p><br/></p></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p class="auto-cursor-target">Example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">params$customer_counts %&gt;% mutate(Line = seq(1,nrow(.))) %&gt;% 
+		select(ncol(.), 1:ncol(.)-1) %&gt;% 
+		flextable() %&gt;% 
+  		style(part = &#39;body&#39;, pr_t = fp_text(font.size = 6), pr_c = cell_style) %&gt;% 
+  		add_header_row(values = c(&#39;Customer Counts&#39;,
+                       paste0(&quot;Week of &quot;,
+								format(as.Date(params$customer_counts_date1[1]), &#39;%m/%d&#39;)),
+                       paste0(&quot;Week of &quot;,
+								format(as.Date(params$customer_counts_date2[1]), &#39;%m/%d&#39;)),
+                       paste0(&quot;Week of &quot;,
+								format(as.Date(params$customer_counts_date3[1]), &#39;%m/%d&#39;))
+                            ),
+                       colwidths = c(3,3,3,3)) %&gt;% 
+		align(align = &#39;center&#39;, part = &#39;header&#39;) %&gt;%
+  		theme_box() %&gt;% 
+  		merge_v(j = 2) %&gt;% 
+ 		merge_at(i = c(1), j = c(2,3)) %&gt;% 
+  		merge_at(i = c(2), j = c(2,3)) %&gt;% 
+  		bg(part = &#39;header&#39;, i = 2, bg = &#39;#d3d3d3&#39;) %&gt;%
+  		# this next part copies the conditional formatting from excel
+  		bg(j = c(6,9,12), bg = function(x) {
+    			out &lt;- rep(&#39;transparent&#39;, length(x))
+    			quantile &lt;- quantile(x, prob = seq(0,1, by = 1/21))
+    			out[x &gt;= quantile[1] &amp; x &lt; quantile[2]] &lt;- &#39;#f8696b&#39;
+    			out[x &gt;= quantile[2] &amp; x &lt; quantile[3]] &lt;- &#39;#f87779&#39;
+    			out[x &gt;= quantile[3] &amp; x &lt; quantile[4]] &lt;- &#39;#f88688&#39;
+    			out[x &gt;= quantile[4] &amp; x &lt; quantile[5]] &lt;- &#39;#f99597&#39;
+    			out[x &gt;= quantile[5] &amp; x &lt; quantile[6]] &lt;- &#39;#f9a3a6&#39;
+    			out[x &gt;= quantile[6] &amp; x &lt; quantile[7]] &lt;- &#39;#fab2b5&#39;
+    			out[x &gt;= quantile[7] &amp; x &lt; quantile[8]] &lt;- &#39;#fac1c3&#39;
+    			out[x &gt;= quantile[8] &amp; x &lt; quantile[9]] &lt;- &#39;#facfd2&#39;
+    			out[x &gt;= quantile[9] &amp; x &lt;= quantile[10]] &lt;- &#39;#fbdee1&#39;
+    			out[x &gt;= quantile[10] &amp; x &lt;= quantile[11]] &lt;- &#39;#fbedf0&#39;
+    			out[x &gt;= quantile[11] &amp; x &lt;= quantile[12]] &lt;- &#39;#FFFFFF&#39;
+    			out[x &gt;= quantile[12] &amp; x &lt;= quantile[13]] &lt;- &#39;#edf6f2&#39;
+    			out[x &gt;= quantile[13] &amp; x &lt;= quantile[14]] &lt;- &#39;#def0e5&#39;
+    			out[x &gt;= quantile[14] &amp; x &lt;= quantile[15]] &lt;- &#39;#cfead8&#39;
+    			out[x &gt;= quantile[15] &amp; x &lt;= quantile[16]] &lt;- &#39;#bfe4cb&#39;
+    			out[x &gt;= quantile[16] &amp; x &lt;= quantile[17]] &lt;- &#39;#b0ddbd&#39;
+   				out[x &gt;= quantile[17] &amp; x &lt;= quantile[18]] &lt;- &#39;#a1d7b0&#39;
+    			out[x &gt;= quantile[18] &amp; x &lt;= quantile[19]] &lt;- &#39;#91d1a3&#39;
+    			out[x &gt;= quantile[19] &amp; x &lt;= quantile[20]] &lt;- &#39;#82cb96&#39;
+    			out[x &gt;= quantile[20] &amp; x &lt;= quantile[21]] &lt;- &#39;#73c589&#39;
+    			out[x &gt;= quantile[21] &amp; x &lt;= quantile[22]] &lt;- &#39;#63be7b&#39;
+    			out
+  		}) %&gt;%
+  		vline(j = c(3,12), border = border_style) %&gt;%
+  		hline(i = c(2,8,14,20,26,31), border = border_style) %&gt;%
+  		set_formatter(
+        	`Date 1 YOY Diff` = function(x) format_percent_integer(x),
+        	`Date 2 YOY Diff` = function(x) format_percent_integer(x),
+        	`Date 3 YOY Diff` = function(x) format_percent_integer(x)
+      	) %&gt;%
+  		fontsize(part = &#39;header&#39;, size = 6) %&gt;% 
+  		height(part = &#39;body&#39;, height = .2) %&gt;%
+  		hrule(rule = &#39;exact&#39;) %&gt;%
+  		valign(part = &#39;body&#39;, valign = &#39;top&#39;) %&gt;%
+  		valign(part = &#39;body&#39;, j = 2, valign = &#39;center&#39;) %&gt;% 
+  		# line_spacing(part = &#39;body&#39;, space = .5) %&gt;% 
+  		align(part = &#39;body&#39;, i = c(1,2), j = 2, align = &#39;center&#39;) %&gt;% 
+  		set_table_properties(layout = &quot;autofit&quot;) %&gt;% 
+  		fit_to_width(12)</pre>
+</div></div></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Output:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/95650110/95650123.png" data-image-src="attachments/95650110/95650123.png" data-unresolved-comment-count="0" data-linked-resource-id="95650123" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2022-4-9_1-59-3.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650110" data-linked-resource-container-version="2"></span></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h3 id="DisplayingCodeusingRMarkdown-HTMLwidgetsandPagedowntosaveHTMLaspicture">HTML widgets and Pagedown to save HTML as picture</h3><p>I use these two packages to save highcharter, ggplot, or plotly html charts as png files. Then I display the png in Word using include_graphics().</p><p><br/></p><p>Example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">highchart() %&gt;% 
+	hchart() %&gt;%
+    htmlwidgets::saveWidget(file = &#39;highchart1.html&#39;)
+
+pagedown::chrome_print(input = &#39;highchart1.html&#39;,
+             output = &#39;highchart1.png&#39;,
+             wait = 3, format = &#39;png&#39;)
+
+knitr::include_graphics(&#39;highchart1.png&#39;)</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 id="DisplayingCodeusingRMarkdown-OtherUsefulLinks"><strong>Other Useful Links</strong></h2><p><a href="https://rmarkdown.rstudio.com/authoring_basics.html" class="external-link" rel="nofollow">https://rmarkdown.rstudio.com/authoring_basics.html</a></p><p><a href="https://bookdown.org/yihui/rmarkdown/r-code.html" class="external-link" rel="nofollow">https://bookd</a><a href="https://bookdown.org/yihui/rmarkdown/r-code.html" class="external-link" rel="nofollow">https://bookdown.org/yihui/rmarkdown/r-code.html</a><a href="https://bookdown.org/yihui/rmarkdown/r-code.html" class="external-link" rel="nofollow"> own.org/yihui/rmarkdown/r-code.html</a></p><p><a href="https://rmarkdown.rstudio.com/gallery.html" style="text-decoration: none;text-align: left;" class="external-link" rel="nofollow">https://rmarkdown.rstudio.com/gallery.html</a></p><p><br/></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 id="DisplayingCodeusingRMarkdown-RandomUsefulCode"><strong>Random Useful Code</strong></h2><p class="auto-cursor-target">Widen the margins of the html output - really useful when you can't fit all your columns in your tables</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence"># put this right after the yaml section
+&lt;style type=&quot;text/css&quot;&gt;
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+&lt;/style&gt;</pre>
+</div></div></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650110/95650111.png">image2021-5-13_17-6-55.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650110/95650112.png">image2021-1-20_13-53-2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650110/95650113.png">image2021-1-20_13-52-21.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650110/95650114.png">image2021-1-20_13-52-4.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650110/95650115.png">image2021-1-20_13-51-32.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650110/95650116.png">image2021-1-20_13-42-36.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650110/95650117.png">image2021-1-20_13-37-4.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650110/95650122.png">image2022-4-9_1-58-30.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650110/95650123.png">image2022-4-9_1-59-3.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Apr 09, 2022 02:02</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
