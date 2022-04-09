@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chia, Jonathan : Copy of Using Docker to Install Jupyter Notebook and R Studio</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Chia, Jonathan</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Productionized-Articles_95650120.html">Productionized Articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Chia, Jonathan : Copy of Using Docker to Install Jupyter Notebook and R Studio
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Chia, Jonathan</span>, last modified on Apr 09, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><strong>With 2 lines of code you can:</strong></p><ul><li><strong>Set up Jupyter Notebook preloaded with tensorflow, numpy, pandas, sklearn, etc.</strong></li></ul><ul><li><strong>Set up R Studio preloaded with tidyverse packages</strong></li></ul><h1 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-Steps:">Steps:</h1><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-1.InstallDocker">1. Install Docker</h2><p style="margin-left: 40.0px;">Download Docker Desktop</p><p style="margin-left: 40.0px;"><a href="https://www.docker.com/get-started" class="external-link" rel="nofollow">https://www.docker.com/get-started</a></p><p style="margin-left: 40.0px;"><br/></p><p style="margin-left: 40.0px;">You will see three different tabs:</p><p style="margin-left: 40.0px;">Containers - <span style="color: rgb(64,64,64);">virtualized run-time environment where users can isolate applications from the underlying system. Basically <strong>where you run the template</strong>.</span></p><p style="margin-left: 40.0px;">Images - <span style="color: rgb(64,64,64);">an immutable (unchangeable) file that contains the source code, libraries, dependencies, tools, and other files needed for an application to run. Basically a <strong>template.</strong></span></p><p style="margin-left: 40.0px;">Volumes - this is where the data is stored.</p><p style="margin-left: 40.0px;"><br/></p><p style="margin-left: 40.0px;"><a href="https://phoenixnap.com/kb/docker-image-vs-container" class="external-link" rel="nofollow">https://phoenixnap.com/kb/docker-image-vs-container</a></p><p style="margin-left: 40.0px;"><a href="https://docs.docker.com/storage/volumes/" class="external-link" rel="nofollow">https://docs.docker.com/storage/volumes/</a></p><p><br/></p><p style="margin-left: 40.0px;">Note: You will probably need to enable 'virtualization' in your BIOS. May also need to install linux subsystem in windows. </p><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-2.PullDockerImage">2. Pull Docker Image</h2><p style="margin-left: 40.0px;">Open up your command line (in windows you can open up windows powershell)</p><p style="margin-left: 40.0px;"><br/></p><p style="margin-left: 40.0px;">Run the Following Code</p></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p class="auto-cursor-target">R Studio:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: powershell; gutter: false; theme: Confluence" data-theme="Confluence">docker pull rocker/tidyverse</pre>
+</div></div></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Jupyter Lab:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: powershell; gutter: false; theme: Confluence" data-theme="Confluence">docker pull jupyter/tensorflow-notebook</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p style="margin-left: 40.0px;">You should now see <em>rocker/tidyverse </em>or <em>jupyter/tensorflow-notebook </em>in your <em>Images</em>:</p><p style="margin-left: 40.0px;"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="800" src="attachments/95650216/95650222.png" data-image-src="attachments/95650216/95650222.png" data-unresolved-comment-count="0" data-linked-resource-id="95650222" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2022-1-13_14-20-7.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650216" data-linked-resource-container-version="2"></span></p><p style="margin-left: 40.0px;"><br/></p><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-3.RunDockerImage">3. Run Docker Image</h2><p style="margin-left: 40.0px;">Now we need to run the image to create a container:</p></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>R Studio:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: powershell; gutter: false; theme: Confluence" data-theme="Confluence">docker run -p 8787:8787 -v r_volume:/app -e PASSWORD=rstudio --name rstudio rocker/tidyverse</pre>
+</div></div><p class="auto-cursor-target">-p tells it to run in the browser</p><p class="auto-cursor-target">-v names the volume</p><p class="auto-cursor-target">--name names the container</p></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Jupyter Lab:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: powershell; gutter: false; theme: Confluence" data-theme="Confluence">docker run -p 8888:8888 --name jupyter -v jupyter_volume:/app -e JUPYTER_ENABLE_LAB=yes -it jupyter/tensorflow-notebook</pre>
+</div></div><p class="auto-cursor-target">-v names the volume and sets it up</p><p class="auto-cursor-target">-it makes it interactive</p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 style="margin-left: 40.0px;" id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-NowthedatawillbestoredinVolumes:">Now the data will be stored in <em>Volumes</em>:</h2><h2 style="margin-left: 40.0px;" id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="800" src="attachments/95650216/95650221.png" data-image-src="attachments/95650216/95650221.png" data-unresolved-comment-count="0" data-linked-resource-id="95650221" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2022-1-13_14-56-16.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650216" data-linked-resource-container-version="2"></span></h2><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-4.StarttheContainer">4. Start the Container</h2><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-ClickthePlaybutton:">Click the <em>Play</em> button:</h2><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-.1"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="800" src="attachments/95650216/95650220.png" data-image-src="attachments/95650216/95650220.png" data-unresolved-comment-count="0" data-linked-resource-id="95650220" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2022-1-13_15-5-6.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650216" data-linked-resource-container-version="2"></span></h2><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-AndthenclickOpeninBrowser:">And then click <em>Open in Browser:</em></h2><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-.2"><em><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="800" src="attachments/95650216/95650219.png" data-image-src="attachments/95650216/95650219.png" data-unresolved-comment-count="0" data-linked-resource-id="95650219" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2022-1-13_15-6-22.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650216" data-linked-resource-container-version="2"></span></em></h2><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-5.SignOn">5. Sign On</h2><p>Jupyter: </p><p>If Jupyter Lab asks for a token, look at the command line and you'll see it in one of the outputs.</p><p><br/></p><p>R Studio:</p><p>Username: rstudio</p><p>Password: rstudio</p><p><br/></p><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-Ifeverythingwassetupcorrectly,youshouldseethesescreens:">If everything was set up correctly, you should see these screens:</h2><p>Jupyter Lab:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/95650216/95650218.png" data-image-src="attachments/95650216/95650218.png" data-unresolved-comment-count="0" data-linked-resource-id="95650218" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2022-1-13_15-11-29.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650216" data-linked-resource-container-version="2"></span></p><p><br/></p><p>R Studio:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/95650216/95650217.png" data-image-src="attachments/95650216/95650217.png" data-unresolved-comment-count="0" data-linked-resource-id="95650217" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2022-1-13_15-12-27.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650216" data-linked-resource-container-version="2"></span></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h1 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-NextSteps:">Next Steps:</h1><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-SetupEnvironments:">Set up Environments:</h2><p>See starting projects: <a href="https://confluence.jewelry.acn/x/nQEnAw" rel="nofollow">https://confluence.jewelry.acn/x/nQEnAw</a></p><p><br/></p><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-Installingadditionalpackages:">Installing additional packages:</h2><p>Jupyter Lab:</p><p>Use pip install in the jupyter lab terminal</p><p><br/></p><p>R Studio:</p><p>Use install.packages()</p><p><br/></p><p>I believe the packages are saved in the volume.</p><h2 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-AdditionalPackageInstallationthroughDockerFiles:">Additional Package Installation through Docker Files:</h2><p>If you want the container to start with certain packages you can use a Docker File to do that.</p><p><br/></p><p>Don't have a confluence page for this yet, but see here:</p><p><a href="https://davetang.org/muse/2021/04/24/running-rstudio-server-with-docker/" class="external-link" rel="nofollow">https://davetang.org/muse/2021/04/24/running-rstudio-server-with-docker/</a></p><p><a href="https://towardsdatascience.com/how-to-run-jupyter-notebook-on-docker-7c9748ed209f" class="external-link" rel="nofollow">https://towardsdatascience.com/how-to-run-jupyter-notebook-on-docker-7c9748ed209f</a></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><h3 id="CopyofUsingDockertoInstallJupyterNotebookandRStudio-AdditionalResources:">Additional Resources:</h3><p>See this link:</p><p><a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/" class="external-link" rel="nofollow">https://jupyter-docker-stacks.readthedocs.io/en/latest/</a></p><p><br/></p><p>Docker Tutorial for R:</p><p><a href="https://jsta.github.io/r-docker-tutorial/02-Launching-Docker.html" class="external-link" rel="nofollow">https://jsta.github.io/r-docker-tutorial/02-Launching-Docker.html</a></p></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650216/95650217.png">image2022-1-13_15-12-27.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650216/95650218.png">image2022-1-13_15-11-29.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650216/95650219.png">image2022-1-13_15-6-22.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650216/95650220.png">image2022-1-13_15-5-6.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650216/95650221.png">image2022-1-13_14-56-16.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650216/95650222.png">image2022-1-13_14-20-7.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Apr 09, 2022 16:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

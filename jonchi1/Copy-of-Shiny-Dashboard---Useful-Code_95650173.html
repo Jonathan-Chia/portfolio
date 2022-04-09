@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chia, Jonathan : Copy of Shiny Dashboard - Useful Code</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Chia, Jonathan</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Productionized-Articles_95650120.html">Productionized Articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Chia, Jonathan : Copy of Shiny Dashboard - Useful Code
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Chia, Jonathan</span>, last modified on Apr 09, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>For making production ready shiny dashboards - table of contents in no particular order</p><p><span style="color: rgb(23,43,77);text-decoration: none;">Note: this article assumes reader already has a basic shiny understanding</span></p><p><br/></p><p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1649537693999 {padding: 0px;}
+div.rbtoc1649537693999 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1649537693999 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1649537693999'>
+<ul class='toc-indentation'>
+<li><a href='#CopyofShinyDashboardUsefulCode-WhyUseShiny?'>Why Use Shiny?</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-SetupDashboardURL'>Setup Dashboard URL</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-Login/Authentication'>Login/Authentication</a>
+<ul class='toc-indentation'>
+<li><a href='#CopyofShinyDashboardUsefulCode-IMPORTANTNOTE:'>IMPORTANT NOTE:</a></li>
+</ul>
+</li>
+<li><a href='#CopyofShinyDashboardUsefulCode-DisplayMarkdown/HTMLDocuments'>Display Markdown/HTML Documents</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-EmailDataTableasCSV/ExcelwithinCompanythroughSMTP'>Email DataTable as CSV/Excel within Company through SMTP</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-DownloadDataTableasCSV/Excel'>Download DataTable as CSV/Excel</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-CreateReportCompilerTab'>Create Report Compiler Tab</a>
+<ul class='toc-indentation'>
+<li><a href='#CopyofShinyDashboardUsefulCode-ScreenshotButton'>Screenshot Button</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-ReportTab'>Report Tab</a></li>
+</ul>
+</li>
+<li><a href='#CopyofShinyDashboardUsefulCode-DataTableFormattingFunctionExamples'>DataTable Formatting Function Examples</a>
+<ul class='toc-indentation'>
+<li><a href='#CopyofShinyDashboardUsefulCode-NumberFormatting'>Number Formatting</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-BorderFormatting'>Border Formatting</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-ConditionalFormatting'>Conditional Formatting</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-Notes:'>Notes:</a></li>
+</ul>
+</li>
+<li><a href='#CopyofShinyDashboardUsefulCode-ShinyWidgets-Dropdown,SweetAlerts,PickerInput,SwitchInput,etc.'>Shiny Widgets - Dropdown, Sweet Alerts, PickerInput, SwitchInput, etc.</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-WhentouseColumn()vs.SplitLayout()'>When to use Column() vs. SplitLayout()</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-AddingToolTips'>Adding Tool Tips</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-UsefulDatabaseConnectionFunctions'>Useful Database Connection Functions</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-HighchartVisualizationTips'>Highchart Visualization Tips</a>
+<ul class='toc-indentation'>
+<li><a href='#CopyofShinyDashboardUsefulCode-Non-StandardEvaluation(NSE)ofcolumns'>Non-Standard Evaluation (NSE) of columns</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-ToolTips'>Tool Tips</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-SUPERUSEFULWEBSITE'>SUPER USEFUL WEBSITE</a></li>
+</ul>
+</li>
+<li><a href='#CopyofShinyDashboardUsefulCode-InformationButtononHeader'>Information Button on Header</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-TabsetPanels()'>TabsetPanels()</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-GoodColorSchemes'>Good Color Schemes</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-Icons'>Icons</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-ProgressLoadingBars'>Progress Loading Bars</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-DashboardLogs'>Dashboard Logs</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-PoolPackageandHandlingConnections'>Pool Package and Handling Connections</a>
+<ul class='toc-indentation'>
+<li><a href='#CopyofShinyDashboardUsefulCode-BestSolution'>Best Solution</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-CurrentSolution'>Current Solution</a></li>
+</ul>
+</li>
+<li><a href='#CopyofShinyDashboardUsefulCode-Show/HideTabsetPanels'>Show/Hide Tabset Panels</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-Dbplyr'>Dbplyr</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-ValueBoxHeaders'>Value Box Headers</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-ForceUpdate/RestartoftheApplication'>Force Update/Restart of the Application</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-ShinyReportsusingRMarkdown'>Shiny Reports using R Markdown</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-DataTableRowLastClicked/RowSelected'>DataTable Row Last Clicked/Row Selected</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-SQLQueriesandpreventingSQLInjections'>SQL Queries and preventing SQL Injections</a></li>
+<li><a href='#CopyofShinyDashboardUsefulCode-Relatedarticles'>Related articles</a></li>
+</ul>
+</div></p><h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-WhyUseShiny?"><strong>Why Use Shiny?</strong></h2><ol style="text-decoration: none;text-align: left;margin-left: 0.0px;"><li>Shiny is a simple extension of R</li><li>Shiny provides detailed customization but an easy framework</li></ol><h2 id="CopyofShinyDashboardUsefulCode-SetupDashboardURL"><strong>Setup Dashboard URL</strong></h2><ol><li><p>Log into bi-rstudio - you will create your dashboard on this server so people in the company can access through a URL link</p></li><li><p>Create a <em>ShinyApps</em> folder in your home directory</p></li><li><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="155" src="attachments/95650173/95650205.png" data-image-src="attachments/95650173/95650205.png" data-unresolved-comment-count="0" data-linked-resource-id="95650205" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-12-28_17-56-53.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></li><li>In your<em> Shiny Apps</em> folder, create a folder for your dashboard - here we named it <em>mydashboard</em></li><li><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="132" src="attachments/95650173/95650204.png" data-image-src="attachments/95650173/95650204.png" data-unresolved-comment-count="0" data-linked-resource-id="95650204" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-12-28_18-4-41.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></li><li>Now people can access your dashboard through <a href="http://bi-rstudio:3838/jonchi1/customer_segmentation_dashboard/" class="external-link" rel="nofollow">http://bi-rstudio:3838/yourusername/mydashboard/</a> </li><li>Finally, in the <em>mydashboard</em> folder, create a R file named &quot;app.R&quot;</li></ol><p>The URL link only works if you have a folder named ShinyApps, a dashboard folder, and then an app.R file.</p><h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-Login/Authentication"><strong>Login/Authentication</strong></h2><p>For better security, create an authentication page for the dashboard </p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/95650173/95650202.png" data-image-src="attachments/95650173/95650202.png" data-unresolved-comment-count="0" data-linked-resource-id="95650202" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-12-28_18-26-37.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p>UI</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">require(shinymanager)
+
+# this inactivity function will close the dashboard after enough idle time
+inactivity &lt;- &quot;function idleTimer() {
+	var t = setTimeout(logout, 120000);window.onmousemove = resetTimer; // catches mouse 
+	movementswindow.onmousedown = resetTimer; // catches mouse 
+	movementswindow.onclick = resetTimer;     // catches mouse 
+	clickswindow.onscroll = resetTimer;    // catches scrollingwindow.onkeypress = resetTimer;  //catches keyboard 
+	actionsfunction logout() {window.close();  //close the window
+}
+function resetTimer() {
+	clearTimeout(t);t = setTimeout(logout, 120000);  // time is in milliseconds (1000 is 1 second)
+}
+}
+idleTimer();&quot;
+
+ui &lt;- shinymanager::secure_app(tags_top = tags$img(src = &quot;https://upload.wikimedia.org/wikipedia/commons/9/9a/JTV_Logo.png&quot;, width = 200), 
+			       tags_bottom = tags$div(tags$p(&quot;Username: JTV Email (lowercase)&quot;,    
+			       tags$p(&quot;For access to this dashboard, please  contact &quot;,     
+ 			       tags$a(href = paste(&quot;mailto:&quot;,cfg$user$manager_email,&quot;?Subject=Shiny%20Manager&quot;,sep=&quot;&quot;), target = &quot;_top&quot;, cfg$user$manager_name)))),
+			       head_auth = tags$script(inactivity),  
+			       dashboardPage(header, sidebar, body))</pre>
+</div></div><p>Server</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">credentials_df &lt;- data.frame(user = c(&quot;joebob@jtv.com&quot;, &quot;exampleuser@jtv.com&quot;),    
+ 					password = c(&quot;123&quot;, &quot;123&quot;),    comment = c(&quot;user&quot;),    stringsAsFactors = FALSE)
+
+result_auth &lt;- shinymanager::secure_server(check_credentials = check_credentials(credentials_df))    
+
+output$res_auth &lt;- renderPrint({ reactiveValuesToList(result_auth) })</pre>
+</div></div><p style="text-decoration: none;text-align: left;margin-left: 0.0px;"><br/></p><p style="text-decoration: none;text-align: left;margin-left: 0.0px;">Tip: For credentials_df, create it using config file</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">credentials_df &lt;- data.frame(user = c(cfg$user1, cfg$user2), 
+			     password = c(cfg$password1, cfg$password2))</pre>
+</div></div><h3 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-IMPORTANTNOTE:"><strong>IMPORTANT NOTE:</strong></h3><p>observe() function will not work because of the authentication page unless you use the below code:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">observe({    
+	if(is.null(input$shinymanager_where) || (!is.null(input$shinymanager_where) &amp;&amp; input$shinymanager_where %in% &quot;application&quot;)){
+		# insert code here
+	}
+})</pre>
+</div></div><p>Additionally, sometimes observeEvent() function will trigger at initialization because of the authentication page. Set init = FALSE to avoid this issue:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">observeEvent(input$actionbutton, init = FALSE, {
+	# insert code here
+})</pre>
+</div></div><p><br/></p><p><br/></p><h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-DisplayMarkdown/HTMLDocuments"><strong>Display Markdown/HTML Documents</strong></h2><p>Markdown documents can be very good for explanation pages in dashboards.</p><p>markdown/html in shiny: <a href="https://shiny.rstudio.com/gallery/including-html-text-and-markdown-files.html" class="external-link" rel="nofollow">https://shiny.rstudio.com/gallery/including-html-text-and-markdown-files.html</a></p><p>markdown cheat sheet: <a href="https://www.markdownguide.org/cheat-sheet/" class="external-link" rel="nofollow">https://www.markdownguide.org/cheat-sheet/</a></p><p><br/></p><h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-EmailDataTableasCSV/ExcelwithinCompanythroughSMTP"><strong>Email DataTable as CSV/Excel within Company through SMTP</strong></h2><p>Create an email button:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" height="74" src="attachments/95650173/95650207.png" data-image-src="attachments/95650173/95650207.png" data-unresolved-comment-count="0" data-linked-resource-id="95650207" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2022-4-9_16-34-5.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p>Clicking the green email button reveals this dropdown:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" height="250" src="attachments/95650173/95650199.png" data-image-src="attachments/95650173/95650199.png" data-unresolved-comment-count="0" data-linked-resource-id="95650199" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-12-28_18-54-49.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p><br/></p><p>UI</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">require(shinyWidgets)
+require(shinyAce)
+
+dropdownButton(tags$h3(&quot;Send Email with List as Attachment&quot;),                                                                            
+		splitLayout(radioButtons(&#39;format&#39;, &#39;Attach List As:&#39;, c(&#39;CSV&#39;, &#39;Excel&#39;), inline = TRUE),
+		actionButton(&#39;send&#39;, &quot;Send&quot;, icon = icon(&quot;envelope&quot;))),                                                                            
+		textInput(&quot;to&quot;, &quot;To:&quot;, value=&quot;&quot;),                                                                            
+		textInput(&quot;cc&quot;, &quot;Cc:&quot;, value=&quot;&quot;),                                                                            
+		textInput(&quot;subject&quot;, &quot;Subject:&quot;, value=NULL),
+		shinyAce::aceEditor(&quot;message&quot;, value=&quot; &quot;, height = &quot;200px&quot;),                                                                            
+		tags$body(&quot;Instructions: to send to multiple people, place commas in between emails&quot;),                                                                            
+		tags$body(&quot;For example: joe@jtv.com, bob@jtv.com&quot;),                                                                            
+		tags$body(&quot;Note: email is sent from the email that you logged in with&quot;),                                                                            
+		status = &#39;success&#39;,                                                                            
+		up = TRUE,                                                                            
+		icon=icon(&#39;envelope&#39;))</pre>
+</div></div><p>Server</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">require(mailR)
+
+observeEvent(input$send, {        
+	withProgress(message = &#39;Emailing&#39;, value = 0, {      
+		incProgress(1/3, detail = &quot;Compiling List&quot;)            
+		if (input$format == &quot;Excel&quot;) {        
+		path &lt;- paste0(&#39;temp_files/filtered_customer_list_&#39;, session$token, &#39;.xlsx&#39;)        
+		xlsx::write.xlsx(values$df, path, row.names = FALSE)      }   # values$df is the datatable as seen in the above picture    
+
+		if (input$format == &quot;CSV&quot;) {        
+		path &lt;- paste0(&#39;temp_files/filtered_customer_list_&#39;, session$token, &#39;.csv&#39;)        
+		data.table::fwrite(values$df, path)      }                  
+
+		incProgress(1/3, detail = &quot;Writing Email&quot;)      
+		user &lt;- reactiveValuesToList(result_auth)$user      
+
+		if (input$cc == &quot;&quot;) {        
+		send.mail(from = user,                  
+				to = input$to,                  
+				# cc = input$cc,                  
+				# bcc = input$bcc,                  
+				subject = input$subject,                  
+				body = input$message,                  
+				smtp = list(host.name = #######, port = ##),                  
+				authenticate = FALSE,                  
+				send = TRUE,                  
+				attach.files = path)      
+		} else {        
+		send.mail(from = user,                  
+				to = input$to,                  
+				cc = input$cc,                  
+				# bcc = input$bcc,                  
+				subject = input$subject,                  
+				body = input$message,                  
+				smtp = list(host.name = #######, port = ##),                  
+				authenticate = FALSE,                  
+				send = TRUE,                  
+				attach.files = path)      }            
+
+		incProgress(1/3, detail = &quot;Finished&quot;)    })            
+
+	        system(paste(&quot;rm -f&quot;, path))  })</pre>
+</div></div><h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-DownloadDataTableasCSV/Excel"><strong>Download DataTable as CSV/Excel</strong></h2><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" height="66" src="attachments/95650173/95650198.png" data-image-src="attachments/95650173/95650198.png" data-unresolved-comment-count="0" data-linked-resource-id="95650198" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2020-12-29_14-28-6.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p>UI</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">column(1, downloadButton(&#39;csv&#39;, &quot;CSV&quot;)),                             
+column(1, downloadButton(&#39;excel&#39;, &quot;Excel&quot;)),</pre>
+</div></div><p><br/></p><p>Server</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence"># NOTE: values$df is the dataframe you want to download
+
+output$csv &lt;- downloadHandler(        
+		# This function returns a string which tells the client browser what name to use when saving the file.    
+		filename = function() {      
+		paste(&quot;customer-filtered-&quot;, Sys.Date(), &quot;.csv&quot;, sep=&quot;&quot;)    },        
+
+		# This function should write data to a file given to it by the argument &#39;file&#39;.    
+		content = function(file) {      
+		# Write to a file specified by the &#39;file&#39; argument      
+		write.table(values$df, file,  row.names = FALSE)    }  )      
+
+
+
+output$excel &lt;- downloadHandler(        
+		filename = function() {      
+		paste(&quot;customer-filtered-&quot;, Sys.Date(), &quot;.xlsx&quot;, sep=&quot;&quot;)    },    
+
+		content = function(file) {            
+		xlsx::write.xlsx(values$df, file, row.names = FALSE)    }  )</pre>
+</div></div><p><br/></p><h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-CreateReportCompilerTab"><strong>Create Report Compiler Tab</strong></h2><p>Users can compile a report in word/html using screenshots through this tab</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/95650173/95650192.png" data-image-src="attachments/95650173/95650192.png" data-unresolved-comment-count="0" data-linked-resource-id="95650192" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-11_9-5-51.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p><br/></p><p>How to build:</p><ol><li>Create screenshot button</li><li>Create report compiling tab</li></ol><p><br/></p><h3 id="CopyofShinyDashboardUsefulCode-ScreenshotButton">Screenshot Button</h3><p>Adds screenshot button to top right corner of the dashboard</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" src="attachments/95650173/95650177.png" data-image-src="attachments/95650173/95650177.png" data-unresolved-comment-count="0" data-linked-resource-id="95650177" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-12_21-11-38.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p>UI</p><p><br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">header &lt;- dashboardHeader(title = &quot;Cool Title&quot;,                            
+		tags$li(class = &#39;dropdown&#39;, actionLink(&quot;screenshot&quot;, &quot;Screenshot&quot;, icon = icon(&quot;camera&quot;)))
+)</pre>
+</div></div><p>Server</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">require(shinyscreenshot) 
+observeEvent(input$screenshot, {                         # will save the screenshots into a temp directory                      screenshot(filename = paste0(&#39;dashboard_screenshot_&#39;, Sys.Date())) })
+</pre>
+</div></div><h3 id="CopyofShinyDashboardUsefulCode-ReportTab"><strong>Report Tab</strong></h3><p>UI</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">build_report_page &lt;- fluidPage(  
+# App title ----  
+titlePanel(&quot;Compile Reports using Screenshots&quot;),  
+sidebarLayout(    
+	sidebarPanel(      
+			fileInput(&quot;file1&quot;, &quot;File Uploader&quot;, multiple = TRUE, accept = c(&quot;.png&quot;), buttonLabel = &quot;Upload&quot;), 
+			tags$hr(), 
+
+			helpText(&quot;Type an executive summary here:&quot;),      
+			shinyAce::aceEditor(&quot;markdowninput&quot;, value=&quot;Please use any **markdown** syntax&quot;, height = &quot;75px&quot;, mode = &quot;markdown&quot;, showLineNumbers = FALSE),      
+			tags$hr(),      
+
+			splitLayout(        
+					downloadButton(&#39;build_report&#39;,&quot;Download Report&quot;,class=&quot;butt&quot;),        
+					actionButton(&quot;preview&quot;, &quot;Preview Report&quot;, style=&quot;color: #E6EBEF; background-color: steelblue&quot;)      ),      
+					tags$head(tags$style(&quot;.butt{background-color:steelblue;} .butt{color: #e6ebef;}&quot;)),      
+					radioButtons(&#39;format_report&#39;, &#39;Document format&#39;, c(&#39;Word&#39;, &#39;HTML&#39;), inline = TRUE),    ),        
+
+	mainPanel(      
+			# Output: Data file ----      
+			uiOutput(&quot;markdown&quot;)    )      ))</pre>
+</div></div><p>Server</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">output$htmlmarkdown &lt;- reactive({ note_in_html(input$markdowninput) })    
+
+observeEvent(input$preview, {    
+				src &lt;- normalizePath(&#39;doc/documents/report_compiler_md.Rmd&#39;)    
+				owd &lt;- setwd(tempdir())    
+				on.exit(setwd(owd))    
+
+				file.copy(src, &#39;report_compiler_md.Rmd&#39;, overwrite = TRUE)    
+				out &lt;- knitr::knit(&#39;report_compiler_md.Rmd&#39;)     
+				values$src &lt;- normalizePath(out)  })    
+
+output$markdown &lt;- renderUI({    
+				if (input$preview &gt; 0) {      
+					file &lt;- values$src    
+				} else {      
+					file &lt;- &#39;doc/documents/blank_report_compiler.md&#39;    
+				}    
+
+				includeMarkdown(file)  })    
+
+
+output$build_report = downloadHandler(        
+				filename&lt;- function(){            
+					paste(&quot;Customer_Segmentation_Report&quot;,Sys.Date(),switch(input$format_report, HTML = &#39;.html&#39;, Word = &#39;.docx&#39;),sep = &quot;&quot;)},                
+
+				content = function(file) {            
+					if (input$format_report==&quot;HTML&quot;){                
+						withProgress(message = &#39;Download in progress&#39;, detail = &#39;This may take a while...&#39;, value = 0, {                                                                                      
+							src &lt;- normalizePath(&#39;doc/documents/report_compiler_html.Rmd&#39;)                                                                     
+							# temporarily switch to the temp dir, in case you do not have write permission to the current working directory                                              
+							owd &lt;- setwd(tempdir())                                              
+							on.exit(setwd(owd))                                              
+
+							file.copy(src, &#39;report_compiler_html.Rmd&#39;, overwrite = TRUE)                       
+							# images will already be in tmp directory so .Rmd file can reference them                                              
+							library(rmarkdown)                                              
+							out &lt;- render(&#39;report_compiler_html.Rmd&#39;, html_document())                                              
+							file.rename(out, file) 
+						})                
+							### below is the end of pdf content              
+					}else{                
+						withProgress(message = &#39;Download in progress&#39;,  detail = &#39;This may take a while...&#39;, value = 0, {                                              
+					        	src &lt;- normalizePath(&#39;doc/documents/report_compiler_word.Rmd&#39;)                                                                     
+							owd &lt;- setwd(tempdir())                                              
+							on.exit(setwd(owd))                                              
+							file.copy(src, &#39;report_compiler_word.Rmd&#39;, overwrite = TRUE)                                                          
+							library(rmarkdown)                                              
+							out &lt;- render(&#39;report_compiler_word.Rmd&#39;, word_document())                                              
+							file.rename(out, file)                                            
+						})              
+					}                    
+})</pre>
+</div></div><p>Documents - YOU WILL NEED THESE FILES</p><p><em>report_compiler_md.Rmd</em></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">--- 
+title: &quot;Customer Segmentation Report&quot;
+date: &quot;`r format(Sys.time(), &#39;%d %B, %Y&#39;)`&quot;
+output: md_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+```
+
+```{r, echo = FALSE}
+knitr::asis_output(input$markdowninput)
+```
+
+```{r, echo = FALSE}
+mydirectory &lt;- list.files(include.dirs=TRUE)
+myimages&lt;-list.files(mydirectory[1], pattern = &quot;.png&quot;, full.names = TRUE)
+knitr::include_graphics(myimages)
+```</pre>
+</div></div><p><br/></p><p><em>report_compiler_html.Rmd</em> - same as above but with output: html_document</p><p><em>report_compiler_word.Rmd</em> - same as above but with output: word_document</p><p><br/></p><h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-DataTableFormattingFunctionExamples"><strong>DataTable Formatting Function Examples</strong></h2><p>DataTable formatting is an absolute pain and takes forever. Below are some functions I use to make life easier:</p><h3 id="CopyofShinyDashboardUsefulCode-NumberFormatting"><strong>Number Formatting</strong></h3><p>Function</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence"># applies number formatting to DataTable (currency, rounding, percentages)
+#
+# @param DataTable: a DataTable object# @param perc_columns: vector of column names that need percentage formatting
+# @param num_columns: vector of column names that need to be rounded
+# @param currency_columns: vector of column names that need dollar formatting
+#
+# @return DataTable with percentages rounded to 2 decimal places and currency/numbers rounded to 0 decimal places
+formatstyle_number &lt;- function(DataTable, perc_columns, num_columns, currency_columns) {  
+	if (!FALSE %in% perc_columns) {    
+		for (i in perc_columns) {      DataTable &lt;- DataTable %&gt;% formatPercentage(., i, 2)    }  
+	}  
+	if (!FALSE %in% num_columns) {    
+		for (i in num_columns) {      DataTable &lt;- DataTable %&gt;% formatCurrency(., i, &quot;&quot;, digits = 0)    }  
+	}  
+	if (!FALSE %in% currency_columns) {    
+		for (i in currency_columns) {      DataTable &lt;- DataTable %&gt;% formatCurrency(., i, &quot;$&quot;, digits = 0)    }  
+	}  
+
+	DataTable
+}</pre>
+</div></div><p>Server Example</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">output$table &lt;- renderDataTable({
+	datatable(df) %&gt;% formatstyle_number(., c(&#39;Return Rate&#39;, &#39;Cancel Rate&#39;, &#39;Percent Temporary Discount&#39;), c(&#39;Total Orders&#39;), c(&#39;Gross Margin&#39;, &#39;CLV 5&#39;))
+})</pre>
+</div></div><p>Server without function</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">output$table &lt;- renderDataTable({
+	datatable(df) %&gt;% 
+		formatPercentage(., &#39;Return Rate&#39;, 2) %&gt;%
+		formatPercentage(., &#39;Cancel Rate&#39;, 2) %&gt;%
+		formatPercentage(., &#39;Percent Temporary Discount&#39;, 2) %&gt;%
+		formatCurrency(., &#39;Total Orders&#39;, &quot;&quot;, digits = 0) %&gt;%
+		formatCurrency(., &#39;Gross Margin&#39;, &quot;$&quot;, digits = 0) %&gt;%
+		formatCurrency(., &#39;CLV 5&#39;, &quot;$&quot;, digits = 0)
+})
+</pre>
+</div></div><p><br/></p><h3 id="CopyofShinyDashboardUsefulCode-BorderFormatting">Border Formatting</h3><p>Function</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence"># Adds vertical lines into the table for column separation
+#
+# @param left_columns: vector of column names to place vertical borders on left of
+# @param right: column name of column to place vertical border at the right of
+#
+# @return DataTable with vertical line borders
+formatstyle_border_vertical &lt;- function(DataTable, left_columns, right) {  
+	for (i in left_columns) {    
+		DataTable &lt;- DataTable %&gt;% formatStyle(., i, `border-left` = &quot;solid 2px #000&quot;)  
+	}  
+	
+	DataTable %&gt;% formatStyle(., right, `border-right` = &quot;solid 2px #000&quot;)
+}</pre>
+</div></div><p><br/></p><h3 id="CopyofShinyDashboardUsefulCode-ConditionalFormatting">Conditional Formatting</h3><p>The below function is more complicated. Ask Jonathan or Tyki for an explanation if it is confusing.</p><p>Function</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence"># applies conditional color formatting to a DataTable
+#
+#
+# @param DataTable: a DataTable object
+# @param columns: vector of column names to be formatted
+# @param is_total: TRUE formats the &quot;total&quot; row. FALSE for DataTables without &quot;total&quot; row
+# @param colors: vector of colors in hex format - must be odd number of colors
+#
+# @return a DataTable with columns that are colored based on quantiles of numbers in column
+formatstyle_color &lt;- function(DataTable, columns, colors) {  
+	if (is_total == TRUE) {    
+		for (i in columns) {      
+			DataTable &lt;- DataTable %&gt;%         
+				formatStyle(., i, backgroundColor = styleInterval(DataTable$x$data[-nrow(DataTable$x$data), ] %&gt;% 
+											pull(i) %&gt;% 
+											quantile(prob = seq(0, 1, by = 1/length(colors))[-c(1, length(colors)+1)]),
+										  colors)
+				) %&gt;%      
+				formatStyle(., 1:ncol(DataTable$x$data), 
+						valueColumns = 1,                     
+						backgroundColor = styleEqual(&quot;Total&quot;, &quot;white&quot;))    
+		}  
+	} else {    
+		for (i in columns) {      
+			DataTable &lt;- DataTable %&gt;% 
+				formatStyle(., i, backgroundColor = styleInterval(DataTable$x$data %&gt;% 
+											pull(i) %&gt;% 
+											quantile(prob = seq(0, 1, by = 1/length(colors))[-c(1, length(colors)+1)],na.rm=TRUE), 
+									         colors)
+				)    
+		}  
+	}  
+
+	DataTable
+
+}</pre>
+</div></div><p><br/></p><h3 id="CopyofShinyDashboardUsefulCode-Notes:">Notes:</h3><p>Datatable$x$data references the dataframe that was put into the datatable() function</p><p>Reference: <a href="https://rstudio.github.io/DT/functions.html" class="external-link" rel="nofollow">https://rstudio.github.io/DT/functions.html</a> </p><p>Build your own functions using the same strategies from these formulas</p><p><br/></p><h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-ShinyWidgets-Dropdown,SweetAlerts,PickerInput,SwitchInput,etc."><strong>Shiny Widgets - Dropdown, Sweet Alerts, PickerInput, SwitchInput, etc.</strong></h2><p>This package provides improved UI widgets such as pickerInput(), dropdownButton(), and sweet alerts</p><p><a href="https://dreamrs.github.io/shinyWidgets/index.html" class="external-link" rel="nofollow">https://dreamrs.github.io/shinyWidgets/index.html</a></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/95650173/95650193.png" data-image-src="attachments/95650173/95650193.png" data-unresolved-comment-count="0" data-linked-resource-id="95650193" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-11_8-59-51.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><h2 id="CopyofShinyDashboardUsefulCode-WhentouseColumn()vs.SplitLayout()"><strong>When to use Column() vs. SplitLayout()</strong></h2><p>SplitLayout() automatically places UI widgets equally spread apart, so it's <strong>easier to use</strong></p><p>UI - sliderinput will take up half of the screen and plot output will take up the other half</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">fluidRow(   
+	splitLayout(      
+		sliderInput(&quot;obs&quot;, &quot;Number of observations:&quot;, min = 1, max = 1000, value = 500),        
+		plotOutput(&quot;distPlot&quot;)
+		)
+	)
+</pre>
+</div></div><p><br/></p><p>Column() gives you full control of UI widget location, so it gives <strong>more detailed fine-tuning</strong></p><p style="margin-left: 0.0px;text-align: left;">UI - slider input takes up 1/3 of the screen and plot output takes up 2/3</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence"> fluidRow(    
+	column(4,      
+		sliderInput(&quot;obs&quot;, &quot;Number of observations:&quot;, min = 1, max = 1000, value = 500)    ),    
+	column(8,      
+		plotOutput(&quot;distPlot&quot;)    )
+	)
+
+# The grid width of the column (must be between 1 and 12)</pre>
+</div></div><p><strong>IMPORTANT NOTE: use column() if selectInput() dropdown doesn't dropdown fully</strong></p><p style="margin-left: 0.0px;text-align: left;">Using SplitLayout()</p><p style="margin-left: 0.0px;text-align: left;"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="73" src="attachments/95650173/95650194.png" data-image-src="attachments/95650173/95650194.png" data-unresolved-comment-count="0" data-linked-resource-id="95650194" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-11_7-52-3.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p>Using column()</p><p><strong><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" height="250" src="attachments/95650173/95650197.png" data-image-src="attachments/95650173/95650197.png" data-unresolved-comment-count="0" data-linked-resource-id="95650197" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-11_7-42-54.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></strong></p><p><br/></p><h2 id="CopyofShinyDashboardUsefulCode-AddingToolTips"><strong>Adding Tool Tips</strong></h2><p>Put tool tips over/under widgets</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="103" src="attachments/95650173/95650190.png" data-image-src="attachments/95650173/95650190.png" data-unresolved-comment-count="0" data-linked-resource-id="95650190" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-11_11-30-21.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p><br/></p><p>UI</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">require(shinyBS)
+
+fluidRow(
+numericRangeInput(&quot;clv_5&quot;, &quot;5-Year CLV:&quot;, value = c(NA,NA)),
+bsTooltip(&#39;clv_5&#39;, &quot;Expected 5 year GM&quot;, placement = &quot;top&quot;)
+)
+
+# IMPORTANT: be careful not to have apostrophes in the tooltip or it will not show. 
+# For example: 
+# 	bsTooltip(&#39;clv_5&#39;, &quot;Customer&#39;s 5 year GM&quot;, placement = &quot;top&quot;)   --  this is incorrect</pre>
+</div></div><p><br/></p><h2 id="CopyofShinyDashboardUsefulCode-UsefulDatabaseConnectionFunctions"><strong>Useful Database Connection Functions</strong></h2><p>Connection</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">con &lt;- dbConnect(odbc::odbc(),                          
+			uid = EXAMPLEUSER1,                           
+			pwd = EXAMPLEUSER1PASSWORD,                          
+			&quot;OracleODBC&quot;)
+</pre>
+</div></div><p><br/></p><p>Close connection at end of app</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">session$onSessionEnded(function() {dbDisconnect(con)})</pre>
+</div></div><p><br/></p><p>Write data.frame() to Oracle</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">DBI::dbWriteTable(con, &quot;TABLE_NAME&quot;, df, append = FALSE, overwrite = FALSE, temporary = FALSE)</pre>
+</div></div><p><br/></p><p>Append data to global temporary table in oracle </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence"># note: dbWriteTable(&#39;temporary = TRUE&#39;) does not work with odbc package 
+# you have to create a global temporary table in oracle and then append data onto that table using dbWriteTable
+
+dbWriteTable(con, &#39;GLOBAL_TEMP_TABLE_NAME&#39;, df, append=TRUE)</pre>
+</div></div><p><br/></p><p>Lazy Load table from oracle into R - see DBPLYR section for more details</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">lazy_table &lt;- dbplyr::tbl(con,sql(&quot;USER1.EXAMPLE_TABLE&quot;))</pre>
+</div></div><p><br/></p><h2 id="CopyofShinyDashboardUsefulCode-HighchartVisualizationTips"><strong>Highchart Visualization Tips</strong></h2><p><strong>I highly recommend using highcharts for best-in-class tooltips and visualizations</strong></p><p><a href="https://jkunst.com/highcharter/" class="external-link" rel="nofollow">https://jkunst.com/highcharter/</a></p><p>Example:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/95650173/95650189.png" data-image-src="attachments/95650173/95650189.png" data-unresolved-comment-count="0" data-linked-resource-id="95650189" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-11_19-19-13.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p><br/></p><h3 id="CopyofShinyDashboardUsefulCode-Non-StandardEvaluation(NSE)ofcolumns">Non-Standard Evaluation (NSE) of columns</h3><p>Problem:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">bar_chart &lt;- function(df, variable_name_str) {
+	hchart(df, &#39;bar&#39;, hcaes(x = variable_name_str, y = &#39;Placed_Orders&#39;))
+	
+}
+
+bar_chart(df, &#39;gemstone&#39;)
+
+# This function doesn&#39;t work because it thinks x is &#39;variable_name_str&#39; instead of &#39;gemstone&#39;</pre>
+</div></div><p>Solution:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">bar_chart &lt;- function(df, variable_name_str) {  
+column &lt;- sym(variable_name_str)  
+hchart(df, &#39;bar&#39;, hcaes(x = !!column, y = &#39;Placed_Orders&#39;))
+}</pre>
+</div></div><p>This solution should work in other scenarios outside of highchart visualizations as well</p><p><br/></p><h3 id="CopyofShinyDashboardUsefulCode-ToolTips">Tool Tips</h3><p><em>Below is an example of a tooltip. The dataframe has three columns: Gemstone, Placed_Orders, and Percent_Placed_Orders</em></p><p style="margin-left: 0.0px;text-align: left;"><span style="color: rgb(23,43,77);text-decoration: none;">To add a tooltip, all you need is point.Variable_Name</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">hc_tooltip(pointFormat = &quot;Placed Orders: {point.Placed_Orders}&quot;)</pre>
+</div></div><p><span style="color: rgb(23,43,77);text-decoration: none;">Another example with number formatting and adding a percentage sign to the end of percent_placed_orders:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">hchart(df, &#39;bar&#39;, hcaes(x = &#39;Gemstone&#39;, y = &#39;Placed_Orders&#39;)) %&gt;%    
+	hc_tooltip(pointFormat = &#39;&lt;b&gt;{point.Placed_Orders:.f}&lt;/b&gt; ({point.Percent_Placed_Orders:.1f}%)&lt;br/&gt;&#39;) %&gt;%    
+	hc_add_theme(hc_theme_smpl())</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/95650173/95650188.png" data-image-src="attachments/95650173/95650188.png" data-unresolved-comment-count="0" data-linked-resource-id="95650188" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-11_19-34-11.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><h3 id="CopyofShinyDashboardUsefulCode-SUPERUSEFULWEBSITE">SUPER USEFUL WEBSITE</h3><p><a href="https://www.tmbish.me/lab/highcharter-cookbook/" class="external-link" rel="nofollow">https://www.tmbish.me/lab/highcharter-cookbook/</a></p><p><br/></p><h2 id="CopyofShinyDashboardUsefulCode-InformationButtononHeader"><strong>Information Button on Header</strong></h2><p>After clicking the top right information button, display a markdown document in a modal window</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="1000" src="attachments/95650173/95650187.png" data-image-src="attachments/95650173/95650187.png" data-unresolved-comment-count="0" data-linked-resource-id="95650187" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-12_17-28-27.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p>UI</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">header &lt;- dashboardHeader(title = &quot;title&quot;, tags$li(actionLink(&quot;openModal&quot;, label = &quot;Information&quot;, icon = icon(&quot;info&quot;)), class = &quot;dropdown&quot;)) </pre>
+</div></div><p>Server</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">observeEvent(input$openModal, {    
+	showModal(      
+		modalDialog(        
+			includeMarkdown(filepath_to_markdown_doc), easyClose = TRUE, size = &#39;l&#39;
+		))  
+})</pre>
+</div></div><h2 id="CopyofShinyDashboardUsefulCode-TabsetPanels()"><strong>TabsetPanels()</strong></h2><p>Tabset Panels are really help to organize dashboards. For example:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/95650173/95650186.png" data-image-src="attachments/95650173/95650186.png" data-unresolved-comment-count="0" data-linked-resource-id="95650186" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-12_19-16-54.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p><a href="https://shiny.rstudio.com/gallery/tabsets.html" class="external-link" rel="nofollow">https://shiny.rstudio.com/gallery/tabsets.html</a></p><h2 id="CopyofShinyDashboardUsefulCode-GoodColorSchemes"><strong>Good Color Schemes</strong></h2><p>To find good color gradients, see this website:</p><p><a style="text-decoration: underline;text-align: left;" href="https://learnui.design/tools/data-color-picker.html" class="external-link" rel="nofollow">https://learnui.design/tools/data-color-picker.html</a></p><p><br/></p><p>(Can also use this to find colors for conditional formatting)</p><h2 id="CopyofShinyDashboardUsefulCode-Icons"><strong>Icons</strong></h2><p>For anytime you use icon=icon() in actionButtons, actionLinks, sidebar tabs, etc.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/95650173/95650185.png" data-image-src="attachments/95650173/95650185.png" data-unresolved-comment-count="0" data-linked-resource-id="95650185" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-12_19-26-53.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p><a href="https://fontawesome.com/icons?d=gallery" class="external-link" rel="nofollow">https://fontawesome.com/icons?d=gallery</a></p><h2 id="CopyofShinyDashboardUsefulCode-ProgressLoadingBars"><strong>Progress Loading Bars</strong></h2><p>Helps executives not get frustrated with wait times when you perform high-intensive computations</p><p><strong><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="114" src="attachments/95650173/95650182.png" data-image-src="attachments/95650173/95650182.png" data-unresolved-comment-count="0" data-linked-resource-id="95650182" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-12_19-36-38.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></strong></p><p><a href="https://shiny.rstudio.com/gallery/progress-bar-example.html" class="external-link" rel="nofollow">https://shiny.rstudio.com/gallery/progress-bar-example.html</a></p><h2 id="CopyofShinyDashboardUsefulCode-DashboardLogs"><strong>Dashboard Logs</strong></h2><p>Sends log information to table in database. Big thanks to Gable for the code on this:</p><p>Server</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence"># Create Log Table in Database
+# log &lt;- data.frame(stringsAsFactors = FALSE,
+#                   TIME_STAMP = as.character(paste(&quot;&#39;&quot;, Sys.time(), &quot;&#39;&quot;, sep = &quot;&quot;)),
+#                   DASHBOARD = &quot;&#39;BEGIN_LOG&#39;&quot;,
+#                   USER = &quot;&#39;BEGIN_LOG&#39;&quot;,
+#                   SESSION_ID = &quot;&#39;BEGIN_LOG&#39;&quot;,
+#                   INPUT = &quot;&#39;BEGIN_LOG&#39;&quot;)
+# 
+# dbWriteTable(connection, &quot;DASHBOARD_LOG&quot;, log, append = FALSE, overwrite = TRUE)
+
+observeEvent(input$tabs, {    # When tab is changed it will trigger
+	session &lt;- as.character(session$token)    
+	user &lt;- reactiveValuesToList(result_auth)$user    
+	values$log &lt;-  data.frame(      
+			stringsAsFactors = FALSE,      
+			SESSION_ID = paste(&quot;&#39;&quot;, as.character(session), &quot;&#39;&quot;, sep = &quot;&quot;),      
+			DASHBOARD = &quot;&#39;SEGMENTATION&#39;&quot;,      
+			USER = paste(&quot;&#39;&quot;, as.character(user), &quot;&#39;&quot;, sep = &quot;&quot;),      
+			INPUT = paste(&quot;&#39;&quot;, input$tabs, &quot;&#39;&quot;, sep = &quot;&quot;),      
+			TIME_STAMP = as.character(paste(&quot;&#39;&quot;, Sys.time(), &quot;&#39;&quot;, sep = &quot;&quot;))    )        
+
+	qry &lt;- sqlAppendTable(con, &quot;DASHBOARD_LOG&quot;, values$log, row.names = FALSE)    
+	res &lt;- dbSendStatement(con, qry)    
+	dbClearResult(res)      
+})</pre>
+</div></div><p><br/></p><p>UI - input$tabs comes from the id in the sidebar</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">sidebarMenu(id = &quot;tabs&quot;,              
+	menuItem(&quot;Dashboard Information&quot;, tabName = &quot;about&quot;, icon=icon(&quot;info&quot;))
+)</pre>
+</div></div><p><br/></p><h2 id="CopyofShinyDashboardUsefulCode-PoolPackageandHandlingConnections"><strong>Pool Package and Handling Connections</strong></h2><h3 id="CopyofShinyDashboardUsefulCode-BestSolution"><strong>Best Solution</strong></h3><p>The pool package is the best way to handle complex dashboards with multiple connections; however, I haven't had any success with pool and odbc package</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence"># Couldn&#39;t get this to work
+# library(pool)
+# pool &lt;- dbPool(drv=odbc::odbc(),
+#                driver=OracleODBC,
+#                server=#####,
+#                uid=#####,
+#                pwd=#####,
+#                port=##### )</pre>
+</div></div><p><a href="https://shiny.rstudio.com/articles/overview.html" class="external-link" rel="nofollow">https://shiny.rstudio.com/articles/overview.html</a></p><h3 id="CopyofShinyDashboardUsefulCode-CurrentSolution">Current Solution</h3><p>Initialize one connection at beginning of server and then close it at the end of the session</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">server &lt;- function(input, output, session) {
+	# initialize connection to database  
+	con &lt;- dbConnect(odbc::odbc(),                           
+	uid = ####,                           
+	pwd = ####,                          
+	&quot;OracleODBC&quot;)
+
+	#Code
+
+	
+	session$onSessionEnded(function() {DBI::dbDisconnect(con)})
+}</pre>
+</div></div><p><br/></p><p><br/></p><p><br/></p><h2 id="CopyofShinyDashboardUsefulCode-Show/HideTabsetPanels"><strong>Show/Hide Tabset Panels</strong></h2><p>Here is an example for how to show/hide tabset panels using a switch input button:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="106" src="attachments/95650173/95650179.png" data-image-src="attachments/95650173/95650179.png" data-unresolved-comment-count="0" data-linked-resource-id="95650179" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-12_20-18-42.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p>UI</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">switchInput(&quot;minimizetab&quot;, label = &quot;Show Filters&quot;, value = TRUE, onLabel = &quot;YES&quot;, offLabel = &quot;NO&quot;)
+
+tabsetPanel(id = &#39;filtertabs&#39;, 
+	tabPanel(&quot;Main Filters&quot;, #code),
+	tabPanel(&quot;Financial Filters&quot;, #code),
+	tabPanel(&quot;Department Filters&quot;, #code),
+	tabPanel(&quot;Product Filters&quot;, #code),
+	tabPanel(&quot;Host Filters&quot;, #code),
+	tabPanel(&quot;Time Filters&quot;, #code),
+	tabPanel(&quot;Advanced Filtering&quot;, #code)
+)</pre>
+</div></div><p>Here are the tabsetpanels - they will be hidden if the switch input is clicked</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="1000" src="attachments/95650173/95650178.png" data-image-src="attachments/95650173/95650178.png" data-unresolved-comment-count="0" data-linked-resource-id="95650178" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-12_20-19-26.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p>Server</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">observeEvent(input$minimizetab, {      
+	if (input$minimizetab == TRUE) {        
+		showTab(inputId = &quot;filtertabs&quot;, target = &quot;Main Filters&quot;)# notice target references the title not the id       
+		showTab(inputId = &quot;filtertabs&quot;, target = &quot;Financial Filters&quot;)        
+		showTab(inputId = &quot;filtertabs&quot;, target = &quot;Department Filters&quot;)        
+		showTab(inputId = &quot;filtertabs&quot;, target = &quot;Product Filters&quot;)        
+		showTab(inputId = &quot;filtertabs&quot;, target = &quot;Host Filters&quot;)        
+		showTab(inputId = &quot;filtertabs&quot;, target = &quot;Time Filters&quot;)        
+		showTab(inputId = &#39;filtertabs&#39;, target = &quot;Advanced Filtering&quot;)      
+	} else {        
+		hideTab(inputId = &quot;filtertabs&quot;, target = &quot;Main Filters&quot;)        
+		hideTab(inputId = &quot;filtertabs&quot;, target = &quot;Financial Filters&quot;)        
+		hideTab(inputId = &quot;filtertabs&quot;, target = &quot;Department Filters&quot;)        
+		hideTab(inputId = &quot;filtertabs&quot;, target = &quot;Product Filters&quot;)        
+		hideTab(inputId = &quot;filtertabs&quot;, target = &quot;Host Filters&quot;)        
+		hideTab(inputId = &quot;filtertabs&quot;, target = &quot;Time Filters&quot;)        
+		hideTab(inputId = &quot;filtertabs&quot;, target = &quot;Advanced Filtering&quot;)      }      
+})</pre>
+</div></div><p><br/></p><h2 id="CopyofShinyDashboardUsefulCode-Dbplyr"><strong>Dbplyr</strong></h2><p><em>&quot;<span style="color: rgb(68,68,68);text-decoration: none;">dbplyr is the database backend for </span><a href="https://dplyr.tidyverse.org/" style="text-decoration: none;text-align: left;" class="external-link" rel="nofollow">dplyr</a><span style="color: rgb(68,68,68);text-decoration: none;">. It allows you to use remote database tables as if they are in-memory data frames by automatically converting dplyr code into SQL.</span>&quot;</em></p><ul style="list-style-type: square;"><li><strong><a href="https://dbplyr.tidyverse.org/" class="external-link" rel="nofollow">https://dbplyr.tidyverse.org/</a></strong></li></ul><p><br/></p><p>Dbplyr is useful when working with tables that are way too big to download into R.</p><h2 id="CopyofShinyDashboardUsefulCode-ValueBoxHeaders"><strong>Value Box Headers</strong></h2><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="600" src="attachments/95650173/95650176.png" data-image-src="attachments/95650173/95650176.png" data-unresolved-comment-count="0" data-linked-resource-id="95650176" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-1-29_16-38-46.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="76" src="attachments/95650173/95650208.png" data-image-src="attachments/95650173/95650208.png" data-unresolved-comment-count="0" data-linked-resource-id="95650208" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2022-4-9_16-40-35.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650173" data-linked-resource-container-version="2"></span></p><p>Headers can have subtext, icons, and different colors</p></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>UI</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">fluidPage(    
+valueBoxOutput(outputId = &quot;intro_header&quot;, width = 12)
+)</pre>
+</div></div></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Server</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">output$intro_header &lt;- renderValueBox({
+	valueBox(tags$p(&quot;Customer Clustering Dashboard&quot;, 
+	style = cfg$format$server$font$size), 
+	paste0(&quot;Date Last Updated: &quot;, 
+		format(file.info(&quot;filepath.Rdata&quot;)$mtime, &quot;%Y-%m-%d&quot;)),  
+	width = 2, 
+	color = &quot;navy&quot;
+)})
+
+# For icons, you can add &#39;icon = icon(&quot;text&quot;)&#39; to the valuebox</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-ForceUpdate/RestartoftheApplication"><strong>Force Update/Restart of the Application</strong></h2><p><strong>Problem:</strong> after updating data/code in the dashboard, the application doesn't update if someone has the dashboard open on one of their browser tabs - even if they are logged out/timed out. </p><p><strong>Solution:</strong></p><p style="text-align: left;"><span>Create a blank text file named 'restart.txt' in the application directory. This will start a 'new R process to run the &quot;new&quot; (restarted) Shiny Application for this and future users'.</span></p><p><span style="color: rgb(33,33,33);text-decoration: none;"> </span><br/><span>Old sessions will remain unchanged until old user refreshes/relogs in. This shouldn't be a problem though because dashboard can be build to time out (see table of contents)</span><span style="color: rgb(33,33,33);text-decoration: none;"> </span><br/><span> </span><span style="color: rgb(33,33,33);text-decoration: none;"> </span><br/><span>Make a bash file that runs 'touch restart.txt' to restart the app every day at a specific time.</span><span style="color: rgb(33,33,33);text-decoration: none;"> The Shiny Server updates based on the modified time of the 'restart.txt' file.</span><br/><span> </span><span style="color: rgb(33,33,33);text-decoration: none;"> </span><br/><span>Documentation: </span><a href="http://rstudio.github.io/shiny-server/os/0.4.0/#restarting-an-application" class="external-link" rel="nofollow"><span>http://rstudio.github.io/shiny-server/os/0.4.0/#restarting-an-application</span></a></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 id="CopyofShinyDashboardUsefulCode-ShinyReportsusingRMarkdown"><strong>Shiny Reports using R Markdown</strong></h2><p><a href="https://github.com/davidruvolo51/shinyAppTutorials/tree/main/rmarkdown-app" class="external-link" rel="nofollow">https://github.com/davidruvolo51/shinyAppTutorials/tree/main/rmarkdown-app</a></p><p><a href="https://shiny.rstudio.com/articles/generating-reports.html" class="external-link" rel="nofollow">https://shiny.rstudio.com/articles/generating-reports.html</a></p><p><br/></p><p>I believe this is the solution to automating executive dashboard reports. If you want to see an example, check out the executive_report folder in the executive dashboard.</p><p><br/></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p style="margin-left: 0.0px;text-align: left;">To add:</p><h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-DataTableRowLastClicked/RowSelected"><strong>DataTable Row Last Clicked/Row Selected</strong></h2><h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-SQLQueriesandpreventingSQLInjections"><strong>SQL Queries and preventing SQL Injections</strong></h2></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p style="margin-left: 0.0px;text-align: left;"><br/></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"></div></div><h2 style="text-decoration: none;text-align: left;margin-left: 0.0px;" id="CopyofShinyDashboardUsefulCode-Relatedarticles">Related articles</h2><p style="margin-left: 0.0px;text-align: left;"></p><p style="margin-left: 0.0px;text-align: left;">
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/display/BA/Installing+Oracle+Instant+Client">Installing Oracle Instant Client</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/display/BA/Replacing+Expiring+Database+Passwords">Replacing Expiring Database Passwords</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/display/BA/SQL+Security">SQL Security</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/display/BA/Shiny+Dashboard+-+Useful+Code">Shiny Dashboard - Useful Code</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/display/BA/Virtual+Environments">Virtual Environments</a>
+                
+                        
+                    </div>
+    </li>
+    </ul>
+</p><p style="margin-left: 0.0px;text-align: left;"><br/></p></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650174.png">image2021-1-29_16-40-4.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650175.png">image2021-1-29_16-39-48.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650176.png">image2021-1-29_16-38-46.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650177.png">image2021-1-12_21-11-38.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650178.png">image2021-1-12_20-19-26.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650179.png">image2021-1-12_20-18-42.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650180.png">image2021-1-12_20-18-29.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650181.url">Shiny Dashboard - Useful Code.url</a> (application/octet-stream)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650182.png">image2021-1-12_19-36-38.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650183.png">image2021-1-12_19-35-38.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650184.png">image2021-1-12_19-28-12.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650185.png">image2021-1-12_19-26-53.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650186.png">image2021-1-12_19-16-54.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650187.png">image2021-1-12_17-28-27.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650188.png">image2021-1-11_19-34-11.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650189.png">image2021-1-11_19-19-13.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650190.png">image2021-1-11_11-30-21.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650191.png">image2021-1-11_9-7-37.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650192.png">image2021-1-11_9-5-51.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650193.png">image2021-1-11_8-59-51.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650194.png">image2021-1-11_7-52-3.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650195.png">image2021-1-11_7-51-10.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650196.png">image2021-1-11_7-50-29.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650197.png">image2021-1-11_7-42-54.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650198.png">image2020-12-29_14-28-6.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650199.png">image2020-12-28_18-54-49.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650200.png">image2020-12-28_18-53-56.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650201.png">image2020-12-28_18-27-36.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650202.png">image2020-12-28_18-26-37.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650203.png">image2020-12-28_18-26-26.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650204.png">image2020-12-28_18-4-41.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650205.png">image2020-12-28_17-56-53.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650207.png">image2022-4-9_16-34-5.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650173/95650208.png">image2022-4-9_16-40-35.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Apr 09, 2022 16:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

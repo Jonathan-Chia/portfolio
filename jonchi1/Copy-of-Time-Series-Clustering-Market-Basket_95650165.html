@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chia, Jonathan : Copy of Time Series Clustering Market Basket</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Chia, Jonathan</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Productionized-Articles_95650120.html">Productionized Articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Chia, Jonathan : Copy of Time Series Clustering Market Basket
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Chia, Jonathan</span> on Apr 09, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><em>Combining Kmeans and time series data to find products displaying similar fluctuations in quantity sold</em></p><p>Note: building a full-fledged product recommendation system would probably be better but might be way more complicated; check with Randall to see his progress on that.</p><p><br/></p><p><strong>UPDATE:</strong></p><p>After much testing, market basket is much more superior because we have too many products and so the time series clustering just ends up finding products that happen to have the same fluctuations.</p><p>This analysis can be used to see how subdepartments are performing against each other</p><p>It can also be used as an additional check to see if there are any other complements that the market basket didn't catch</p><p>It could also be used as an additional visualization for the market basket - examining the product score trends for the products in a basket would be interesting</p><p><br/></p><p><strong>See this paper for full information:</strong></p><p><a href="https://docs.google.com/viewer?a=v&amp;pid=sites&amp;srcid=ZGVmYXVsdGRvbWFpbnxhbmFseXRpY3NvZnRoaW5nc3xneDozNjlhODI1Mjg5ZjdlMjhl" class="external-link" rel="nofollow">https://docs.google.com/viewer?a=v&amp;pid=sites&amp;srcid=ZGVmYXVsdGRvbWFpbnxhbmFseXRpY3NvZnRoaW5nc3xneDozNjlhODI1Mjg5ZjdlMjhl</a></p><p><br/></p><p><strong>Output:</strong></p><p>After time series clustering, D12 and D14 were found to be in the same cluster</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/95650165/95650167.png" data-image-src="attachments/95650165/95650167.png" data-unresolved-comment-count="0" data-linked-resource-id="95650167" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-3-16_15-55-1.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650165" data-linked-resource-container-version="1"></span></p><p><br/></p><p><strong>How the data would look before clustering:</strong></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="125" src="attachments/95650165/95650166.png" data-image-src="attachments/95650165/95650166.png" data-unresolved-comment-count="0" data-linked-resource-id="95650166" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2021-3-16_16-10-6.png" data-base-url="https://confluence.jewelry.acn" data-linked-resource-content-type="image/png" data-linked-resource-container-id="95650165" data-linked-resource-container-version="1"></span></p><p><br/></p><p><br/></p><p><br/></p><p><strong>Strengths:</strong></p><ul style="list-style-type: square;"><li>Bypasses the need for a large matrix for association rule mining, which usually ends up being sparse and leading to redundant and not very useful rules</li><li>Instead of having a row for each basket, you have a row for each product, so data is way smaller</li><li>&quot;Time series clustering can be used to identify products that are commonly<br/>purchased across a certain time period. Such patterns are otherwise hard to<br/>discover using association rule mining, which analyses transactions<br/>without temporal consideration.&quot;</li></ul><p><br/></p><p><strong>Problems we might have applying this method on our product data:</strong></p><ul style="list-style-type: square;"><li>Product quantity sold is quite low in general since we have so many products</li><li>Products may be correlated by random chance - especially if they are not bought very often</li><li>We have thousands and thousands of different products</li><li>It might be better to group products by product attributes instead of doing individual products</li></ul><p><br/></p><p><strong>Solution</strong></p><ul><li>Use product score instead of quantity sold as this will balance out all other factors such as broadcast showings, SAS, etc.</li><li>Figure out a way to get a correlation matrix - then we can see which products sell well together and which don't - correlation metric should be interpretable for executives</li><li>Make a dashboard and put all this stuff into it </li></ul><p><br/></p></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p style="margin-left: 0.0px;text-align: left;"><strong>Problems</strong></p><p style="margin-left: 0.0px;text-align: left;">products only have a product score for when they broadcasted</p><p><br/></p><p><br/></p><p><br/></p><p>we have to weight quantity sold somehow</p><p><br/></p><p><br/></p><p><span style="color: rgb(23,43,77);text-decoration: none;">There are too many products, so the products that I am finding are related are just related by chance</span></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><strong>Solutions</strong></p><p>we can do quarterly product scores instead of monthly</p><p>we can do weekly product scores by showbrand instead of individual product</p><p>use the product trend table, if the product score doesn't change it stays the same over time</p><p><br/></p><p>we can factor in air time like in the product score stuff OR just do an anytime analysis first</p><p><br/></p><p><br/></p><p><span style="color: rgb(23,43,77);text-decoration: none;">I think instead this analysis should be used within departments as we have typically found that complements are usually in the same departments (based on the market basket analysis)</span></p><p><span style="color: rgb(23,43,77);text-decoration: none;">Could also focus the analysis on sub departments or even show brands</span></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><strong>Why Euclidean distance is wrong </strong></p><p><strong><a href="https://towardsdatascience.com/how-to-apply-k-means-clustering-to-time-series-data-28d04a8f7da3" class="external-link" rel="nofollow">https://towardsdatascience.com/how-to-apply-k-means-clustering-to-time-series-data-28d04a8f7da3</a></strong></p><p><br/></p><p><strong><a href="https://tslearn.readthedocs.io/en/stable/gen_modules/neighbors/tslearn.neighbors.KNeighborsTimeSeries.html" class="external-link" rel="nofollow">https://tslearn.readthedocs.io/en/stable/gen_modules/neighbors/tslearn.neighbors.KNeighborsTimeSeries.html</a></strong></p><p><br/></p><p><br/></p><p><br/></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><strong>Correlation Metric</strong></p><p>Collaborative filtering methods use a cosine similarity formula as it will take into account the weights unlike a regular correlation</p><p><br/></p><p><br/></p><p><br/></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><strong>Quantity sold vs quantity available</strong></p><p>Check to see if the reason the product drops right after peaking is because of lack of supply</p><p><br/></p><p><br/></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><strong>How to check if products that are nearest neighbors are actually complements/substitutes?</strong></p><p>Cross join all the products to get a table like in </p><p><a href="https://towardsdatascience.com/retail-analytics-a-novel-and-intuitive-way-of-finding-substitutes-and-complements-c99790800b42" class="external-link" rel="nofollow">https://towardsdatascience.com/retail-analytics-a-novel-and-intuitive-way-of-finding-substitutes-and-complements-c99790800b42</a></p><p>one problem: we cannot find substitutes because jewelry that are substitutes will never be bought together so the substitute formula proposed in the article would not work</p><p>we could check if they are complements by referencing the market basket table (maybe we can lower the parameters so we have more data)</p><p><br/></p><p><br/></p><p><strong>Best way to use this for products</strong></p><p>Run this analysis on products only in the same sub_cluster (typically complements come from the same department)</p><p>Normalize</p><p>Then you will find complements sometimes. I was able to find a few that are not in the market basket, but ultimately I think the market basket is the best.</p><p><br/></p><p><br/></p><p><br/></p><p><br/></p></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650165/95650166.png">image2021-3-16_16-10-6.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650165/95650167.png">image2021-3-16_15-55-1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/95650165/95650168.png">image2021-3-16_15-54-53.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Apr 09, 2022 16:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

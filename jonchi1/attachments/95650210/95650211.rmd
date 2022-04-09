@@ -1,0 +1,37 @@
+---
+title: "reticulate_setup"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+
+```
+
+Setting up python
+```{r}
+virtualenv_create("r-reticulate")
+virtualenv_root() # check if the environment is in your directory
+
+use_python("~/.virtualenvs/r-reticulate/bin/python3.6")
+py_config()
+```
+
+Installing packages
+```{r}
+virtualenv_install("/home/jonchi1/.virtualenvs/r-reticulate", "pandas")
+py_install('matplotlib')
+
+pandas <- import('pandas') # or you can import directly in the python codechunk (see below)
+```
+
+Load packages
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# if the packages loaded, you are ready to go! 
+
+```
