@@ -4,7 +4,7 @@ title: BayesBball
 ---
 I am making a dashboard in shiny that will input my free throws and update my free throw true shooting percentage using bayesian statistics. 
 
-See this link: ![shinyapps.io/BayesBball](https://jonathan-chia.shinyapps.io/BayesBball/)
+See this link: [shinyapps.io/BayesBball](https://jonathan-chia.shinyapps.io/BayesBball/)
 
 ## Problem of Interest
 Why are we doing this study?
