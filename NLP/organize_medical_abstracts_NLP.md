@@ -8,6 +8,19 @@ The purpose of this notebook is to replicate an NLP model from [Neural networks 
 * Results
 * Conclusion
 
+# Table of Contents
+
+* [Get the Data](#data)
+* [Preprocess and Visualize](#preprocess)
+* [Baseline Model](#baseline)
+* [Model 1: Naive Bayes TFIDF](#model1)
+* [Model 2: Universal Sentence Feature Extractor](#model2)
+* [Model 3: Conv1D with Character Embeddings](#model3)
+* [Model 4: Pretrained Token + Character Embeddings](#model4)
+* [Model 5: Full Model from Paper](#model5)
+* [Comparing Model Results](#compare)
+* [Conclusion](#conclusion) 
+
 ### Model Input
 For example, can we train an NLP model which takes the following input (note: the following sample has had all numerical symbols replaced with "@"):
 
@@ -109,7 +122,7 @@ filenames
 
 
 
-## Preprocess and Visualize the Data
+## Preprocess and Visualize the Data <a name="preprocess"></a>
 
 
 ```python
@@ -626,7 +639,7 @@ num_classes, class_names
 
 
 
-## Baseline Model - Naive Bayes with Tfidf
+## Baseline Model - Naive Bayes with Tfidf <a name="baseline"></a>
 
 Explanation of Tfidf: https://monkeylearn.com/blog/what-is-tf-idf/
 
@@ -742,7 +755,7 @@ baseline_results
 
 
 
-## Model 1: Conv1D with token embeddings
+## Model 1: Conv1D with token embeddings <a name="model1"></a>
 
 ### Tokenization
 
@@ -1287,7 +1300,7 @@ model_1_results
 
 Did better than our baseline, likely because there are pretty long sentences, so the deep learning model is able to learn more
 
-## Model 2: Pretrained Universal Sentence Feature Extractor
+## Model 2: Pretrained Universal Sentence Feature Extractor <a name="model2"></a>
 
 The paper uses GloVe embeddings, but this isn't on tensorhub so let's try just using the universal sentence encoder
 
@@ -1518,7 +1531,7 @@ model_2_results
 
 
 
-## Model 3: Conv1D with character embeddings
+## Model 3: Conv1D with character embeddings <a name="model3"></a>
 
 The paper uses token+character embeddings. Let's try just character embeddings first
 
@@ -1932,7 +1945,7 @@ Interesting! Why do you think it did better?
 
 I think it did better because certain punctuation such as parentheses or colons show up more in like results sections
 
-## Model 4: Pretrained token embeddings + character embeddings
+## Model 4: Pretrained token embeddings + character embeddings <a name="model4"></a>
 
 Multimodal models
 
@@ -2151,7 +2164,7 @@ model_1_results
 
 Why do you think it didn't perform as well as model 1? Maybe could try without a pretrained embedding layer?
 
-## Model 5: Pretrained token embeddings + character embeddings + positional (feature) embeddings - the full model from the paper
+## Model 5: Pretrained token embeddings + character embeddings + positional (feature) embeddings - the full model from the paper <a name="model5"></a>
 
 The order of the sentences are important! For example, generally sentences in the beginning are background/objective sentences
 
@@ -2959,7 +2972,7 @@ loaded_model = tf.keras.models.load_model('organize_medical_abstracts_best_model
 Hmm the problem has to do with the `mask_zero=True` we can fix it by removing that 
 ```
 
-## Conclusion
+## Conclusion <a name="conclusion"></a>
 
 Well that was a long notebook
 
