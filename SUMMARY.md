@@ -16,7 +16,7 @@
 
 * Clustering
    * [Customer Segmentation using KMeans](/clustering/kmeans/kmeans_customer_segmentation.md)
-   * [Time Series Clustering](/clustering/time_series/time_series_clustering.md)
+   * [Time Series Clustering](/clustering/time_series_clustering/time_series_clustering.md)
 
 ## Deep Learning
 
