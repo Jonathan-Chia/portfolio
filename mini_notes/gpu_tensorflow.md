@@ -1,6 +1,3 @@
-GPU Setup for Tensorflow
-=================================================
-
 Created by Chia, Jonathan on Apr 09, 2022
 
 # Useful Documentation
