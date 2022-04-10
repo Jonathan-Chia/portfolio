@@ -1,6 +1,3 @@
-Random Forests
-=======================================
-
 Created by Chia, Jonathan on Apr 09, 2022
 
 # Introduction
