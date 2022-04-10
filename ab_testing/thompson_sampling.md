@@ -8,6 +8,11 @@ _Also referred to as the Bayesian Bandit_
 
 This article is written assuming a basic understanding of Bayesian statistics, A/B testing, and conjugate priors
 
+* [Introduction](#Introduction)
+* [Multi-Arm Bandit Algorithms](#bandit_algorithms)
+* [Thompson Sampling Intuition](#intuition)
+* [Thompson Sampling Process](#process)
+* [Example Code](#code)
   
 This article is a summary of the lessons found in the below link:
 
@@ -22,7 +27,7 @@ Thompson Sampling is one of the best multi-armed bandit A/B testing algorithms. 
 
 But before we jump into Thompson Sampling, here is a quick overview of multi-armed bandit algorithms.
 
-Multi-Arm Bandit Algorithms:
+# Multi-Arm Bandit Algorithms: <a name="bandit_algorithms"></a>
 ============================
 
 Multi-Arm Bandit algorithms address the key problem we see in A/B testing: half of the test subjects receive the worse treatment.
@@ -49,7 +54,7 @@ Instead of pre-assigning two groups, multi-arm bandit algorithms adjust and upda
 
   
 
-Thompson Sampling Intuition:
+# Thompson Sampling Intuition: <a name="intuition"></a>
 ============================
 
 Suppose we have 3 advertisements, each with a set but unknown probability of being clicked. We want to find out which advertisement has the highest click-through rate
@@ -86,7 +91,7 @@ After we get more data, this posterior we just found, is used as a prior to find
 
 Think about the benefits of using Bayesian statistics. Each time we gather data on the ads, the estimated click-through rate probability can be updated. That means that as we test the ads, we will be able to figure out which ad is best **during** the experiment instead of at the very end. 
 
-Thompson Sampling Process:
+# Thompson Sampling Process: <a name="process"></a>
 ==========================
 
 1.  Assign each slot machine a beta prior of beta(1,1) - a uniform distribution
@@ -174,7 +179,7 @@ THEREFORE, THOMPSON SAMPLING **EXPLORES** WELL IN THE BEGINNING, FINDS THE BEST
 
 **Because the probability distributions narrow, the algorithm is able to exploit more**
 
-Code:
+# Code: <a name="code"></a>
 =====
 
 For this code example, we are running a simulation to show that the algorithm actually works; therefore, we start with the true probabilities for the three ads.
