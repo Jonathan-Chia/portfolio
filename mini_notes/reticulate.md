@@ -1,9 +1,4 @@
-Chia, Jonathan : Copy of Use Both R and Python with Reticulate  
-
-1.  [Chia, Jonathan](index.html)
-2.  [Productionized Articles](Productionized-Articles_95650120.html)
-
-Chia, Jonathan : Copy of Use Both R and Python with Reticulate
+Use Both R and Python with Reticulate
 ==============================================================
 
 Created by Chia, Jonathan on Apr 09, 2022
