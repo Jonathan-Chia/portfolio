@@ -3,7 +3,11 @@ Displaying Code using R Markdown
 
 Created by Chia, Jonathan, last modified on Apr 09, 2022
 
+# Introduction
+
 Refer to this article when you want to organize a report that includes code
+
+# Table of Contents
 
 *   [Why Use R Markdown?](#why)
 *   [Template for HTML report](#template)
