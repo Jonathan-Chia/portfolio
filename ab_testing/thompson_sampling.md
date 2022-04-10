@@ -1,7 +1,3 @@
-
-Thompson Sampling
-==========================================
-
 Created by Chia, Jonathan on Apr 09, 2022
 
 _Also referred to as the Bayesian Bandit_
