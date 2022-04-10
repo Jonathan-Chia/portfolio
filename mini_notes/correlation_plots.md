@@ -5,14 +5,14 @@ Created by Chia, Jonathan on Apr 09, 2022
 
 # Introduction
 
-Here's a really nice package for visualizing correlation
+Here's a really nice package for visualizing correlation in python
 
-# Code
+# Output
 
-Python:
 
 ![](attachments/95650170/95650171.png)
 
+# Code
 
 See this link for example code: [https://colab.research.google.com/drive/1YSvER-U3cwGplSHyXwaCXYhOWfWO53Iy](https://colab.research.google.com/drive/1YSvER-U3cwGplSHyXwaCXYhOWfWO53Iy)
 
