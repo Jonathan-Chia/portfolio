@@ -2,7 +2,27 @@
 
 # Food Vision Big
 
-### Check GPU
+This project aims to classify different images of food using transfer learning. 
+
+* [Check GPU](#gpu)
+* [Get Helper Functions](#functions)
+* [Use TF Datasets](#tf_datasets)
+* [Exploring Food 101 Data](#explore)
+* [Preprocessing Functions](#preprocessing)
+* [Batch and Prepare Datasets](#prep_data)
+* [Model Callbacks](#callbacks)
+* [Mixed Precision](#mixed_precision)
+* [Build Feature Extraction Model](#feature_extraction)
+* [Check Mixed Precision](#check_mp)
+* [Load Model](#load_model)
+* [Callback Setup](#setup_callbacks)
+* [Compile](#compile)
+* [Tensorboard](#tensorboard)
+* [Plot Loss Curves](#loss)
+* [Evaluate Model](#eval)
+* [Next Steps](#next_steps)
+
+## Check GPU <a name="gpu"></a>
 
 Need score of 7.0+
 
@@ -14,7 +34,7 @@ Need score of 7.0+
     GPU 0: Tesla K80 (UUID: GPU-0d764f2a-1a8a-d086-659e-51365d9a7ba2)
 
 
-## Get helper functions
+## Get Helper Functions <a name="functions"></a>
 
 
 ```python
@@ -39,7 +59,7 @@ Need score of 7.0+
 from helper_functions import create_tensorboard_callback, plot_loss_curves, unzip_data, compare_historys, walk_through_dir
 ```
 
-## Use TF Datasets
+## Use TF Datasets <a name="tf_datasets"></a>
 
 
 ```python
@@ -111,7 +131,7 @@ print("food101" in datasets_list)
     [1mDataset food101 downloaded and prepared to /root/tensorflow_datasets/food101/2.0.0. Subsequent calls will reuse this data.[0m
 
 
-## Exploring Food 101 Data
+## Exploring Food 101 Data <a name="explore"></a>
 
 
 ```python
@@ -319,7 +339,7 @@ train_one_sample
     
 
 
-## Preprocessing functions
+## Preprocessing Functions <a name="preprocessing"></a>
 
 Problems with this data
 * uint8
@@ -361,7 +381,7 @@ print(f"Image after preprocessing:\n {preprocessed_img[:2]}...,\nShape: {preproc
     NameError: name 'image' is not defined
 
 
-## Batch and Prepare Datasets
+## Batch and Prepare Datasets <a name="prep_data"></a>
 
 From tensorflow best practices
 
@@ -414,7 +434,7 @@ train_data, test_data
 
 
 
-## Create modelling callbacks
+## Create Modelling Callbacks <a name="callbacks"></a>
 
 
 ```python
@@ -440,7 +460,7 @@ tf.__version__
 
 
 
-## Mixed Precision
+## Mixed Precision <a name="mixed_precision"></a>
 
 
 ```python
@@ -462,7 +482,7 @@ mixed_precision.set_global_policy("mixed_float16")
     If you will use compatible GPU(s) not attached to this host, e.g. by running a multi-worker model, you can ignore this warning. This message will only be logged once
 
 
-## Build feature extraction model
+## Build Feature Extraction Model <a name="feature_extraction"></a>
 
 
 
@@ -526,7 +546,7 @@ model.summary()
     _________________________________________________________________
 
 
-## Check if we are using mixed precision
+## Check if we are using Mixed Precision <a name="check_mp"></a>
 
 
 ```python
@@ -870,7 +890,7 @@ model.save("drive/My Drive/tensorflow_course/101_food_class_saved_big_dog_model"
       category=CustomMaskWarning)
 
 
-## Loading model in
+## Load Model <a name="load_model"></a>
 
 
 ```python
@@ -1063,7 +1083,7 @@ for layer in model.layers:
     softmax_float32 True float32 <Policy "float32">
 
 
-## set up callbacks
+## Callback Setup <a name="setup_callbacks"></a>
 
 
 ```python
@@ -1085,7 +1105,7 @@ reduce_lr = tf.keras.callbacks.ReduceLROnPlateau(monitor="val_loss",
                                                  min_lr=1e-7)
 ```
 
-## Compile
+## Compile <a name="compile"></a>
 
 
 ```python
@@ -1162,7 +1182,7 @@ model.save('drive/My Drive/tensorflow_course/101_food_class_saved_final_big_dog_
       category=CustomMaskWarning)
 
 
-## View on TensorBoard
+## View on TensorBoard <a name="tensorboard"></a>
 
 
 ```python
@@ -1204,14 +1224,14 @@ model.save('drive/My Drive/tensorflow_course/101_food_class_saved_final_big_dog_
     User specified `one_shot` mode with an unavailable logdir. Exiting without creating an experiment.
 
 
-## Plot loss curves
+## Plot Loss Curves <a name="loss"></a>
 
 
 ```python
 plot_loss_curves(history_fine_tuned)
 ```
 
-## Evaluate model performance
+## Evaluate Model Performance <a name="eval"></a>
 
 
 ```python
@@ -1329,9 +1349,6 @@ def autolabel(rects): # Modified version of: https://matplotlib.org/examples/api
 autolabel(scores)
 ```
 
-## Find the most wrong predictions
+## Next Steps <a name="next_steps"></a>
 
-
-```python
-
-```
+Find most wrong predictions
