@@ -3,7 +3,9 @@ Testing Code
 
 Created by Chia, Jonathan on Apr 09, 2022
 
-_You already test your code manually, so why not write a few more lines of code to document and automate your tests?_
+# Introduction
+
+You already test your code manually, so why not write a few more lines of code to document and automate your tests?
 
 Benefits of Unit Testing 
 =========================
