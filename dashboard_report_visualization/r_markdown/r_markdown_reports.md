@@ -5,18 +5,18 @@ Created by Chia, Jonathan, last modified on Apr 09, 2022
 
 Refer to this article when you want to organize a report that includes code
 
-*   [Why Use R Markdown?](#DisplayingCodeusingRMarkdown-WhyUseRMarkdown?)
-*   [Template for HTML report](#DisplayingCodeusingRMarkdown-TemplateforHTMLreport)
-*   [Output](#DisplayingCodeusingRMarkdown-Output)
-*   [Outputting to Word](#DisplayingCodeusingRMarkdown-OutputtingtoWord)
-    *   [Officedown](#DisplayingCodeusingRMarkdown-Officedown)
-    *   [Officer](#DisplayingCodeusingRMarkdown-Officer)
-    *   [Flextable](#DisplayingCodeusingRMarkdown-Flextable)
-    *   [HTML widgets and Pagedown to save HTML as picture](#DisplayingCodeusingRMarkdown-HTMLwidgetsandPagedowntosaveHTMLaspicture)
-*   [Other Useful Links](#DisplayingCodeusingRMarkdown-OtherUsefulLinks)
-*   [Random Useful Code](#DisplayingCodeusingRMarkdown-RandomUsefulCode)
+*   [Why Use R Markdown?](#why)
+*   [Template for HTML report](#template)
+*   [Output](#output)
+*   [Outputting to Word](#word)
+    *   [Officedown](#officedown)
+    *   [Officer](#officer)
+    *   [Flextable](#flextable)
+    *   [HTML widgets and Pagedown to save HTML as picture](#pic)
+*   [Other Useful Links](#links)
+*   [Random Useful Code](#code)
 
-**Why Use R Markdown?**
+# Why Use R Markdown? <a name="why"></a>
 -----------------------
 
 1.  Helps to keep your code organized
@@ -26,7 +26,7 @@ Refer to this article when you want to organize a report that includes code
 
   
 
-**Template for HTML report**
+# Template for HTML report <a name='template'></a>
 ----------------------------
 
 Below is the code from an R Markdown file that includes a table of contents (toc), adds code hide/show buttons (code_folding), and outputs as a html document
@@ -76,7 +76,7 @@ Below is the code from an R Markdown file that includes a table of contents (toc
     1. number
 ---
 
-**Output**
+# Output <a name="output"></a>
 ----------
 
 Below is the output of the above code
@@ -87,7 +87,7 @@ Below is the output of the above code
 
 ![](attachments/95650110/95650112.png)
 
-**Outputting to Word**
+# Outputting to Word <a name="word"></a>
 ----------------------
 
 **Key packages:**
@@ -98,7 +98,7 @@ Below is the output of the above code
 *   htmlwidgets
 *   pagedown
 
-### Officedown
+### Officedown <a name="officedown"></a>
 
 Lets you adjust page margins, landscape, columns, and other Word specific options
 
@@ -128,13 +128,13 @@ block_section(
 
   
 
-### Officer
+### Officer <a name="officer"></a>
 
 Officer has to be loaded to pair with officedown and flextable
 
   
 
-### Flextable
+### Flextable <a name="flextable"></a>
 
 This package is so much better than DT package (unless you need DT for interactivity and filters)
 
@@ -211,7 +211,7 @@ Output:
 
 ![](attachments/95650110/95650123.png)
 
-### HTML widgets and Pagedown to save HTML as picture
+### HTML widgets and Pagedown to save HTML as picture <a name="pic"></a>
 
 I use these two packages to save highcharter, ggplot, or plotly html charts as png files. Then I display the png in Word using include_graphics().
 
@@ -231,7 +231,7 @@ pagedown::chrome_print(input = 'highchart1.html',
 knitr::include_graphics('highchart1.png')
 ```
 
-**Other Useful Links**
+# Other Useful Links <a name="links"></a>
 ----------------------
 
 [https://rmarkdown.rstudio.com/authoring_basics.html](https://rmarkdown.rstudio.com/authoring_basics.html)
@@ -242,12 +242,13 @@ knitr::include_graphics('highchart1.png')
 
   
 
-**Random Useful Code**
+# Random Useful Code <a name="code"></a>
 ----------------------
 
 Widen the margins of the html output - really useful when you can't fit all your columns in your tables
 
-# put this right after the yaml section
+Put this right after the yaml section:
+
     <style type="text/css">
     .main-container {
       max-width: 1800px;
@@ -256,18 +257,7 @@ Widen the margins of the html output - really useful when you can't fit all your
     }
     </style>
 
-Attachments:
-------------
-
-![](images/icons/bullet_blue.gif) [image2021-5-13_17-6-55.png](attachments/95650110/95650111.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-20_13-53-2.png](attachments/95650110/95650112.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-20_13-52-21.png](attachments/95650110/95650113.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-20_13-52-4.png](attachments/95650110/95650114.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-20_13-51-32.png](attachments/95650110/95650115.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-20_13-42-36.png](attachments/95650110/95650116.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-20_13-37-4.png](attachments/95650110/95650117.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2022-4-9_1-58-30.png](attachments/95650110/95650122.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2022-4-9_1-59-3.png](attachments/95650110/95650123.png) (image/png)  
+---
 
 Document generated by Confluence on Apr 09, 2022 02:02
 
