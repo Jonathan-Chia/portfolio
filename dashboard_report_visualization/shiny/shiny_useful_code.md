@@ -11,7 +11,7 @@ Note: this article assumes reader already has a basic shiny understanding
 *   [Why Use Shiny?](#WhyUseShiny?)
 *   [Setup Dashboard URL](#SetupDashboardURL)
 *   [Login/Authentication](#Login/Authentication)
-    *   [IMPORTANT NOTE:](#IMPORTANTNOTE:)
+    *   [IMPORTANT NOTE](#IMPORTANTNOTE:)
 *   [Display Markdown/HTML Documents](#DisplayMarkdown/HTMLDocuments)
 *   [Email DataTable as CSV/Excel within Company through SMTP](#EmailDataTableasCSV/ExcelwithinCompanythroughSMTP)
 *   [Download DataTable as CSV/Excel](#DownloadDataTableasCSV/Excel)
@@ -22,7 +22,7 @@ Note: this article assumes reader already has a basic shiny understanding
     *   [Number Formatting](#NumberFormatting)
     *   [Border Formatting](#BorderFormatting)
     *   [Conditional Formatting](#ConditionalFormatting)
-    *   [Notes:](#Notes:)
+    *   [Notes](#Notes:)
 *   [Shiny Widgets - Dropdown, Sweet Alerts, PickerInput, SwitchInput, etc.](#ShinyWidgets-Dropdown,SweetAlerts,PickerInput,SwitchInput,etc.)
 *   [When to use Column() vs. SplitLayout()](#WhentouseColumn()vs.SplitLayout())
 *   [Adding Tool Tips](#AddingToolTips)
@@ -45,17 +45,15 @@ Note: this article assumes reader already has a basic shiny understanding
 *   [Value Box Headers](#ValueBoxHeaders)
 *   [Force Update/Restart of the Application](#ForceUpdate/RestartoftheApplication)
 *   [Shiny Reports using R Markdown](#ShinyReportsusingRMarkdown)
-*   [DataTable Row Last Clicked/Row Selected](#DataTableRowLastClicked/RowSelected)
-*   [SQL Queries and preventing SQL Injections](#SQLQueriesandpreventingSQLInjections)
-*   [Related articles](#Relatedarticles)
+*   [To Add](#ToAdd)
 
-# Why Use Shiny?
+# Why Use Shiny? <a name="WhyUseShiny?"></a>
 ------------------
 
 1.  Shiny is a simple extension of R
 2.  Shiny provides detailed customization but an easy framework
 
-# Setup Dashboard URL
+# Setup Dashboard URL <a name="SetupDashboardURL"></a>
 -----------------------
 
 1.  Log into bi-rstudio - you will create your dashboard on this server so people in the company can access through a URL link
@@ -70,7 +68,7 @@ Note: this article assumes reader already has a basic shiny understanding
 
 The URL link only works if you have a folder named ShinyApps, a dashboard folder, and then an app.R file.
 
-# Login/Authentication
+# Login/Authentication <a name="Login/Authentication"></a>
 ------------------------
 
 For better security, create an authentication page for the dashboard 
@@ -124,7 +122,7 @@ credentials_df <- data.frame(user = c(cfg$user1, cfg$user2),
 			     password = c(cfg$password1, cfg$password2))
 ```
 
-## **IMPORTANT NOTE:**
+## **IMPORTANT NOTE:** <a name="IMPORTANTNOTE:"></a>
 
 observe() function will not work because of the authentication page unless you use the below code:
 
@@ -147,7 +145,7 @@ observeEvent(input$actionbutton, init = FALSE, {
 
   
 
-# Display Markdown/HTML Documents
+# Display Markdown/HTML Documents <a name="DisplayMarkdown/HTMLDocuments"></a>
 -----------------------------------
 
 Markdown documents can be very good for explanation pages in dashboards.
@@ -158,7 +156,7 @@ markdown cheat sheet: [https://www.markdownguide.org/cheat-sheet/](https://www.m
 
   
 
-# Email DataTable as CSV/Excel within Company through SMTP
+# Email DataTable as CSV/Excel within Company through SMTP <a name="EmailDataTableasCSV/ExcelwithinCompanythroughSMTP"></a>
 ------------------------------------------------------------
 
 Create an email button:
@@ -239,7 +237,7 @@ observeEvent(input$send, {       
 	        system(paste("rm -f", path))  })
 ```
 
-# Download DataTable as CSV/Excel
+# Download DataTable as CSV/Excel <a name="DownloadDataTableasCSV/Excel"></a>
 -----------------------------------
 
 ![](attachments/95650173/95650198.png)
@@ -278,7 +276,7 @@ output$excel <- downloadHandler(
 ```
   
 
-# Create Report Compiler Tab
+# Create Report Compiler Tab <a name="CreateReportCompilerTab"></a>
 ------------------------------
 
 Users can compile a report in word/html using screenshots through this tab
@@ -294,7 +292,7 @@ How to build:
 
   
 
-### Screenshot Button
+### Screenshot Button <a name="ScreenshotButton"></a>
 
 Adds screenshot button to top right corner of the dashboard
 
@@ -316,7 +314,7 @@ require(shinyscreenshot) 
 observeEvent(input$screenshot, {                         # will save the screenshots into a temp directory                      screenshot(filename = paste0('dashboard_screenshot_', Sys.Date())) })
 ```
 
-### **Report Tab**
+### **Report Tab** <a name="ReportTab"></a>
 
 UI
 
@@ -425,7 +423,7 @@ mydirectory <- list.files(include.dirs=TRUE)
 myimages<-list.files(mydirectory[1], pattern = ".png", full.names = TRUE)
 knitr::include_graphics(myimages)
 ```
-```
+
   
 
 _report_compiler_html.Rmd_ - same as above but with output: html_document
@@ -434,12 +432,12 @@ _report_compiler_word.Rmd_ - same as above but with output: word_document
 
   
 
-# DataTable Formatting Function Examples
+# DataTable Formatting Function Examples <a name="DataTableFormattingFunctionExamples"></a>
 ------------------------------------------
 
 DataTable formatting is an absolute pain and takes forever. Below are some functions I use to make life easier:
 
-### **Number Formatting**
+### **Number Formatting** <a name="NumberFormatting"></a>
 
 Function
 
@@ -489,7 +487,7 @@ output$table <- renderDataTable({
 ```
   
 
-### Border Formatting
+### Border Formatting <a name="BorderFormatting"></a>
 
 Function
 
@@ -510,7 +508,7 @@ formatstyle_border_vertical <- function(DataTable, left_columns, right) { 
 ```
   
 
-### Conditional Formatting
+### Conditional Formatting <a name="ConditionalFormatting"></a>
 
 The below function is more complicated. Ask Jonathan or Tyki for an explanation if it is confusing.
 
@@ -556,7 +554,7 @@ formatstyle_color <- function(DataTable, columns, colors) { 
 ```
   
 
-### Notes:
+### Notes: <a name="Notes:"></a>
 
 Datatable$x$data references the dataframe that was put into the datatable() function
 
@@ -566,7 +564,7 @@ Build your own functions using the same strategies from these formulas
 
   
 
-# Shiny Widgets - Dropdown, Sweet Alerts, PickerInput, SwitchInput, etc.
+# Shiny Widgets - Dropdown, Sweet Alerts, PickerInput, SwitchInput, etc. <a name="ShinyWidgets-Dropdown,SweetAlerts,PickerInput,SwitchInput,etc."></a>
 --------------------------------------------------------------------------
 
 This package provides improved UI widgets such as pickerInput(), dropdownButton(), and sweet alerts
@@ -575,7 +573,7 @@ This package provides improved UI widgets such as pickerInput(), dropdownButton(
 
 ![](attachments/95650173/95650193.png)
 
-# When to use Column() vs. SplitLayout()
+# When to use Column() vs. SplitLayout() <a name="WhentouseColumn()vs.SplitLayout()"></a>
 ------------------------------------------
 
 SplitLayout() automatically places UI widgets equally spread apart, so it's **easier to use**
@@ -619,7 +617,7 @@ Using column()
 
   
 
-# Adding Tool Tips
+# Adding Tool Tips <a name="AddingToolTips"></a>
 --------------------
 
 Put tool tips over/under widgets
@@ -644,7 +642,7 @@ bsTooltip('clv_5', "Expected 5 year GM", placement = "top")
 ```
   
 
-# Useful Database Connection Functions
+# Useful Database Connection Functions <a name="UsefulDatabaseConnectionFunctions"></a>
 ----------------------------------------
 
 Connection
@@ -688,7 +686,7 @@ lazy_table <- dbplyr::tbl(con,sql("USER.EXAMPLE_TABLE"))
 ```
   
 
-# Highchart Visualization Tips
+# Highchart Visualization Tips <a name="HighchartVisualizationTips"></a>
 --------------------------------
 
 **I highly recommend using highcharts for best-in-class tooltips and visualizations**
@@ -701,7 +699,7 @@ Example:
 
   
 
-### Non-Standard Evaluation (NSE) of columns
+### Non-Standard Evaluation (NSE) of columns <a name="Non-StandardEvaluation(NSE)ofcolumns"></a>
 
 Problem:
 
@@ -729,7 +727,7 @@ This solution should work in other scenarios outside of highchart visualizations
 
   
 
-### Tool Tips
+### Tool Tips <a name="ToolTips"></a>
 
 _Below is an example of a tooltip. The dataframe has three columns: Gemstone, Placed_Orders, and Percent_Placed_Orders_
 
@@ -749,13 +747,13 @@ hchart(df, 'bar', hcaes(x = 'Gemstone', y = 'Placed_Orders')) %>%   
 
 ![](attachments/95650173/95650188.png)
 
-### SUPER USEFUL WEBSITE
+### SUPER USEFUL WEBSITE <a name="SUPERUSEFULWEBSITE"></a>
 
 [https://www.tmbish.me/lab/highcharter-cookbook/](https://www.tmbish.me/lab/highcharter-cookbook/)
 
   
 
-# Information Button on Header
+# Information Button on Header <a name="InformationButtononHeader"></a>
 --------------------------------
 
 After clicking the top right information button, display a markdown document in a modal window
@@ -779,7 +777,7 @@ observeEvent(input$openModal, {   
 })
 ```
 
-# TabsetPanels()
+# TabsetPanels() <a name="TabsetPanels()"></a>
 ------------------
 
 Tabset Panels are really help to organize dashboards. For example:
@@ -788,7 +786,7 @@ Tabset Panels are really help to organize dashboards. For example:
 
 [https://shiny.rstudio.com/gallery/tabsets.html](https://shiny.rstudio.com/gallery/tabsets.html)
 
-# Good Color Schemes
+# Good Color Schemes <a name="GoodColorSchemes"></a>
 ----------------------
 
 To find good color gradients, see this website:
@@ -799,7 +797,7 @@ To find good color gradients, see this website:
 
 (Can also use this to find colors for conditional formatting)
 
-# Icons
+# Icons <a name="Icons"></a>
 ---------
 
 For anytime you use icon=icon() in actionButtons, actionLinks, sidebar tabs, etc.
@@ -808,7 +806,7 @@ For anytime you use icon=icon() in actionButtons, actionLinks, sidebar tabs, etc
 
 [https://fontawesome.com/icons?d=gallery](https://fontawesome.com/icons?d=gallery)
 
-# Progress Loading Bars
+# Progress Loading Bars <a name="ProgressLoadingBars"></a>
 -------------------------
 
 Helps executives not get frustrated with wait times when you perform high-intensive computations
@@ -817,7 +815,7 @@ Helps executives not get frustrated with wait times when you perform high-intens
 
 [https://shiny.rstudio.com/gallery/progress-bar-example.html](https://shiny.rstudio.com/gallery/progress-bar-example.html)
 
-# Dashboard Logs
+# Dashboard Logs <a name="DashboardLogs"></a>
 ------------------
 
 Sends log information to table in database. Big thanks to Gable for the code on this:
@@ -862,10 +860,10 @@ sidebarMenu(id = "tabs",             
 ```
   
 
-# Pool Package and Handling Connections
+# Pool Package and Handling Connections <a name="PoolPackageandHandlingConnections"></a>
 -----------------------------------------
 
-### **Best Solution**
+### **Best Solution** <a name="BestSolution"></a>
 
 The pool package is the best way to handle complex dashboards with multiple connections; however, I haven't had any success with pool and odbc package
 
@@ -882,7 +880,7 @@ The pool package is the best way to handle complex dashboards with multiple conn
 
 [https://shiny.rstudio.com/articles/overview.html](https://shiny.rstudio.com/articles/overview.html)
 
-### Current Solution
+### Current Solution <a name="CurrentSolution"></a>
 
 Initialize one connection at beginning of server and then close it at the end of the session
 
@@ -906,7 +904,7 @@ server <- function(input, output, session) {
 
   
 
-# Show/Hide Tabset Panels
+# Show/Hide Tabset Panels <a name="Show/HideTabsetPanels"></a>
 ---------------------------
 
 Here is an example for how to show/hide tabset panels using a switch input button:
@@ -957,7 +955,7 @@ observeEvent(input$minimizetab, {     
 ```
   
 
-# Dbplyr
+# Dbplyr <a name="Dbplyr"></a>
 ----------
 
 _"dbplyr is the database backend for [dplyr](https://dplyr.tidyverse.org/). It allows you to use remote database tables as if they are in-memory data frames by automatically converting dplyr code into SQL."_
@@ -968,7 +966,7 @@ _"dbplyr is the database backend for [dplyr](https://dplyr.tidyverse.org/). It a
 
 Dbplyr is useful when working with tables that are way too big to download into R.
 
-# Value Box Headers
+# Value Box Headers <a name="ValueBoxHeaders"></a>
 ---------------------
 
 ![](attachments/95650173/95650176.png)
@@ -1001,7 +999,7 @@ output$intro_header <- renderValueBox({
 ```
 
 
-# Force Update/Restart of the Application
+# Force Update/Restart of the Application <a name="ForceUpdate/RestartoftheApplication"></a>
 -------------------------------------------
 
 **Problem:** after updating data/code in the dashboard, the application doesn't update if someone has the dashboard open on one of their browser tabs - even if they are logged out/timed out. 
@@ -1025,7 +1023,7 @@ Documentation: [http://rstudio.github.io/shiny-server/os/0.4.0/#restarting-an-a
 
   
 
-# Shiny Reports using R Markdown
+# Shiny Reports using R Markdown <a name="ShinyReportsusingRMarkdown"></a>
 ----------------------------------
 
 [https://github.com/davidruvolo51/shinyAppTutorials/tree/main/rmarkdown-app](https://github.com/davidruvolo51/shinyAppTutorials/tree/main/rmarkdown-app)
@@ -1038,7 +1036,7 @@ I believe this is the solution to automating executive dashboard reports. If you
 
   
 
-To add:
+# To Add <a name="ToAdd"></a>
 
 # DataTable Row Last Clicked/Row Selected
 -------------------------------------------
@@ -1048,45 +1046,7 @@ To add:
 
     
 
-  
-
-Attachments:
-------------
-
-![](images/icons/bullet_blue.gif) [image2021-1-29_16-40-4.png](attachments/95650173/95650174.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-29_16-39-48.png](attachments/95650173/95650175.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-29_16-38-46.png](attachments/95650173/95650176.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-12_21-11-38.png](attachments/95650173/95650177.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-12_20-19-26.png](attachments/95650173/95650178.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-12_20-18-42.png](attachments/95650173/95650179.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-12_20-18-29.png](attachments/95650173/95650180.png) (image/png)  
-![](images/icons/bullet_blue.gif) [Shiny Dashboard - Useful Code.url](attachments/95650173/95650181.url) (application/octet-stream)  
-![](images/icons/bullet_blue.gif) [image2021-1-12_19-36-38.png](attachments/95650173/95650182.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-12_19-35-38.png](attachments/95650173/95650183.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-12_19-28-12.png](attachments/95650173/95650184.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-12_19-26-53.png](attachments/95650173/95650185.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-12_19-16-54.png](attachments/95650173/95650186.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-12_17-28-27.png](attachments/95650173/95650187.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-11_19-34-11.png](attachments/95650173/95650188.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-11_19-19-13.png](attachments/95650173/95650189.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-11_11-30-21.png](attachments/95650173/95650190.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-11_9-7-37.png](attachments/95650173/95650191.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-11_9-5-51.png](attachments/95650173/95650192.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-11_8-59-51.png](attachments/95650173/95650193.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-11_7-52-3.png](attachments/95650173/95650194.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-11_7-51-10.png](attachments/95650173/95650195.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-11_7-50-29.png](attachments/95650173/95650196.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2021-1-11_7-42-54.png](attachments/95650173/95650197.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2020-12-29_14-28-6.png](attachments/95650173/95650198.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2020-12-28_18-54-49.png](attachments/95650173/95650199.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2020-12-28_18-53-56.png](attachments/95650173/95650200.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2020-12-28_18-27-36.png](attachments/95650173/95650201.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2020-12-28_18-26-37.png](attachments/95650173/95650202.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2020-12-28_18-26-26.png](attachments/95650173/95650203.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2020-12-28_18-4-41.png](attachments/95650173/95650204.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2020-12-28_17-56-53.png](attachments/95650173/95650205.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2022-4-9_16-34-5.png](attachments/95650173/95650207.png) (image/png)  
-![](images/icons/bullet_blue.gif) [image2022-4-9_16-40-35.png](attachments/95650173/95650208.png) (image/png)  
+---
 
 Document generated by Confluence on Apr 09, 2022 16:54
 
