@@ -17,7 +17,6 @@ Refer to this article when you want to organize a report that includes code
 *   [Random Useful Code](#code)
 
 # Why Use R Markdown? <a name="why"></a>
------------------------
 
 1.  Helps to keep your code organized
 2.  Create clean reports where you can hide/show code when needed
@@ -27,7 +26,6 @@ Refer to this article when you want to organize a report that includes code
   
 
 # Template for HTML report <a name='template'></a>
-----------------------------
 
 Below is the code from an R Markdown file that includes a table of contents (toc), adds code hide/show buttons (code_folding), and outputs as a html document
 
@@ -77,7 +75,6 @@ Below is the code from an R Markdown file that includes a table of contents (toc
 ---
 
 # Output <a name="output"></a>
-----------
 
 Below is the output of the above code
 
@@ -88,7 +85,6 @@ Below is the output of the above code
 ![](attachments/95650110/95650112.png)
 
 # Outputting to Word <a name="word"></a>
-----------------------
 
 **Key packages:**
 
@@ -232,7 +228,6 @@ knitr::include_graphics('highchart1.png')
 ```
 
 # Other Useful Links <a name="links"></a>
-----------------------
 
 [https://rmarkdown.rstudio.com/authoring_basics.html](https://rmarkdown.rstudio.com/authoring_basics.html)
 
@@ -243,7 +238,6 @@ knitr::include_graphics('highchart1.png')
   
 
 # Random Useful Code <a name="code"></a>
-----------------------
 
 Widen the margins of the html output - really useful when you can't fit all your columns in your tables
 
