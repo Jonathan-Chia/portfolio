@@ -3,6 +3,8 @@ Using Docker to Install Jupyter Notebook and R Studio
 
 Created by Chia, Jonathan, last modified on Apr 09, 2022
 
+# Introduction
+
 **With 2 lines of code you can:**
 
 *   **Set up Jupyter Notebook preloaded with tensorflow, numpy, pandas, sklearn, etc.**
