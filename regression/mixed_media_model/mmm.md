@@ -3,8 +3,6 @@ Mixed Media Modeling
 
 Created by Chia, Jonathan on Apr 09, 2022
 
-_Notes on MMM modeling_
-
   
 # Introduction
 
@@ -12,7 +10,6 @@ Mixed Media Models: fancy regression models that use special transformations and
 
 Using a Mixed Media Model will allow us to predict the outcome of changes to our marketing portfolio. We will be able to test and optimize various scenarios once our model is built. An essential part of MMM being accurate/useful is fluctuations in spend. It will be very difficult for the model to understand the influence of marketing spends that never change. 
 
-  
 
   
 
