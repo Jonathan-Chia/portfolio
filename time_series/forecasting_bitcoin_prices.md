@@ -1,7 +1,5 @@
 <a href="https://colab.research.google.com/github/Jonathan-Chia/portfolio/blob/main/time_series/forecasting_bitcoin_prices.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-# Predicting Bitcoin Prices using Deep Learning Time Series
-
 Practicing Deep Learning Time Series Forecasting on BitCoin Data
 
 From ZeroToMastery Tensorflow Course
