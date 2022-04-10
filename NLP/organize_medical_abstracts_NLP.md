@@ -1,7 +1,5 @@
 <a href="https://colab.research.google.com/github/Jonathan-Chia/portfolio/blob/main/NLP/organize_medical_abstracts_NLP.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-# Organizing Medical Abstracts using Natural Language Processing
-
 The purpose of this notebook is to replicate an NLP model from [Neural networks for joint sentence classification in medical paper abstracts](https://arxiv.org/pdf/1612.05251.pdf) to make reading medical abstracts easier through labelling sentences into 5 categories:
 
 * Background
