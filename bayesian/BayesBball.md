@@ -4,6 +4,8 @@ title: BayesBball
 ---
 I am making a dashboard in shiny that will input my free throws and update my free throw true shooting percentage using bayesian statistics. 
 
+See this link: https://jonathan-chia.shinyapps.io/BayesBball/
+
 ## Problem of Interest
 Why are we doing this study?
   
@@ -33,8 +35,5 @@ My best guess for theta (shooting percentage) is E(theta) = 0.7. Therefore, alph
   Make decisions baded on posterior
   summarize posterior dist to help
   
-
-<iframe src="https://jonathan-chia.shinyapps.io/BayesBball/" style="width:750px; height: 750px;">
-<embed src="https://jonathan-chia.shinyapps.io/BayesBball/" style="width:750px; height: 750px;">
 
   
