@@ -10,15 +10,15 @@ Created by Chia, Jonathan, last modified on Apr 09, 2022
 *   **Set up R Studio preloaded with tidyverse packages**
 
 * [Steps](#steps)
-  * [Install Docker](#install)
-  * [Pull Docker Image](#pull)
-  * [Run Docker Image](#run)
-  * [Start the Container](#start_container)
-  * [Sign On](#sign_on)
+  * [1. Install Docker](#install)
+  * [2. Pull Docker Image](#pull)
+  * [3. Run Docker Image](#run)
+  * [4. Start the Container](#start_container)
+  * [5. Sign On](#sign_on)
 * [Next Steps](#next_steps)
-  * [Environment Setup](#environments)
-  * [Install Additional Packages](#additional_packages)
-  * [Install Additional Packages through Docker File](#additional_packages_docker)
+  * [1. Environment Setup](#environments)
+  * [2. Install Additional Packages](#additional_packages)
+  * [3. Install Additional Packages through Docker File](#additional_packages_docker)
 * [Additional Resources](#additional_resources)
 
 # Steps <a name="steps"></a>
