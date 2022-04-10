@@ -3,10 +3,13 @@ Shiny Dashboarding - Useful Code
 
 Created by Chia, Jonathan, last modified on Apr 09, 2022
 
+# Introduction
+
 For making production ready shiny dashboards - table of contents in no particular order
 
 Note: this article assumes reader already has a basic shiny understanding
 
+# Table of Contents
 
 *   [Why Use Shiny?](#WhyUseShiny?)
 *   [Setup Dashboard URL](#SetupDashboardURL)
