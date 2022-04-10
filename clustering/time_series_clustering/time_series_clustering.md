@@ -1,6 +1,3 @@
-Time Series Clustering vs. Market Basket
-=============================================================
-
 Created by Chia, Jonathan on Apr 09, 2022
 
 _Combining Kmeans and time series data to find products displaying similar fluctuations in quantity sold_
