@@ -1,20 +1,21 @@
 Created by Chia, Jonathan on Apr 09, 2022
 
-_Combining Kmeans and time series data to find products displaying similar fluctuations in quantity sold_
+# Introduction
 
-* [Introduction](#intro)
+Below are some of my notes on how to use time series clustering vs. market basket analysis to find complement products. 
+
+In the end, I think state-of-the-art recommender systems are the better solution; however, I think time series clustering is an interesting topic!
+
+# Table of Contents
+
+* [Case Study](#case_study)
 * [Strengths](#strengths)
 * [Problems](#problems)
 * [Why Euclidean Distance is Wrong](#euc)
 * [Quantity Sold vs. Available](#quant)
 * [Complements vs. Substitutes](#compl)
 
-# Introduction <a name="intro"></a>
-
-Below are some of my notes on how to use time series clustering vs. market basket analysis to find complement products. 
-
-In the end, I think state-of-the-art recommender systems are the better solution; however, I think time series clustering is an interesting topic!
-
+# Case Study <a name="case_study"></a>
 
 **See this paper for full information:**
 
