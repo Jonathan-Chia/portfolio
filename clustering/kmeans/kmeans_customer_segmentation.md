@@ -1,6 +1,3 @@
-KMeans Customer Segmentation
-===================================================
-
 Created by Chia, Jonathan on Apr 09, 2022
 
 _Notes on cluster creation for behavioral customer segmentation_
