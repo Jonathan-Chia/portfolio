@@ -13,9 +13,8 @@ Python:
 
 ![](attachments/95650170/95650171.png)
 
-Use this package called heatmapz
 
-See this link: [https://colab.research.google.com/drive/1YSvER-U3cwGplSHyXwaCXYhOWfWO53Iy](https://colab.research.google.com/drive/1YSvER-U3cwGplSHyXwaCXYhOWfWO53Iy)
+See this link for example code: [https://colab.research.google.com/drive/1YSvER-U3cwGplSHyXwaCXYhOWfWO53Iy](https://colab.research.google.com/drive/1YSvER-U3cwGplSHyXwaCXYhOWfWO53Iy)
 
 
 
