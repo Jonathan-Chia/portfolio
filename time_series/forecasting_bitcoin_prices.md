@@ -13,8 +13,29 @@ From ZeroToMastery Tensorflow Course
 
     GPU 0: Tesla K80 (UUID: GPU-3d431c8e-89fd-3326-713b-0dfee7b92355)
 
+# Table of Contents
 
-## Get Data
+* [Get Data](#data)
+    * [Important Time Series Patterns](#patterns)
+    * [Importing Data](#import)
+    * [Train Test Splits](#train_test)
+    * [Plotting Function](#plotting)
+    * [Modelling Experiments](#experiments)
+* [Model 0: Naive Forecast](#model0)
+* [Windowing Time Series](#windowing)
+* [Model 1: Dense 1,7](#model1)
+* [Model 2: Dense 30,1](#model2)
+* [Model 3: Dense 30,7](#model3)
+* [Model 4: Conv1D](#model4)
+* [Model 5: LSTM](#model5)
+* [Model 6: Multivariate](#model6)
+* [Model 7: N-BEATS Algorithm](#model7)
+* [Model 8: Ensemble Model](#model8)
+* [Model 9: Predicting into Future](#model9)
+* [Model 10: Turkey Data](#model10)
+* [Comparing Models](#comparing)
+
+## Get Data <a name="data"></a>
 
 Download all historical data from here: https://www.coindesk.com/price/bitcoin/
 
@@ -238,7 +259,7 @@ Smaller sample size is a problem that is common to time series problems
 
 > **Note:** Seasonality = number of samples per year. This data has a seasonality of 365
 
-## Important Time series patterns
+## Important Time series patterns <a name="patterns"></a>
 
 **Trend:** time series has a clear long term increase/decrease
 
@@ -323,7 +344,7 @@ plt.legend(fontsize=14);
     
 
 
-## Importing time series data with Python's CLV module
+## Importing time series data with Python's CLV module <a name="import"></a>
 
 
 ```python
@@ -389,7 +410,7 @@ plt.ylabel("BTC Price");
     
 
 
-## Creating train test splits
+## Creating train test splits <a name="train_test"></a>
 
 
 ```python
@@ -434,7 +455,7 @@ Side note: This article is fun read about differences in time series compared to
 
 https://towardsdatascience.com/3-facts-about-time-series-forecasting-that-surprise-experienced-machine-learning-practitioners-69c18ee89387
 
-## Create a plotting function
+## Create a plotting function <a name="plotting"></a>
 
 
 ```python
@@ -473,7 +494,7 @@ plot_time_series(timesteps=X_test, values=y_test, label="Test data")
     
 
 
-## Modelling Experiments
+## Modelling Experiments <a name="experiments"></a>
 
 0: Naive
 
@@ -497,7 +518,7 @@ plot_time_series(timesteps=X_test, values=y_test, label="Test data")
 
 10: Silly model
 
-# Model 0: Naive Forecast
+# Model 0: Naive Forecast <a name="model0"></a>
 
 The formula looks like this:
 
@@ -660,7 +681,7 @@ Facebook Kats (purpose-built forecasting and time series analysis library by Fac
 
 LinkedIn Greykite (flexible, intuitive and fast forecasts)	https://github.com/linkedin/greykite
 
-# Windowing our Time Series
+# Windowing our Time Series <a name="windowing"></a>
 
 We window to turn our data into a supervised learning problem
 
@@ -914,7 +935,7 @@ def create_model_checkpoint(model_name, save_path="model_experiments"):
                                             save_best_only=True) # save only the best model to file
 ```
 
-# Model 1: Dense 1, 7
+# Model 1: Dense 1, 7 <a name="model1"></a>
 
 * Single dense layer with 128 and relu
 * Output layer with linear activation (no activation)
@@ -1346,7 +1367,7 @@ def make_preds(model, input_data):
   return tf.squeeze(forecast)
 ```
 
-# Model 2: Dense 30, 1
+# Model 2: Dense 30, 1 <a name="model2"></a>
 
 
 ```python
@@ -1524,7 +1545,7 @@ plot_time_series(timesteps=X_test[-len(test_windows):], values=model_2_preds, st
     
 
 
-# Model 3: Dense 30, 7
+# Model 3: Dense 30, 7 <a name="model3"></a>
 
 
 ```python
@@ -2234,7 +2255,7 @@ Because of **autocorrelation** in the data. The value at t+1 is typically pretty
 
 https://towardsdatascience.com/how-not-to-use-machine-learning-for-time-series-forecasting-avoiding-the-pitfalls-19f9d7adf424
 
-# Model 4: Conv 1D model
+# Model 4: Conv 1D model <a name="model4"></a>
 
 
 ```python
@@ -2450,7 +2471,7 @@ naive_results
 
 
 
-# Model 5: LSTM model
+# Model 5: LSTM model <a name="model5"></a>
 
 
 ```python
@@ -2953,7 +2974,7 @@ model_5_results
 
 
 
-# Model 6: Multivariate model
+# Model 6: Multivariate model <a name="model6"></a>
 
 I would love to add Elon Musk tweeting as an additional variable but I think that would be better for dodgecoin
 
@@ -3688,7 +3709,7 @@ naive_results
 
 
 
-# Model 7: N-BEATS algorithm
+# Model 7: N-BEATS algorithm <a name="model7"></a>
 
 Let's build the biggest model based on 2020's state-of-the-art [N-BEATS model](https://arxiv.org/pdf/1905.10437.pdf)
 
@@ -4241,7 +4262,7 @@ plot_model(model_7)
 
 
 
-# Model 8: Creating an Ensemble
+# Model 8: Creating an Ensemble <a name="model8"></a>
 
 An ensemble leverages the wisdom of the crowd effect
 
@@ -4597,7 +4618,7 @@ Note: the prediction intervals were made assuming the model's data is normally d
 
 
 
-# Model 9 - predicting into the future by training on full data
+# Model 9 - predicting into the future by training on full data <a name="model9"></a>
 
 
 ```python
@@ -5052,7 +5073,7 @@ plot_time_series(next_time_steps, future_forecast, format="-", label="Predicted 
     
 
 
-# Model 10 - turkey data
+# Model 10 - turkey data <a name="model10"></a>
 
 Showing why forecasting is BS
 
@@ -5390,7 +5411,7 @@ Highly unlikely price movements (based on historical movements), upward or downw
 
 However, as we've seen, despite their unlikeliness, these events can happen and will have huuuuuuuuge impacts to the performance of our models.
 
-# Comparing the models
+# Comparing the models <a name="comparing"></a>
 
 
 ```python
