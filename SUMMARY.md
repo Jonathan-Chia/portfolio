@@ -43,6 +43,7 @@
 ## Blog
 
 * [Millionaire Secrets](/blog/Millionaire.md)
+* [Create a GitBook Data Science Portfolio](/blog/gitbook.md)
 
 ## Mini Notes
 

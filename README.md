@@ -30,7 +30,6 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 * Recommender Systems - Learning from Microsoft's state-of-the-art repository
 * 10,000 Hour Counter - Tracking my progress to 10,000 and breaking it up by topics
 * Blog Post - How I Got the Tensorflow Developer Certificate in 2021
-* Blog Post - How to Set Up Your Own Data Science Portfolio Using Gitbooks
 * Notes on Decision Trees, Naive Bayes, XGBoost
 * Online Learning - an advantage of Neural Networks over some other models
 * Learning How to Learn Data Science - My Favorite Resources
