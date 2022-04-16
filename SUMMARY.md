@@ -50,6 +50,6 @@
 * [Testing Code](/mini_notes/testing_code.md)
 * [Correlation Plots](/mini_notes/correlation_plots.md)
 * [Docker - Jupyter Lab and R Studio Setup](/mini_notes/docker_jupyter_rstudio.md)
-* [Tensorflow GPU Set Up](/mini_notes/gpu_tensorflow.md)
+* [Tensorflow GPU Setup](/mini_notes/gpu_tensorflow.md)
 * [Object Oriented Programming](/mini_notes/oop.md)
 * [R and Python Together using Reticulate](/mini_notes/reticulate.md)
