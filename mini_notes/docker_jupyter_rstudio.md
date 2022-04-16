@@ -1,4 +1,4 @@
-Created by Chia, Jonathan, last modified on Apr 09, 2022
+Created by Chia, Jonathan, last modified on Apr 16, 2022
 
 # Introduction
 
@@ -9,6 +9,7 @@ Created by Chia, Jonathan, last modified on Apr 09, 2022
 *   **Set up R Studio preloaded with tidyverse packages**
 
 * [Steps](#steps)
+  * [0. Install Requirements](#req)
   * [1. Install Docker](#install)
   * [2. Pull Docker Image](#pull)
   * [3. Run Docker Image](#run)
@@ -23,10 +24,18 @@ Created by Chia, Jonathan, last modified on Apr 09, 2022
 # Steps <a name="steps"></a>
 ======
 
+## 0. Install Requirements <a name='req'></a>
+
+See [https://docs.docker.com/desktop/](https://docs.docker.com/desktop/)
+
+Click on Mac, Windows, or Linux to see instructions for installing system requirements.
+
+Install all requirements.
+
 ## 1. Install Docker <a name="install"></a>
 -----------------
 
-Download Docker Desktop
+Download Docker Desktop:
 
 [https://www.docker.com/get-started](https://www.docker.com/get-started)
 
@@ -48,16 +57,18 @@ Volumes - this is where the data is stored.
 
   
 
-Note: You will probably need to enable 'virtualization' in your BIOS. May also need to install linux subsystem in windows. 
+Note: If Docker is not working, make sure 'virtualization' is enabled in your BIOS. 
 
 ## 2. Pull Docker Image <a name="pull"></a>
 ---------------------
 
-Open up your command line (in windows you can open up windows powershell)
+We will now pull pre-built images from these sources:
+* [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/)
+* [Rocker Project](https://www.rocker-project.org/images/)
 
-  
+Open up your command line (in windows you can open up windows powershell).
 
-Run the Following Code
+Run the below code:
 
 R Studio:
 
@@ -75,7 +86,8 @@ You should now see _rocker/tidyverse_ or _jupyter/tensorflow-notebook_ in yo
 
 ![](attachments/95650216/95650222.png)
 
-  
+Note: you can choose to install a different image if you would like. 
+For example, if you don't need tensorflow you can install [jupyter/scipy-notebook](https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook).
 
 ## 3. Run Docker Image <a name="run"></a>
 --------------------
