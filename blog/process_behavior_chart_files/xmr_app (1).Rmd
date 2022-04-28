@@ -1,0 +1,524 @@
+---
+title: '3 Reasons You Should Drop Line Charts and Start Using Process Behavior Charts'
+author: 'Jonathan Chia'
+date: 'Jan 13, 2022'
+runtime: shiny
+output:  
+  html_document:    
+    toc: no    
+    number_sections: no    
+    theme: cosmo    
+    highlight: tango
+---
+
+
+<style type="text/css">
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+library(highcharter)
+library(shiny)
+library(tidyr)
+library(purrr)
+
+hcoptslang <- getOption("highcharter.lang")
+hcoptslang$thousandsSep <- ","
+options(highcharter.lang = hcoptslang)
+```
+
+```{r, include=FALSE}
+# Functions
+hc_control_chart <- function(df, x_var, y_var, title, y_axis_title) {
+  x_col <- df[, x_var] 
+  y_col <- df[, y_var]
+  
+  stdDev <- sd(y_col)
+  mean <- mean(y_col)
+  tickPositions <- round(c(-4 * stdDev + mean, -3 * stdDev + mean, -2 * stdDev + mean, -stdDev + mean, mean, stdDev + mean, 2 * stdDev + mean, 3 * stdDev + mean, 4 * stdDev + mean), 2)
+  
+  highchart() %>% 
+    hc_xAxis(categories=x_col) %>% 
+    hc_add_series(type = 'line', data = y_col,
+                  events = list(click = JS(
+                    "function(event) {Shiny.onInputChange('line_clicked', [event.point.category]);}"
+                  ))
+    ) %>% 
+    hc_title(text = title) %>% 
+    hc_yAxis_multiples(
+      list(
+        title = list(text = y_axis_title),
+        tickPositions=c(tickPositions),
+        plotLines = list(list(
+          value = mean,
+          color = 'black',
+          dashStyle = 'dash',
+          width = 2,
+          label = list(text = 'CL')
+        ),
+        list(
+          value = 3 * stdDev + mean,
+          color = 'black',
+          dashStyle = 'dash',
+          width = 2,
+          label = list(text = 'UCL')
+        ),
+        list(
+          value = -3 * stdDev + mean,
+          color = 'black',
+          dashStyle = 'dash',
+          width = 2,
+          label = list(text = 'LCL')
+        ))
+      ),
+      list(
+        title = list(text = "Standard Deviation"), 
+        opposite=TRUE,
+        tickPositions=c(tickPositions)
+        ,labels = list(formatter = JS(paste0("function () {
+                                        var labels = ['-4σ', '-3σ', '-2σ', '-σ', 'mean', 'σ', '2σ', '3σ', '4σ']
+                                        var ticks = [", paste0(tickPositions, collapse=","), "]
+                                        return(labels[ticks.indexOf(this.value)])
+                                    }"))) 
+      )
+    ) 
+}
+
+hc_control_chart_advanced <- function(rows, df, x_var, y_var, title, y_axis_title) {
+  x_sym <- sym(x_var)
+  y_sym <- sym(y_var)
+  
+  stdDev <- sd(df[, y_var])
+  mean <- mean(df[, y_var])
+  tickPositions <- round(c(-4 * stdDev + mean, -3 * stdDev + mean, -2 * stdDev + mean, -stdDev + mean, mean, stdDev + mean, 2 * stdDev + mean, 3 * stdDev + mean, 4 * stdDev + mean), 2)
+  
+  filtered_df <- df[rows, ]
+  filtered_stdDev <- sd(filtered_df[, y_var])
+  filtered_mean <- mean(filtered_df[, y_var])
+  
+  hchart(filtered_df, 'line', hcaes(x = !!x_sym, y = !!y_sym)) %>% 
+    hc_title(text = title) %>% 
+    hc_yAxis_multiples(
+      list(
+        title = list(text = y_axis_title),
+        tickPositions=c(tickPositions),
+        plotLines = list(list(
+          value = filtered_mean,
+          color = 'black',
+          dashStyle = 'dash',
+          width = 2,
+          label = list(text = 'CL')
+        ),
+        list(
+          value = 3 * filtered_stdDev + filtered_mean,
+          color = 'black',
+          dashStyle = 'dash',
+          width = 2,
+          label = list(text = 'UCL')
+        ),
+        list(
+          value = -3 * filtered_stdDev + filtered_mean,
+          color = 'black',
+          dashStyle = 'dash',
+          width = 2,
+          label = list(text = 'LCL')
+        ))
+      ),
+      list(
+        title = list(text = "Standard Deviation"), 
+        opposite=TRUE,
+        tickPositions=c(tickPositions)
+      )
+    ) 
+}
+
+hc_vline <- function(hc, value) {
+  if (length(value) > 0) {
+    hc %>% hc_xAxis(plotLines = list(
+      list(
+        color = "#FF0000",
+        width = 2,
+        value = value - 1.5)))
+  } else {
+    hc
+  }
+}
+
+
+
+hc_control_chart_ <- function(df, x_var, y_var, color_var, title, y_axis_title) {
+  x_col <- df[, x_var] 
+  y_col <- df[, y_var]
+  
+  x_sym <- sym(x_var)
+  y_sym <- sym(y_var)
+  color_sym <- sym(color_var)
+  
+  stdDev <- sd(y_col)
+  mean <- mean(y_col)
+  tickPositions <- round(c(-4 * stdDev + mean, -3 * stdDev + mean, -2 * stdDev + mean, -stdDev + mean, mean, stdDev + mean, 2 * stdDev + mean, 3 * stdDev + mean, 4 * stdDev + mean), 2)
+  
+  hchart(df, 'line', hcaes(x=!!x_sym, y=!!y_sym, color=!!color_sym)) %>% 
+    hc_title(text = title) %>% 
+    hc_xAxis(title = list(text = 'Date'), plotBands = list(
+        list(
+          from = 102,                        # Start of the plotband
+          to = 107,                          # End of the plotband 
+          color = '#DCDCDC',
+          label = list(
+            text = "Campaign Weekend",          # Text for the plotBand
+            style = list(color = "black", fontSize = "12px")
+          )
+        )
+    )) %>% 
+    hc_tooltip(pointFormat = "<b>${point.y}<br/>") %>% 
+    hc_yAxis_multiples(
+      list(
+        title = list(text = y_axis_title),
+        labels = list(formatter = JS(
+        "function(){
+          byThousand = Math.round(this.value / 1000)
+          return('$' + byThousand + 'k') 
+        }")),
+        tickPositions=c(tickPositions),
+        plotLines = list(list(
+          value = mean,
+          color = 'black',
+          dashStyle = 'dash',
+          width = 2,
+          label = list(text = 'CL')
+        ),
+        list(
+          value = 3 * stdDev + mean,
+          color = 'black',
+          dashStyle = 'dash',
+          width = 2,
+          label = list(text = 'UCL')
+        ),
+        list(
+          value = -3 * stdDev + mean,
+          color = 'black',
+          dashStyle = 'dash',
+          width = 2,
+          label = list(text = 'LCL')
+        ))
+      ),
+      list(
+        title = list(text = "Standard Deviation"), 
+        opposite=TRUE,
+        tickPositions=c(tickPositions)
+        ,labels = list(formatter = JS(paste0("function () {
+                                        var labels = ['-4σ', '-3σ', '-2σ', '-σ', 'mean', 'σ', '2σ', '3σ', '4σ']
+                                        var ticks = [", paste0(tickPositions, collapse=","), "]
+                                        return(labels[ticks.indexOf(this.value)])
+                                    }"))) 
+      )
+    ) 
+}
+```
+
+```{r, include = FALSE}
+# OUTLINE 
+
+# Purpose: 
+#   Demonstrate using a fake case study to show how to effectively use process behavior charts to aid business decisions
+# 
+# Audience:
+#   Business Executives and business analysts
+# 
+# Strategy:
+#   Concise with lots of pictures and code
+# 
+# Structure:
+#   - Hook: whether you are a business executive or an entry-level analyst, this article will provide you the intuition and tools to apply your own process behavior charts to business problems. 
+#   - Intro
+#   - What are Process Behavior Charts
+#   - Case Study
+#   - Shiny App Demonstration
+
+
+
+```
+
+```{r, include=FALSE}
+df <- read.csv('../assets/data/fake_sales_data.csv', header=TRUE, stringsAsFactors = FALSE)
+df1 <- df[20:30, ]
+df1$QUARTER <- lubridate::ceiling_date(as.Date(c('2019-10-01', '2020-01-01', '2020-04-01', '2020-07-01', '2020-10-01', '2021-01-01', '2021-04-01', '2021-07-01', '2021-10-01', 
+                                  '2022-01-01', '2022-04-01')), 'quarter')
+df1$YEAR <- c('2020', '2020', '2020', '2020', '2021', '2021', '2021', '2021', '2022', '2022', '2022')
+df1$SALES <- round(sqrt(df1$y)*50, 0)
+df[124:126, 'GM'] <- df$GM[124:126] - 1000
+df <- df[20:nrow(df), ]
+```
+
+
+```{r}
+# Set up variable names
+df$x <- as.Date(df$ORDER_DATE)
+df$y <- df$GM
+title <- 'Sales by Day'
+y_axis_label <- 'Gross Margin'
+```
+
+# Introduction
+
+Process behavior charts are supercharged, statistical, and simple line charts that will change the way you look at data.
+
+Whether you are a business executive or an entry-level analyst, here are three reasons you should drop line charts in favor of process behavior charts:
+
+1. Process Behavior Charts sort out noise
+2. Process Behavior Charts find statistical significance
+3. Process Behavior Charts recognize changes in trends
+
+# 1. Sorting Out Noise
+
+Have you ever attended a meeting where executives were panicking about a drop in sales? Where they spend all meeting trying to figure out why the sales dropped? 
+
+Maybe you see a chart that looks like this:
+
+```{r}
+hchart(df1, 'line', hcaes(x=QUARTER, y=SALES, color=YEAR)) %>% 
+  hc_tooltip(pointFormat = "<b>${point.y}<br/>") %>% 
+  hc_title(text = 'Quarterly Sales') %>% 
+  hc_xAxis(title = list(text = 'Date'), plotBands = list(
+        list(
+          from = 102,                        # Start of the plotband
+          to = 107,                          # End of the plotband 
+          color = '#DCDCDC',
+          label = list(
+            text = "Campaign Weekend",          # Text for the plotBand
+            style = list(color = "black", fontSize = "12px")
+          )
+        )
+    )) %>% 
+  hc_yAxis(title = list(text = 'Sales'), labels = list(formatter = JS(
+        "function(){
+          byThousand = Math.round(this.value / 1000)
+          return('$' + byThousand + 'k') 
+        }")))
+```
+The sales were so great in the first half of 2020, and have been low ever since. 
+
+Is the company in trouble? 
+
+Process Behavior Charts to the rescue! Take a look at the chart now:
+
+```{r}
+hc_control_chart_(df1, 'QUARTER', "SALES", "YEAR", "Quarterly Sales", 'Sales')
+```
+Now the sales don't look that bad! The most recent quarter is below average, but not that far away from the mean.
+
+The key is to remember that data can be noisy. The real world is messy! 
+
+Sometimes sales drop because of random fluctuations, and knowing that can save a lot of stress.
+
+# 2. Finding Statistical Significance
+
+So we learned from the last section that data can fluctuate, but if it is not randomly fluctuating? 
+
+Imagine you work at a start-up as the head of marketing, and your team worked overtime to deploy a new marketing campaign. 
+
+You ask your analyst to look at the sales to see if the campaign was a success, and your analyst comes back with this chart:
+
+```{r}
+hchart(df, 'line', hcaes(x=ORDER_DATE, y=GM, color=WEEKDAY)) %>% 
+  hc_tooltip(pointFormat = "<b>${point.y}<br/>") %>% 
+  hc_title(text = 'Daily Sales') %>% 
+  hc_xAxis(title = list(text = 'Date'), plotBands = list(
+        list(
+          from = 102,                        # Start of the plotband
+          to = 107,                          # End of the plotband 
+          color = '#DCDCDC',
+          label = list(
+            text = "Campaign Weekend",          # Text for the plotBand
+            style = list(color = "black", fontSize = "12px")
+          )
+        )
+    )) %>% 
+  hc_yAxis(title = list(text = 'Sales'), labels = list(formatter = JS(
+        "function(){
+          byThousand = Math.round(this.value / 1000)
+          return('$' + byThousand + 'k') 
+        }")))
+```
+Do you think it was a successful marketing campaign? Yes, but how do we quantify this success? Is it possible the campaign weekend was just a lucky weekend? 
+
+You tell your analyst to find a more statistical way to look at this, and your analyst comes back with this chart:
+
+```{r}
+hc_control_chart_(df, 'ORDER_DATE', "GM", "WEEKDAY", "Daily Sales", 'Sales')
+```
+Wow! With the addition of standard deviation lines, now we can quantify the marketing campaign's effect. 
+
+The campaign weekend was 3 standard deviations higher than the average in the last few months. Assuming the data is normally distributed around the average of $8000, we can say that the campaign weekend has a 0.15% chance to occur from random chance. In other words, the weekend of the marketing campaign was super super unlikely to spike up that high from normal business fluctuations. The marketing campaign was a success!
+
+-- 
+## Quick Recap on Standard Deviation
+
+https://www.freecodecamp.org/news/normal-distribution-explained/
+--
+
+
+# 3. Recognizing Changes in Trends
+
+Process behavior charts can also be used to recognize trends. 
+
+Take a look at this chart of sales.
+
+Notice how the data points on the right all hover above the mean? It looks like something changed in July that pushed the average up.
+
+```{r}
+set.seed(10)
+sales_trend <- as.data.frame(cbind(Week = as.character(seq(as.Date('2022/01/03'), as.Date('2022/12/26'), 'weeks')), Sales = c(rnorm(n = 26, mean = 1000, sd = 200), rnorm(n=4, mean = 1400, sd = 300), rnorm(n = 22, mean = 1600, sd =200))))
+sales_trend$Sales <- round(as.numeric(sales_trend$Sales),2)
+
+hc_control_chart(sales_trend, x_var = 'Week', y_var = 'Sales', title = 'Weekly Sales', y_axis_title = 'Sales')
+```
+
+
+We can split the chart based on this change in trend:
+
+```{r}
+hw_grid(hc_control_chart_advanced(1:26, sales_trend, x_var = "Week", y_var = "Sales", title = 'Weekly Sales', y_axis_title = 'Sales'),
+        hc_control_chart_advanced(26:52, sales_trend, x_var = "Week", y_var = "Sales", title = 'Weekly Sales', y_axis_title = 'Sales'))
+
+```
+
+What could have happened in July to trigger a lasting change? It could be a new product launch, seasonal effects, or maybe a change in the website. 
+
+Regardless of the reason, the point is that this process behavior chart helped us to see key changes in trends despite the fluctuations in the data. 
+
+
+# Conclusion
+
+In conclusion, Process Behavior Charts are simple, statistical, and super easy to use. 
+
+They help to sort out noise, find statistical significance, and discover trends.
+
+See the next section for resources on building these wonderful charts.
+
+
+**In**telligence + **Sci**ence + **Te**chnology = INSCITE AI_
+
+# Resources
+
+If you would like to harness the power of process behavior charts, insightai can help! We can create dashboards like this one: 
+
+```{r}
+shinyApp(
+  ui <- fluidPage(
+  
+    # App title ----
+    titlePanel("Basic Process Control Chart"),
+    
+  
+        highchartOutput(outputId = "chart"),
+        
+     
+        splitLayout(actionButton('split_chart_button', 'Split Control Chart'),
+                    actionButton('reset_button', "Reset Below Chart")),
+        
+        htmlOutput(outputId = 'chart2')
+  
+  
+  ),
+  
+  server <- function(input, output) {
+
+    ## Reactives
+    values <- reactiveValues()
+    
+    data <- reactive({
+      df
+    })
+    
+    line_click_to_value <- reactive({
+        which(data()$x == input$line_clicked)
+      })
+      
+    df_hc_control_chart <- reactive({
+        hc_control_chart(data(), "x", "y", title, y_axis_label) %>% hc_vline(., value = line_click_to_value())
+    })
+      
+    values$splits <- c()
+  
+    
+     output$chart <- renderHighchart({
+       df_hc_control_chart() 
+    })
+    
+    observeEvent(input$split_chart_button, {
+      values$splits <- c(values$splits, line_click_to_value())
+      rows <- c(1, nrow(data())+1)
+      
+      arranged_numbers <- sort(c(values$splits, rows))
+      output$chart2 <- renderUI({
+        map(1:(length(arranged_numbers)-1), 
+                    function(x) {
+                      hc_control_chart_advanced(arranged_numbers[x]:(arranged_numbers[x+1]-1), data(), "x", "y", paste(title, x, sep=' - '), y_axis_label)
+                    })
+        
+      })
+  
+    })
+  
+    # reset observe event
+    observeEvent(input$reset_button, {
+      values$splits <- c()
+      
+      rows <- c(1, nrow(data())+1)
+      
+      arranged_numbers <- sort(c(values$splits, rows))
+      output$chart2 <- renderUI({
+        map(1:(length(arranged_numbers)-1), 
+                    function(x) {
+                      hc_control_chart_advanced(arranged_numbers[x]:(arranged_numbers[x+1]-1), data(), "x", "y", paste(title, x, sep=' - '), y_axis_label)
+                    }
+        )
+      })
+      
+    })
+    
+  }, options = list(height = 1000)
+  
+ 
+)
+
+
+```
+
+Or, if you would like to learn to make process behavior charts on your own, here are some resources:
+
+Process Behavior Charts in R/Shiny: put github link to this document
+Process Behavior Charts in Excel: put link to dave on data
+
+
+
+
+
+
+
+
+
+Potential additional section: 
+# 4. Compare Different Results
+
+Hold up! The marketing campaign was over Black Friday weekend. What if that weekend performed super well because of Black Friday? 
+
+Let's compare how this weekend did compared to last year.
+
+```{r}
+# INSERT CHARTS and then use standard deviations to compare the peaks
+```
+
+Because the previous year seems to follow the same cyclical trends, we can pretty confidently use it to compare to this year. Even though the actual sales are in different ranges, we can use the standard deviation to compare the two weekends! 
+
+This year's Black Friday weekend was about 3 standard deviations higher than the average, while last year's Black Friday weekend was about 2.5 standard deviations higher than the average. 
+
+Now, there are definitely better ways to see if the marketing campaign was effective (such as using mixed media modeling), but through process behavior charts we can quickly see the difference was about half a standard deviation!
