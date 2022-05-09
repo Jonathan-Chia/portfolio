@@ -1,3 +1,8 @@
+---
+layout: page
+title: Process Behavior Charts
+---
+
 # Introduction
 
 Process behavior charts are supercharged, statistical, and simple line
