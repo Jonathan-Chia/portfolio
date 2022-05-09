@@ -19,7 +19,7 @@ sales dropped?
 
 Maybe you see a chart that looks like this:
 
-![](/blog/process_behavior_charts_files/process_behavior_1.png)
+![1](/blog/process_behavior_charts_files/process_behavior_1.png)
 The sales were so great in the first half of 2020, and have been low
 ever since.
 
@@ -27,7 +27,7 @@ Is the company in trouble?
 
 Process Behavior Charts to the rescue! Take a look at the chart now:
 
-![](/blog/process_behavior_charts_files/process_behavior_2.png)
+![2](/blog/process_behavior_charts_files/process_behavior_2.png)
 Now the sales don’t look that bad! The most recent quarter is below
 average, but not that far away from the mean.
 
@@ -47,7 +47,7 @@ worked overtime to deploy a new marketing campaign.
 You ask your analyst to look at the sales to see if the campaign was a
 success, and your analyst comes back with this chart:
 
-![](/blog/process_behavior_charts_files/process_behavior_3.png)
+![3](/blog/process_behavior_charts_files/process_behavior_3.png)
 Do you think it was a successful marketing campaign? Yes, but how do we
 quantify this success? Is it possible the campaign weekend was just a
 lucky weekend?
@@ -55,7 +55,7 @@ lucky weekend?
 You tell your analyst to find a more statistical way to look at this,
 and your analyst comes back with this chart:
 
-![](/blog/process_behavior_charts_files/process_behavior_4.png)
+![4](/blog/process_behavior_charts_files/process_behavior_4.png)
 Wow! With the addition of standard deviation lines, now we can quantify
 the marketing campaign’s effect.
 
@@ -89,11 +89,11 @@ Take a look at this chart of sales.
 Notice how the data points on the right all hover above the mean? It
 looks like something changed in July that pushed the average up.
 
-![](/blog/process_behavior_charts_files/process_behavior_5.png)
+![5](/blog/process_behavior_charts_files/process_behavior_5.png)
 
 We can split the chart based on this change in trend:
 
-![](/blog/process_behavior_charts_files/process_behavior_6.png)
+![6](/blog/process_behavior_charts_files/process_behavior_6.png)
 
 What could have happened in July to trigger a lasting change? It could
 be a new product launch, seasonal effects, or maybe a change in the
@@ -115,6 +115,6 @@ See the next section for resources on building these wonderful charts.
 
 # Resources
 
-Process Behavior Charts in R/Shiny: [xmr_app.R](/blog/process_behavior_charts_files/xmr_app.R)
+Process Behavior Charts in R/Shiny: [xmr_app.Rmd](/blog/process_behavior_charts_files/xmr_app.Rmd)
 
 Process Behavior Charts in Excel: [DaveonData](https://school.daveondata.com/courses/introduction-to-business-analysis-with-excel/lectures/32254087)
