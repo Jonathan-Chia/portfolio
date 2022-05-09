@@ -2,6 +2,33 @@
 
 * [Introduction](README.md)
 
+## Blog
+
+* [Drop Line Charts - Use Process Behavior Charts Instead!](/blog/process_behavior_chart.md)
+* [Millionaire Secrets](/blog/Millionaire.md)
+* [Create a GitBook Data Science Portfolio](/blog/gitbook.md)
+
+## Dashboards, Reports, and Visualizations
+
+* [Shiny Useful Code](/dashboard_report_visualization/shiny/shiny_useful_code.md)
+* [R Markdown Reports](/dashboard_report_visualization/r_markdown/r_markdown_reports.md)
+
+## Statistics
+
+* Bayesian Distributions
+   * [Basketball Free Throw Percentage App](/bayesian/BayesBball.md)
+* A/B Testing
+   * [Thompson Sampling](/ab_testing/thompson_sampling.md)
+
+## Deep Learning
+
+* Natural Language Processing
+   * [Classifying Medical Abstract Sentences](/NLP/organize_medical_abstracts_NLP.md)
+* Time Series Predictions
+   * [Predicting Bitcoin Prices](/time_series/forecasting_bitcoin_prices.md)
+* Computer Vision
+   * [Food Image Classifying](/computer_vision/food_vision.md)
+
 ## Supervised Learning
 
 * Regression
@@ -17,34 +44,6 @@
 * Clustering
    * [Customer Segmentation using KMeans](/clustering/kmeans/kmeans_customer_segmentation.md)
    * [Time Series Clustering](/clustering/time_series_clustering/time_series_clustering.md)
-
-## Deep Learning
-
-* Natural Language Processing
-   * [Classifying Medical Abstract Sentences](/NLP/organize_medical_abstracts_NLP.md)
-* Time Series Predictions
-   * [Predicting Bitcoin Prices](/time_series/forecasting_bitcoin_prices.md)
-* Computer Vision
-   * [Food Image Classifying](/computer_vision/food_vision.md)
-
-## Statistics
-
-* Bayesian Distributions
-   * [Basketball Free Throw Percentage App](/bayesian/BayesBball.md)
-* A/B Testing
-   * [Thompson Sampling](/ab_testing/thompson_sampling.md)
-   
-## Dashboards, Reports, and Visualizations
-
-* [Shiny Useful Code](/dashboard_report_visualization/shiny/shiny_useful_code.md)
-* [R Markdown Reports](/dashboard_report_visualization/r_markdown/r_markdown_reports.md)
-
-
-## Blog
-
-* [Millionaire Secrets](/blog/Millionaire.md)
-* [Create a GitBook Data Science Portfolio](/blog/gitbook.md)
-* [Drop Line Charts - Use Process Behavior Charts Instead!](/blog/process_behavior_chart.md)
 
 ## Mini Notes
 
