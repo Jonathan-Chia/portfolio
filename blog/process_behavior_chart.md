@@ -25,6 +25,7 @@ sales dropped?
 Maybe you see a chart that looks like this:
 
 ![1](process_behavior_chart_files/process_behavior_1.png)
+
 The sales were so great in the first half of 2020, and have been low
 ever since.
 
@@ -33,6 +34,7 @@ Is the company in trouble?
 Process Behavior Charts to the rescue! Take a look at the chart now:
 
 ![2](process_behavior_chart_files/process_behavior_2.png)
+
 Now the sales don’t look that bad! The most recent quarter is below
 average, but not that far away from the mean.
 
@@ -53,6 +55,7 @@ You ask your analyst to look at the sales to see if the campaign was a
 success, and your analyst comes back with this chart:
 
 ![3](process_behavior_chart_files/process_behavior_3.png)
+
 Do you think it was a successful marketing campaign? Yes, but how do we
 quantify this success? Is it possible the campaign weekend was just a
 lucky weekend?
@@ -61,6 +64,7 @@ You tell your analyst to find a more statistical way to look at this,
 and your analyst comes back with this chart:
 
 ![4](process_behavior_chart_files/process_behavior_4.png)
+
 Wow! With the addition of standard deviation lines, now we can quantify
 the marketing campaign’s effect.
 
