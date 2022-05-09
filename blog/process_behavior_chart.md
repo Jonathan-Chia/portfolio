@@ -19,7 +19,7 @@ sales dropped?
 
 Maybe you see a chart that looks like this:
 
-![](process_behavior_charts_files/process_behavior_1.png)
+![](portfolio/blog/process_behavior_charts_files/process_behavior_1.png)
 The sales were so great in the first half of 2020, and have been low
 ever since.
 
