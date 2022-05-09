@@ -14,11 +14,10 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 * Useful SQL functions and setups
 * Customer Nearest Neighbor for A/B Testing
 * Customer Lifetime Value
-* Multi-Touch Attribution - Spend Waterfall Curves
+* Improving Multi-Touch Attribution Models with CLV and Waterfall Curves
 * Survival Analysis on Customer Retention
 * Log/Log Elasticity Regression for Pricing Decisions
 * Compositional Regression
-* Why You Should Drop Line Charts and Use Process Behavior Charts
 * Word2Vec for Content-Based Recommender Systems and Product Clustering
 * Bootstrapping and Permutation Tests
 * PCA for feature engineering
@@ -34,6 +33,5 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 * Online Learning - an advantage of Neural Networks over some other models
 * Learning How to Learn Data Science - My Favorite Resources
 * Why I like Python more for Data Science compared to R even though I learned R first
-* Add Resume?
 * My Review of ZeroToMastery Academy
 * How to compare Upper Funnel vs. Lower Funnel Campaigns using CLV + Expense to Revenue
