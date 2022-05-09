@@ -44,6 +44,7 @@
 
 * [Millionaire Secrets](/blog/Millionaire.md)
 * [Create a GitBook Data Science Portfolio](/blog/gitbook.md)
+* [Drop Line Charts - Use Process Behavior Charts Instead!](/blog/process_behavior_chart.md)
 
 ## Mini Notes
 
