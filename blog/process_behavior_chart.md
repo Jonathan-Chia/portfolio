@@ -115,5 +115,6 @@ See the next section for resources on building these wonderful charts.
 
 # Resources
 
-Process Behavior Charts in R/Shiny: [xmr_app.R](process_behavior_charts_files/xmr_app.R)
+Process Behavior Charts in R/Shiny: [xmr_app.R](/blog/process_behavior_charts_files/xmr_app.R)
+
 Process Behavior Charts in Excel: [DaveonData](https://school.daveondata.com/courses/introduction-to-business-analysis-with-excel/lectures/32254087)
