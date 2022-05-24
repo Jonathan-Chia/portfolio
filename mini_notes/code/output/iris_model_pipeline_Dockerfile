@@ -1,0 +1,16 @@
+FROM apache/airflow:latest
+
+RUN mkdir /tmp/installers
+WORKDIR /tmp/installers
+
+# copy all the requirements to run the current dag
+COPY ./iris_model_pipeline_requirements.txt ./
+# install the required libs
+RUN pip install -r ./iris_model_pipeline_requirements.txt
+
+WORKDIR /opt/airflow/dags
+COPY . .
+
+WORKDIR /opt/airflow
+
+CMD [ "standalone" ]
