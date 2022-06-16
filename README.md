@@ -11,7 +11,7 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 
 # 10,000 Hours
 
-- See my excel (scoreboard)[https://1drv.ms/x/s!AnF_Qpv3YR3Kn1unMWCHZnliqp9s?e=86csmx] to see how I'm progressing for my goals!
+- See my excel [scoreboard](https://1drv.ms/x/s!AnF_Qpv3YR3Kn1unMWCHZnliqp9s?e=86csmx) to see how I'm progressing for my goals!
 
 # Finished Projects to Add to this Portfolio
 
