@@ -1,5 +1,7 @@
 # Useful SQL Code (Oracle)
 
+Last updated: 10/21/2022
+
 ## SQL
 
 
