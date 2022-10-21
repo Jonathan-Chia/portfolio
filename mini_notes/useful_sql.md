@@ -4,8 +4,25 @@ Last updated: 10/21/2022
 
 ## SQL
 
+### Rolling Window
+
+### Exclude Join
+
+### Dense Rank vs. Rank vs. Row_number()
+
+### Fetch First 10 Rows Only
 
 ## PL/SQL
+
+### Create Blank Table
+
+### Create Partitions
+
+### Drop Partition Function
+
+### Insert into Append Procedure
+
+### Drop and Rebuild Procedure
 
 ### Job Scheduler
 
