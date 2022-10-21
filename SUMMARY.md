@@ -47,6 +47,7 @@
 
 ## Mini Notes
 
+* [Useful SQL Code](/mini_notes/useful_sql.md)
 * [Testing Code](/mini_notes/testing_code.md)
 * [Correlation Plots](/mini_notes/correlation_plots.md)
 * [Docker - Jupyter Lab and R Studio Setup](/mini_notes/docker_jupyter_rstudio.md)
