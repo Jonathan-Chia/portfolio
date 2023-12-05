@@ -30,6 +30,8 @@ Note: this article assumes reader already has a basic shiny understanding
 *   [Highchart Visualization Tips](#HighchartVisualizationTips)
     *   [Non-Standard Evaluation (NSE) of columns](#Non-StandardEvaluation(NSE)ofcolumns)
     *   [Tool Tips](#ToolTips)
+	*   [Y Axis Formatting](#Yaxis)
+	*   [Regression Lines](#Regression)
     *   [SUPER USEFUL WEBSITE](#SUPERUSEFULWEBSITE)
 *   [Information Button on Header](#InformationButtononHeader)
 *   [TabsetPanels()](#TabsetPanels())
@@ -747,11 +749,54 @@ hchart(df, 'bar', hcaes(x = 'Gemstone', y = 'Placed_Orders')) %>%   
 
 ![](attachments/95650173/95650188.png)
 
+You can add them to series
+
+```r
+hchart(month_data_filtered, 'line', hcaes(x=!!sym(time_period), y=TTL_GM), name='TY', color='blue', tooltip = list(pointFormat = "TY GM: {point.y}")) %>% 
+  hc_add_series(month_data_filtered, 'line', hcaes(x=!!sym(time_period), y=LY_TTL_GM), name='LY', color='grey', tooltip = list(pointFormat = 'LY GM: {point.y}')) %>% 
+  hc_add_series(month_data_filtered, 'column', hcaes(x=!!sym(time_period), y=REALIZED_SPEND), name='TY Realized Spend', color='blue', tooltip = list(pointFormat = '{point.y}')) %>% 
+  hc_add_series(month_data_filtered, 'column', hcaes(x=!!sym(time_period), y=LY_REALIZED_SPEND), name='LY Realized Spend', color='grey', tooltip = list(pointFormat = '{point.y}'))
+```
+
+### Y axis formatting <a name="Yaxis"></a>
+
+Here's how you add percentage to the y axis
+
+```r
+hchart(pp_rdf(), 'column', hcaes(x = ENTRY_UNIT_PP, y = GM_PERC*100), name='% of GM Spent in this Bucket') %>% 
+	hc_title(text = "% of GM Spent Per Price Point in Last Year") %>% 
+	hc_yAxis(labels = list(format = "{value:.0f}%"))
+```
+
+### Regression Line <a name="Regression"></a>
+
+```r
+hchart(pinterest_gross_up(), 'scatter', hcaes(x=WEEK, y=PERC_CLICK_ORDERS), regression = TRUE,
+		regressionSettings = list(
+		type = "linear",
+		dashStyle = "ShortDash",
+		color = "black",
+		order = 3,
+		lineWidth = 4,
+		name = "%eq | r2: %r",
+		hideInLegend = TRUE)
+) %>% 
+hc_title(text = 'Estimated % of Orders from Clicks (120 Day Attribution Window)') %>% 
+hc_add_dependency("plugins/highcharts-regression.js")
+```
+
 ### SUPER USEFUL WEBSITE <a name="SUPERUSEFULWEBSITE"></a>
 
 [https://www.tmbish.me/lab/highcharter-cookbook/](https://www.tmbish.me/lab/highcharter-cookbook/)
 
-  
+### Highchart Thousands Separator (Get rid of the spaces and put commas instead)
+
+```r
+# highcharter global options
+hcoptslang <- getOption("highcharter.lang")
+hcoptslang$thousandsSep <- ','
+options(highcharter.lang = hcoptslang)
+```
 
 # Information Button on Header <a name="InformationButtononHeader"></a>
 --------------------------------

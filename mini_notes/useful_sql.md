@@ -6,6 +6,22 @@ Last updated: 10/21/2022
 
 ### Rolling Window
 
+### Moving Average
+
+6 week moving average
+``` sql
+SELECT LY_WEEK_OF,
+       WEEK_OF,
+       ROUND(AVG(LY_SPEND) OVER (ORDER BY WEEK_OF ROWS BETWEEN 7 PRECEDING AND CURRENT ROW), 0) LY_SPEND,
+       ROUND(CASE WHEN WEEK_OF >= TRUNC(SYSDATE, 'IW') THEN NULL ELSE AVG(SPEND) OVER (ORDER BY WEEK_OF ROWS BETWEEN 7 PRECEDING AND CURRENT ROW) END, 0) SPEND
+       FROM SPEND_TABLE
+
+
+```
+### Dangers of Lag/Lead
+
+If a table is missing data, this can lead to all sorts of problems
+
 ### Exclude Join
 
 ### Dense Rank vs. Rank vs. Row_number()
@@ -14,7 +30,13 @@ Last updated: 10/21/2022
 
 ## PL/SQL
 
-### Create Blank Table
+### Create Blank Table using Columns from Other Table
+```sql
+CREATE TABLE NEW_TABLE AS
+SELECT * FROM OTHER_TABLE
+WHERE 1=2;
+
+```
 
 ### Create Partitions
 

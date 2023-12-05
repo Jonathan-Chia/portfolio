@@ -131,3 +131,4 @@ dmypy.json
 
 # R stuff
 *.Rproj
+.Rhistory

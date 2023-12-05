@@ -13,10 +13,16 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 
 - See my excel [scoreboard](https://1drv.ms/x/s!AnF_Qpv3YR3Kn1unMWCHZnliqp9s?e=86csmx) to see how I'm progressing for my goals!
 
+# Highlights
+
+* [Bayesian Media Mix Models](/bayesian/LightweightMMM.md)
+* [Process Behavior Charts](/blog/process_behavior_chart.md)
+* [Millionaire Habits](/blog/Millionaire.md)
+
 # Finished Projects to Add to this Portfolio
 
 * Useful SQL functions and setups
-* Customer Nearest Neighbor for A/B Testing
+* Propensity Score Matching for A/B Testing
 * Customer Lifetime Value
 * Improving Multi-Touch Attribution Models with CLV and Waterfall Curves
 * Survival Analysis on Customer Retention

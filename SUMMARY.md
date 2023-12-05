@@ -15,6 +15,8 @@
 
 ## Statistics
 
+* Media Mix Modeling
+   * [Google Lightweight MMM](/bayesian/LightweightMMM.md)
 * Bayesian Distributions
    * [Basketball Free Throw Percentage App](/bayesian/BayesBball.md)
 * A/B Testing
