@@ -15,7 +15,7 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 
 # Portfolio Highlights
 
-* [Bayesian Media Mix Models](/bayesian/LightweightMMM.md)
+* [Google Lightweight MMM](/bayesian/LightweightMMM.md)
 * [Process Behavior Charts](/blog/process_behavior_chart.md)
 * [Millionaire Habits](/blog/Millionaire.md)
 
