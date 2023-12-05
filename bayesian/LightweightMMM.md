@@ -110,7 +110,7 @@ For budgeting decisions, I mostly rely on the ROI chart:
 
 ![](image.png)
 
-Each of these bars represents a different marketing channel (names idden because it is confidential).
+Each of these bars represents a different marketing channel (names hidden because it is confidential).
 
 Based on this info, I would next design an experiment:
 
