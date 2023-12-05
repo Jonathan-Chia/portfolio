@@ -4,7 +4,7 @@
 
 ## MMM Purpose
 
-Guide quarterly marketing budget decisions while taking into account effect of broadcast.
+Find each marketing channel's efficiency to guide quarterly marketing budget decisions.
 
 The key is once you have the MMM you can start experimenting. For example, if you want to know if one strategy is better than the other, you can spend a month increasing one strategy and decreasing the other. Additionally, you can continue to monitor how good the MMM is predicting the future as a measure of its effectiveness. 
 
@@ -60,7 +60,6 @@ Make sure you are running python 3.8, 3.9, or 3.10.
 Next, see the following documentation:
 * https://lightweight-mmm.readthedocs.io/en/latest/index.html
 * https://github.com/google/lightweight_mmm
-
 
 ## Key Problems
 
