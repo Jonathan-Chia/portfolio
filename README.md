@@ -5,13 +5,13 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 # About Me
 - 👋 Hi, I’m Jonathan Chia
 - 👀 I’m interested in data science, basketball shot mechanics, and investing
-- 🌱 I’m currently learning multi-touch attribution modeling, script automation, and researching AI/ML master's programs
+- 🌱 I’m currently enrolled in Johns Hopkins AI Master's Program
 - 💞️ I’m looking for data science volunteering opportunities in the mental health industry
 - 📫 Message me on [LinkedIn](https://www.linkedin.com/in/jonathan-rj-chia/)!
 
 # 10,000 Hours
 
-- See my excel [scoreboard](https://1drv.ms/x/s!AnF_Qpv3YR3Kn1unMWCHZnliqp9s?e=86csmx) to see how I'm progressing for my goals!
+- See my excel [scoreboard](https://1drv.ms/x/s!AnF_Qpv3YR3Kn1unMWCHZnliqp9s?e=86csmx) to see how I'm progressing towards my goals!
 
 # Portfolio Highlights
 
