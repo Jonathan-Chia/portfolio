@@ -4,8 +4,8 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 
 # About Me
 - 👋 Hi, I’m Jonathan Chia
-- 👀 I’m interested in data science, basketball shot mechanics, and investing
-- 🌱 I’m currently enrolled in Johns Hopkins AI Master's Program
+- 👀 I’m interested in making boba, basketball shot mechanics, and investing
+- 🌱 I’m currently a data scientist at JTV + masters student in Johns Hopkins AI Program
 - 💞️ I’m looking for data science volunteering opportunities in the mental health industry
 - 📫 Message me on [LinkedIn](https://www.linkedin.com/in/jonathan-rj-chia/)!
 
