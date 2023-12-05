@@ -8,44 +8,32 @@
 * [Millionaire Secrets](/blog/Millionaire.md)
 * [Create a GitBook Data Science Portfolio](/blog/gitbook.md)
 
+## Statistics
+
+* [Google Lightweight MMM](/bayesian/LightweightMMM.md)
+* [Thompson Sampling](/ab_testing/thompson_sampling.md)
+* [Basketball Free Throw Percentage App](/bayesian/BayesBball.md)
+
+## Deep Learning
+
+* [Classifying Medical Abstract Sentences](/NLP/organize_medical_abstracts_NLP.md)
+* [Predicting Bitcoin Prices](/time_series/forecasting_bitcoin_prices.md)
+* [Food Image Classifying](/computer_vision/food_vision.md)
+
+## Supervised Learning
+
+* [Waiter Tips Multivariate Regression](/regression/WaiterTips.md)
+* [Sleep Cycle - Analyzing My Own Sleep Data](/anova/SleepCycle.md)
+
+## Unsupervised Learning
+
+* [Customer Segmentation using KMeans](/clustering/kmeans/kmeans_customer_segmentation.md)
+* [Time Series Clustering](/clustering/time_series_clustering/time_series_clustering.md)
+
 ## Dashboards, Reports, and Visualizations
 
 * [Shiny Useful Code](/dashboard_report_visualization/shiny/shiny_useful_code.md)
 * [R Markdown Reports](/dashboard_report_visualization/r_markdown/r_markdown_reports.md)
-
-## Statistics
-
-* Media Mix Modeling
-   * [Google Lightweight MMM](/bayesian/LightweightMMM.md)
-* Bayesian Distributions
-   * [Basketball Free Throw Percentage App](/bayesian/BayesBball.md)
-* A/B Testing
-   * [Thompson Sampling](/ab_testing/thompson_sampling.md)
-
-## Deep Learning
-
-* Natural Language Processing
-   * [Classifying Medical Abstract Sentences](/NLP/organize_medical_abstracts_NLP.md)
-* Time Series Predictions
-   * [Predicting Bitcoin Prices](/time_series/forecasting_bitcoin_prices.md)
-* Computer Vision
-   * [Food Image Classifying](/computer_vision/food_vision.md)
-
-## Supervised Learning
-
-* Regression
-   * [Waiter Tips Multivariate Regression](/regression/WaiterTips.md)
-   * [Mixed Media Models](/regression/mixed_media_model/mmm.md)
-* Anova
-   * [Sleep Cycle - Analyzing My Own Sleep Data](/anova/SleepCycle.md)
-* Tree Algorithms
-   * [Random Forests](/tree_algorithms/random_forest/random_forest_notes.md)
-   
-## Unsupervised Learning
-
-* Clustering
-   * [Customer Segmentation using KMeans](/clustering/kmeans/kmeans_customer_segmentation.md)
-   * [Time Series Clustering](/clustering/time_series_clustering/time_series_clustering.md)
 
 ## Mini Notes
 
@@ -56,3 +44,4 @@
 * [Tensorflow GPU Setup](/mini_notes/gpu_tensorflow.md)
 * [Object Oriented Programming](/mini_notes/oop.md)
 * [R and Python Together using Reticulate](/mini_notes/reticulate.md)
+* [Random Forests are Versatile](/tree_algorithms/random_forest/random_forest_notes.md)
