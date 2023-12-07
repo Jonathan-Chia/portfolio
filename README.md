@@ -15,13 +15,12 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 
 # Portfolio Highlights
 
-* [Google Lightweight MMM](/bayesian/LightweightMMM.md)
+* [Propensity Score Matching and Causal Inference](/ab_testing/PropensityScoreMatching.md)
+* [Google Lightweight Media Mix Modeling](/bayesian/LightweightMMM.md)
 * [Process Behavior Charts](/blog/process_behavior_chart.md)
-* [Millionaire Habits](/blog/Millionaire.md)
 
 # Finished Projects to Add to this Portfolio
 
-* Propensity Score Matching for A/B Testing
 * Customer Lifetime Value
 * Improving Multi-Touch Attribution Models with CLV and Waterfall Curves
 * Log/Log Elasticity Regression for Pricing Decisions

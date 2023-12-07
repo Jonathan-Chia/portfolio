@@ -24,9 +24,59 @@ If a table is missing data, this can lead to all sorts of problems
 
 ### Exclude Join
 
+Below is a query to get everything from A that does not join onto B.
+
+```sql
+SELECT * FROM A
+LEFT JOIN B
+ON A.COLUMN = B.COLUMN
+WHERE B.COLUMN IS NULL
+```
+
+### Full Join
+
+I used to think this function is useless and would only use left joins. Turns out there are many situations where a full join can be useful.
+
+For example, I had a table R that had marketing revenue and a table S that had marketing spends. 
+
+This is my original query:
+
+```sql
+SELECT R.WEEK,
+       R.CAMPAIGN,
+       R.REVENUE,
+       S.SPEND
+FROM REVENUE_TABLE R
+LEFT JOIN SPEND_TABLE S
+ON R.WEEK = S.WEEK
+AND R.CAMPAIGN = S.CAMPAIGN
+```
+
+Now, I can calculate ROAS because I can get REVENUE/SPENDS.
+
+After closer look, I realized that there were some marketing spends that did not have marketing revenue (I hadn't linked them properly).
+
+```sql
+SELECT NVL(R.WEEK, S.WEEK) AS WEEK,
+       NVL(R.CAMPAIGN, S.CAMPAIGN) AS CAMPAIGN,
+       R.REVENUE,
+       S.SPEND
+FROM REVENUE_TABLE R
+FULL JOIN SPEND_TABLE S
+ON R.WEEK = S.WEEK
+AND R.CAMPAIGN = S.CAMPAIGN
+```
+
+Using the full join, now I include the marketing spends that I would have missed.
+
 ### Dense Rank vs. Rank vs. Row_number()
 
 ### Fetch First 10 Rows Only
+
+```sql
+SELECT * FROM TABLE
+FETCH FIRST 10 ROWS ONLY
+```
 
 ## PL/SQL
 

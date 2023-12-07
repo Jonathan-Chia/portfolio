@@ -11,6 +11,7 @@
 ## Statistics
 
 * [Google Lightweight MMM](/bayesian/LightweightMMM.md)
+* [Propensity Score Matching](/ab_testing/PropensityScoreMatching.md)
 * [Thompson Sampling](/ab_testing/thompson_sampling.md)
 * [Basketball Free Throw Percentage App](/bayesian/BayesBball.md)
 
