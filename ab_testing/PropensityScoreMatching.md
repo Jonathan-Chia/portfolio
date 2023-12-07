@@ -17,7 +17,7 @@ After talking to my coworkers about it, I decided we needed a matched pairs t-te
 
 Although this is an observational study (can't infer causality), it was the closest I could get to simulating a true A/B test. 
 
-I started to research this idea, and that's when I discovered that this idea is essentially [propensity score matching](https://www.wallstreetmojo.com/propensity-score-matching/). 
+I started doing some research, and I learned that my idea is essentially [propensity score matching](https://www.wallstreetmojo.com/propensity-score-matching/). 
 
 ## Propensity Score Matching Purpose
 
