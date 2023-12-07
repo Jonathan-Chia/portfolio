@@ -52,7 +52,7 @@ Here's an illustration of how my propensity score matching model works:
 
 I built it using Scikit Learn's KNearestNeighbor algorithm.
 
-The way I evaluated it was through a [permutation test](https://www.jwilber.me/permutationtest/). 
+I evaluated the model using a [permutation test](https://www.jwilber.me/permutationtest/). 
 
 Basically, I posited that if my control customers are really good matches with my treatment customers and the treatment customers received no treatment, then both groups should have about the same growth trajectories - thus their difference in CLV growth should be around 0.
 
