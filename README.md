@@ -24,7 +24,7 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 * Customer Lifetime Value
 * Improving Multi-Touch Attribution Models with CLV and Waterfall Curves
 * Log/Log Elasticity Regression for Pricing Decisions
-* Word2Vec for Content-Based Recommender Systems and Product Clustering
+* Word2Vec for Content-Based Recommender Systems
 * Bootstrapping and Permutation Tests
 * Customer Segmentation using Clustering vs. Word2Vec
 
@@ -37,3 +37,4 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 * Learning How to Learn Data Science - My Favorite Resources
 * Why I like Python more for Data Science compared to R even though I learned R first
 * How to compare Upper Funnel vs. Lower Funnel Campaigns using CLV + Expense to Revenue
+* Are Graph Databases the Future of Data Science?

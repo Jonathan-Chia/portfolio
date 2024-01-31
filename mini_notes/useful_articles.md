@@ -1,5 +1,9 @@
 # Useful Articles
 
+# Data Science in VS Code
+
+![Running Python in VS Code using Interactive Jupyter Window](image.png)
+
 # SQL
 
 * Run SQL in Jupyter Notebooks (https://towardsdatascience.com/heres-how-to-run-sql-in-jupyter-notebooks-f26eb90f3259)
