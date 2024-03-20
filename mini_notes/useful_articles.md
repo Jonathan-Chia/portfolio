@@ -23,3 +23,10 @@
 # Media Mix Modelling
 
 * Robyn (https://towardsdatascience.com/automated-marketing-mix-modeling-with-facebooks-robyn-fd79e60b489d)
+* PYMC Marketing:
+    * https://www.pymc-marketing.io/en/stable/
+    * https://www.pymc-marketing.io/en/stable/notebooks/mmm/mmm_example.html#id1
+    * https://www.youtube.com/watch?v=9shZeqKG3M0&t=1s
+    * https://www.intuitivebayes.com/
+    * https://bambinos.github.io/bambi/
+    * https://github.com/pymc-devs/pymc-resources/tree/main/Rethinking_2
