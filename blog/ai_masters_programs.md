@@ -76,5 +76,5 @@ These schools are all quite highly ranked except for UC Berkeley. I liked Johns 
 
 # 5. No Thesis or Capstone Required <a name="5"></a>
 
-All the programs require a thesis or capstone except for Johns Hopkins. 
+I don't currently plan to get a PhD, so a thesis wasn't important to me. A capstone would be fun, but then I would need to quit work for a time. All the programs require a thesis or capstone except for Johns Hopkins. 
    
