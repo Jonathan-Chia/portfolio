@@ -7,6 +7,7 @@
 * [Drop Line Charts - Use Process Behavior Charts Instead!](/blog/process_behavior_chart.md)
 * [Millionaire Secrets](/blog/Millionaire.md)
 * [Create a GitBook Data Science Portfolio](/blog/gitbook.md)
+* [5 Reasons I Chose Johns Hopkins' Online AI Masters Program Over Duke, UC Berkeley, and Northwestern's Programs](/blog/ai_masters_programs.md)
 
 ## Statistics
 
