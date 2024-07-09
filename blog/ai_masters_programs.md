@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 5 Reasons I Chose Johns Hopkins' Online AI Masters Program Over Duke, UC Berkeley, and Northwestern's Programs
+title: 5 Reasons I Chose Johns Hopkins Online AI Masters Program Over Duke, UC Berkeley, and Northwestern
 ---
 
 June 30, 2024
