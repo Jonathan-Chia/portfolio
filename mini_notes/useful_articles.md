@@ -30,3 +30,6 @@
     * https://www.intuitivebayes.com/
     * https://bambinos.github.io/bambi/
     * https://github.com/pymc-devs/pymc-resources/tree/main/Rethinking_2
+    
+* TimeSeries
+    * TimeGPT from NIXTLA - https://www.nixtla.io/
