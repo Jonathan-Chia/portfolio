@@ -5,7 +5,7 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 # About Me
 - 👋 Hi, I’m Jonathan Chia
 - 👀 I’m interested in making boba, basketball shot mechanics, and investing
-- 🌱 I’m currently a data scientist at JTV and an AI masters student at Johns Hopkins University
+- 🌱 I’m currently a business analytics manager at JTV and an AI masters student at Johns Hopkins University
 - 💞️ I’m looking for data science volunteering opportunities in the mental health industry
 - 📫 Message me on [LinkedIn](https://www.linkedin.com/in/jonathan-rj-chia/)!
 
@@ -30,10 +30,7 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 
 # Next Projects
 
+* [Statistical Rethinking](https://www.youtube.com/watch?v=FdnMWdICdRs&list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus&index=2) - Learning Causal Inference using a Bayesian Framework
+* [PyMC Marketing](https://www.pymc-marketing.io/en/stable/index.html#) - Bayesian Open Source MMM
 * Recommender Systems - Learning from Microsoft's state-of-the-art repository
 * Blog Post - How I Got the Tensorflow Developer Certificate in 2021
-* Notes on Decision Trees, Naive Bayes, XGBoost
-* Online Learning - an advantage of Neural Networks over some other models
-* Learning How to Learn Data Science - My Favorite Resources
-* Why I like Python more for Data Science compared to R even though I learned R first
-* How to compare Upper Funnel vs. Lower Funnel Campaigns using CLV + Expense to Revenue

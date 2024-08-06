@@ -1,0 +1,15 @@
+name: portfolio
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - matplotlib
+  - seaborn
+  - jupyter
+  - jupyterlab
+  - ipython
+  - ipykernel
+  - networkx
+  - streamlit=1.29
