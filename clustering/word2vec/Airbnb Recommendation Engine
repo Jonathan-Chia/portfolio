@@ -1,0 +1,15 @@
+# Airbnb Recommendation Engine
+
+*Applying Airbnb's architecture to my own recommendation engine at work*
+
+## Intro
+
+At my work, we sell jewelry on TV, and the sequence we display the jewelry is super important.
+
+My boss asked me to brainstorm some ideas for improving our sequencing. One idea I had was to create a product recommender: we would input a key product, and it would recommend other products to display around the key product.
+
+After reading about state-of-the-art recommendation systems, I stumbled across a video about Airbnb's Word2Vec recommendation engine. 
+
+One key problem Airbnb has is the subjective difference between objectively similar listings. Even though listings have the same price point, same number of rooms, and about the same location, they can have very different styles, arrchitecture, and feel. 
+
+One potential solution they discussed was using image
