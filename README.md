@@ -32,5 +32,6 @@ Projects, notes, and resources to help me in my journey to 10,000 hours
 
 * [Statistical Rethinking](https://www.youtube.com/watch?v=FdnMWdICdRs&list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus&index=2) - Learning Causal Inference using a Bayesian Framework
 * [PyMC Marketing](https://www.pymc-marketing.io/en/stable/index.html#) - Bayesian Open Source MMM
+* [CausalPy](https://causalpy.readthedocs.io/en/stable/) - Bayesian Causal Analysis
 * Recommender Systems - Learning from Microsoft's state-of-the-art repository
 * Blog Post - How I Got the Tensorflow Developer Certificate in 2021

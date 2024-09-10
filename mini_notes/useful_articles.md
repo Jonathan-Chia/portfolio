@@ -33,3 +33,5 @@
     
 * TimeSeries
     * TimeGPT from NIXTLA - https://www.nixtla.io/
+    
+    ![alt text](image-1.png)
