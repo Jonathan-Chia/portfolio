@@ -6,7 +6,6 @@ _Straightforward Analytics. The Shortest Path to Growth._
 - 👋 Hi, I’m Pathway Analytics LLC.
 - 👀 I’m interested in solving your business problems, and then training you to solve them on your own!
 - 🌱 I’m currently working on a Marketing Mix Modeling SaaS prototype for a marketing startup.
-- 💞️ I’m looking for data science volunteering opportunities in the mental health industry.
 
 # Blog Highlights
 
