@@ -2,7 +2,7 @@
 
 ## Introduction
 
-MMM is one of the hottest martech tools, especially with increasing privacy and cookie deprecation concerns. <Reference an article>. Google just dropped their own MMM tool called Meridian, and it is set to disrupt the marketing industry. As a PyMC enthusiast, I was curious how Meridian compares to PyMC Marketing.  
+MMM is one of the hottest martech tools, especially with increasing privacy and cookie deprecation concerns. <Reference Gartner report>. Google just dropped their own MMM tool called Meridian, and it is set to disrupt the marketing industry. As a PyMC enthusiast, I was curious how Meridian compares to PyMC Marketing.  
 
 The differences:
 
@@ -19,7 +19,11 @@ The similarities:
 
 ## Differences
 
-Knowing their motivations is very important for understanding the potential weaknesses and strengths of their tools. For example, PyMC may not be motivated to provide a full-fledged solution, because they want you to hire them as consultants. Meanwhile, Google is very motivated to get their models to measure Search accurately, but may not be as motivated to account for nuances in other channels. For the most part though, we can trust that Meridian will be a good tool. If companies are improving marketing efficiency, they will spend more. 
+Google Meridian 
+
+Knowing their motivations is very important for understanding the potential weaknesses and strengths of their tools. For example, PyMC may not be motivated to provide a full-fledged solution, because they want you to hire them as consultants. Meanwhile, Google is very motivated to get their models to measure Search accurately, but may not be as motivated to account for nuances in other channels. For the most part though, we can trust that Meridian will be a good tool. If companies are improving marketing efficiency, they will spend more in advertising. 
+
+
 
 
 
@@ -35,6 +39,8 @@ Which should you use? Use Meridian unless you really need more flexibility in se
 
 
 
+### Sources
+
 
 
 
@@ -48,4 +54,6 @@ Questions for Garth:
 
 * Should I keep these separate in my model?
 
-* 
+
+
+
