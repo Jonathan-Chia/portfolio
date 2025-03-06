@@ -5,7 +5,7 @@ _Straightforward Analytics. The Shortest Path to Growth._
 # About Me
 - 👋 Hi, I’m Pathway Analytics.
 - 👀 I’m interested in solving your business problems, and then training you to solve them on your own!
-- 🌱 I’m currently working on a building a custom Bayesian Marketing Mix Modeling.
+- 🌱 I’m currently working on a building a custom Bayesian Marketing Mix Model.
 
 # Blog Highlights
 
