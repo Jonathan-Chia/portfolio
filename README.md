@@ -9,6 +9,6 @@ _Straightforward Analytics. The Shortest Path to Growth._
 
 # Blog Highlights
 
+* [MMM Showdown: Google Meridian vs. PyMC Marketing](/bayesian/google_meridian_vs_pymc.md)
 * [Propensity Score Matching and Causal Inference](/ab_testing/PropensityScoreMatching.md)
-* [Google Lightweight Media Mix Modeling](/bayesian/LightweightMMM.md)
 * [Process Behavior Charts](/blog/process_behavior_chart.md)

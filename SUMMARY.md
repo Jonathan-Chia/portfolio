@@ -4,6 +4,7 @@
 
 ## Blog
 
+* [MMM Showdown: Google Meridian vs. PyMC Marketing](/bayesian/google_meridian_vs_pymc.md)
 * [Drop Line Charts - Use Process Behavior Charts Instead!](/blog/process_behavior_chart.md)
 * [Create a GitBook Data Science Portfolio](/blog/gitbook.md)
 * [5 Reasons I Chose Johns Hopkins Online AI Masters Program](/blog/ai_masters_programs.md)
