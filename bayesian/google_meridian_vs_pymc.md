@@ -1,8 +1,8 @@
 # MMM Showdown: Google Meridian vs. PyMC Marketing
 
 <div style="display: flex; justify-content: left; gap: 10px;">
-  <img src="pymc-marketing-logo.png" alt="Image 1" width="300" height="200">
-  <img src="meridian-logo.png" alt="Image 2" width="300" height="200">
+  <img src="pymc-marketing-logo.png" alt="" width="300" height="200">
+  <img src="meridian-logo.png" alt="" width="300" height="200">
 </div>
 
 
