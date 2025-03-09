@@ -8,9 +8,13 @@
 
 ## Introduction
 
-Marketing Mix Modeling (MMM) has become one of the most sought-after tools in the martech space, especially as privacy concerns and cookie deprecation reshape the advertising landscape. According to a recent Gartner report, ["64% of senior marketing leaders have adopted MMM solutions"](https://martech.org/unlocking-the-power-of-marketing-mix-modeling-solutions/) as they seek reliable, privacy-compliant ways to measure campaign effectiveness and allocate budgets.
+Marketing Mix Modeling (MMM) has become one of the most sought-after tools in the martech space, especially as privacy concerns and cookie deprecation reshape the advertising landscape. 
 
-Enter [Google Meridian](https://developers.google.com/meridian), Google’s newly launched MMM tool, which promises to disrupt the industry with its advanced capabilities and seamless integration with Google’s ecosystem. As a PyMC enthusiast, I couldn’t help but wonder: how does Meridian stack up against [PyMC Marketing](https://www.pymc-marketing.io/en/stable/), the open-source Bayesian modeling framework that has been a favorite among Bayesian marketers? Let’s dive into the differences and similarities between these two tools.
+According to a recent Gartner report, ["64% of senior marketing leaders have adopted MMM solutions"](https://martech.org/unlocking-the-power-of-marketing-mix-modeling-solutions/) as they seek reliable, privacy-compliant ways to measure campaign effectiveness and allocate budgets.
+
+Enter [Google Meridian](https://developers.google.com/meridian), Google’s newly launched MMM tool, which promises to disrupt the industry with its advanced capabilities and seamless integration with Google’s ecosystem. 
+
+As a PyMC enthusiast, I couldn’t help but wonder: how does Meridian stack up against [PyMC Marketing](https://www.pymc-marketing.io/en/stable/), the open-source Bayesian modeling framework that has been a favorite among Bayesian marketers? Let’s dive into the differences and similarities between these two tools.
 
 
 ## The Differences
